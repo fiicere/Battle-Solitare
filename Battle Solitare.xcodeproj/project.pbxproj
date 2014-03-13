@@ -53,22 +53,6 @@
 		462343DB18C90FAD009B9CD5 /* White Pixel.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 462343DA18C90FAD009B9CD5 /* White Pixel.tiff */; };
 		462343DE18C9192C009B9CD5 /* ImprovedSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 462343DD18C9192C009B9CD5 /* ImprovedSprite.m */; };
 		462343E118CA81AD009B9CD5 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 462343E018CA81AD009B9CD5 /* Score.m */; };
-		4623440618D1186C009B9CD5 /* b1.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440118D1186C009B9CD5 /* b1.tif */; };
-		4623440718D1186C009B9CD5 /* b2.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440218D1186C009B9CD5 /* b2.tif */; };
-		4623440818D1186C009B9CD5 /* b3.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440318D1186C009B9CD5 /* b3.tif */; };
-		4623440918D1186C009B9CD5 /* b4.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440418D1186C009B9CD5 /* b4.tif */; };
-		4623440A18D1186C009B9CD5 /* b5.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440518D1186C009B9CD5 /* b5.tif */; };
-		4623441318D1187D009B9CD5 /* clubs.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440B18D1187D009B9CD5 /* clubs.tif */; };
-		4623441418D1187D009B9CD5 /* diamonds.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440C18D1187D009B9CD5 /* diamonds.tif */; };
-		4623441518D1187D009B9CD5 /* hearts.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440D18D1187D009B9CD5 /* hearts.tif */; };
-		4623441618D1187D009B9CD5 /* r1.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440E18D1187D009B9CD5 /* r1.tif */; };
-		4623441718D1187D009B9CD5 /* r2.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623440F18D1187D009B9CD5 /* r2.tif */; };
-		4623441818D1187D009B9CD5 /* r3.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441018D1187D009B9CD5 /* r3.tif */; };
-		4623441918D1187D009B9CD5 /* r4.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441118D1187D009B9CD5 /* r4.tif */; };
-		4623441A18D1187D009B9CD5 /* r5.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441218D1187D009B9CD5 /* r5.tif */; };
-		4623441F18D118FD009B9CD5 /* spades.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441E18D118FD009B9CD5 /* spades.tif */; };
-		4623442218D132AD009B9CD5 /* black card.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623442018D132AD009B9CD5 /* black card.tif */; };
-		4623442318D132AD009B9CD5 /* white card.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623442118D132AD009B9CD5 /* white card.tif */; };
 		4623442918D2600F009B9CD5 /* ImprovedChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623442818D2600F009B9CD5 /* ImprovedChild.m */; };
 		4623443A18D2688E009B9CD5 /* b1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623442B18D2688E009B9CD5 /* b1.png */; };
 		4623443B18D2688E009B9CD5 /* b2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623442C18D2688E009B9CD5 /* b2.png */; };
@@ -277,22 +261,6 @@
 		462343DD18C9192C009B9CD5 /* ImprovedSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImprovedSprite.m; sourceTree = "<group>"; };
 		462343DF18CA81AD009B9CD5 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		462343E018CA81AD009B9CD5 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
-		4623440118D1186C009B9CD5 /* b1.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b1.tif; sourceTree = "<group>"; };
-		4623440218D1186C009B9CD5 /* b2.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2.tif; sourceTree = "<group>"; };
-		4623440318D1186C009B9CD5 /* b3.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b3.tif; sourceTree = "<group>"; };
-		4623440418D1186C009B9CD5 /* b4.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b4.tif; sourceTree = "<group>"; };
-		4623440518D1186C009B9CD5 /* b5.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b5.tif; sourceTree = "<group>"; };
-		4623440B18D1187D009B9CD5 /* clubs.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = clubs.tif; sourceTree = "<group>"; };
-		4623440C18D1187D009B9CD5 /* diamonds.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = diamonds.tif; sourceTree = "<group>"; };
-		4623440D18D1187D009B9CD5 /* hearts.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = hearts.tif; sourceTree = "<group>"; };
-		4623440E18D1187D009B9CD5 /* r1.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r1.tif; sourceTree = "<group>"; };
-		4623440F18D1187D009B9CD5 /* r2.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r2.tif; sourceTree = "<group>"; };
-		4623441018D1187D009B9CD5 /* r3.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r3.tif; sourceTree = "<group>"; };
-		4623441118D1187D009B9CD5 /* r4.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r4.tif; sourceTree = "<group>"; };
-		4623441218D1187D009B9CD5 /* r5.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r5.tif; sourceTree = "<group>"; };
-		4623441E18D118FD009B9CD5 /* spades.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = spades.tif; sourceTree = "<group>"; };
-		4623442018D132AD009B9CD5 /* black card.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "black card.tif"; sourceTree = "<group>"; };
-		4623442118D132AD009B9CD5 /* white card.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "white card.tif"; sourceTree = "<group>"; };
 		4623442718D2600F009B9CD5 /* ImprovedChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImprovedChild.h; sourceTree = "<group>"; };
 		4623442818D2600F009B9CD5 /* ImprovedChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImprovedChild.m; sourceTree = "<group>"; };
 		4623442B18D2688E009B9CD5 /* b1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b1.png; sourceTree = "<group>"; };
@@ -740,22 +708,6 @@
 			isa = PBXGroup;
 			children = (
 				4623442A18D2682E009B9CD5 /* Old Assets */,
-				4623442018D132AD009B9CD5 /* black card.tif */,
-				4623442118D132AD009B9CD5 /* white card.tif */,
-				4623440B18D1187D009B9CD5 /* clubs.tif */,
-				4623440C18D1187D009B9CD5 /* diamonds.tif */,
-				4623440D18D1187D009B9CD5 /* hearts.tif */,
-				4623441E18D118FD009B9CD5 /* spades.tif */,
-				4623440E18D1187D009B9CD5 /* r1.tif */,
-				4623440F18D1187D009B9CD5 /* r2.tif */,
-				4623441018D1187D009B9CD5 /* r3.tif */,
-				4623441118D1187D009B9CD5 /* r4.tif */,
-				4623441218D1187D009B9CD5 /* r5.tif */,
-				4623440118D1186C009B9CD5 /* b1.tif */,
-				4623440218D1186C009B9CD5 /* b2.tif */,
-				4623440318D1186C009B9CD5 /* b3.tif */,
-				4623440418D1186C009B9CD5 /* b4.tif */,
-				4623440518D1186C009B9CD5 /* b5.tif */,
 				462343DA18C90FAD009B9CD5 /* White Pixel.tiff */,
 				462343D818C90FA5009B9CD5 /* Black Pixel.tiff */,
 				46B87014169260DF00B1CACB /* Default.png */,
@@ -1203,7 +1155,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4623441718D1187D009B9CD5 /* r2.tif in Resources */,
 				462343CA18C52904009B9CD5 /* w4d.tif in Resources */,
 				462343C818C52904009B9CD5 /* w3s.tif in Resources */,
 				4623444118D2688E009B9CD5 /* diamonds.png in Resources */,
@@ -1226,24 +1177,19 @@
 				462343B018C52904009B9CD5 /* b2s.tif in Resources */,
 				462343CF18C52904009B9CD5 /* w5h.tif in Resources */,
 				46B87015169260DF00B1CACB /* Default.png in Resources */,
-				4623440818D1186C009B9CD5 /* b3.tif in Resources */,
 				462343C318C52904009B9CD5 /* w2h.tif in Resources */,
 				462343D318C52904009B9CD5 /* w1h.tif in Resources */,
 				4623443A18D2688E009B9CD5 /* b1.png in Resources */,
 				46B87017169260DF00B1CACB /* Default@2x.png in Resources */,
-				4623441418D1187D009B9CD5 /* diamonds.tif in Resources */,
 				462343CE18C52904009B9CD5 /* w5d.tif in Resources */,
 				462343BE18C52904009B9CD5 /* b1d.tif in Resources */,
 				46B87019169260DF00B1CACB /* Default-568h@2x.png in Resources */,
 				462343BA18C52904009B9CD5 /* b5d.tif in Resources */,
-				4623441F18D118FD009B9CD5 /* spades.tif in Resources */,
 				462343B718C52904009B9CD5 /* b4h.tif in Resources */,
-				4623441618D1187D009B9CD5 /* r1.tif in Resources */,
 				4623444718D2688E009B9CD5 /* r5.png in Resources */,
 				462343DB18C90FAD009B9CD5 /* White Pixel.tiff in Resources */,
 				46B8701B169260DF00B1CACB /* Default-Landscape~ipad.png in Resources */,
 				462343C918C52904009B9CD5 /* w4c.tif in Resources */,
-				4623440918D1186C009B9CD5 /* b4.tif in Resources */,
 				462343B518C52904009B9CD5 /* b4c.tif in Resources */,
 				4623444318D2688E009B9CD5 /* r1.png in Resources */,
 				462343AF18C52904009B9CD5 /* b2h.tif in Resources */,
@@ -1252,15 +1198,11 @@
 				46B8701D169260DF00B1CACB /* Icon-72.png in Resources */,
 				46B8701F169260DF00B1CACB /* Icon-Small-50.png in Resources */,
 				46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */,
-				4623442318D132AD009B9CD5 /* white card.tif in Resources */,
-				4623441918D1187D009B9CD5 /* r4.tif in Resources */,
 				4623444418D2688E009B9CD5 /* r2.png in Resources */,
 				462343D218C52904009B9CD5 /* w1d.tif in Resources */,
 				4623443F18D2688E009B9CD5 /* black card.png in Resources */,
-				4623440618D1186C009B9CD5 /* b1.tif in Resources */,
 				462343C218C52904009B9CD5 /* w2d.tif in Resources */,
 				462343D118C52904009B9CD5 /* w1c.tif in Resources */,
-				4623442218D132AD009B9CD5 /* black card.tif in Resources */,
 				462343AD18C52904009B9CD5 /* b2c.tif in Resources */,
 				462343BB18C52904009B9CD5 /* b5h.tif in Resources */,
 				46B87021169260DF00B1CACB /* Icon-Small.png in Resources */,
@@ -1273,11 +1215,7 @@
 				4623444A18D26903009B9CD5 /* spades.png in Resources */,
 				462343CC18C52904009B9CD5 /* w4s.tif in Resources */,
 				462343C418C52904009B9CD5 /* w2s.tif in Resources */,
-				4623441A18D1187D009B9CD5 /* r5.tif in Resources */,
 				4623443B18D2688E009B9CD5 /* b2.png in Resources */,
-				4623441518D1187D009B9CD5 /* hearts.tif in Resources */,
-				4623440A18D1186C009B9CD5 /* b5.tif in Resources */,
-				4623441318D1187D009B9CD5 /* clubs.tif in Resources */,
 				4623444218D2688E009B9CD5 /* hearts.png in Resources */,
 				46B87025169260DF00B1CACB /* Icon.png in Resources */,
 				462343C718C52904009B9CD5 /* w3h.tif in Resources */,
@@ -1285,8 +1223,6 @@
 				4623443C18D2688E009B9CD5 /* b3.png in Resources */,
 				462343B918C52904009B9CD5 /* b5c.tif in Resources */,
 				46B8702A169260DF00B1CACB /* iTunesArtwork in Resources */,
-				4623440718D1186C009B9CD5 /* b2.tif in Resources */,
-				4623441818D1187D009B9CD5 /* r3.tif in Resources */,
 				46B87183169260E100B1CACB /* ChangeLog in Resources */,
 				462343B618C52904009B9CD5 /* b4d.tif in Resources */,
 				462343D418C52904009B9CD5 /* w1s.tif in Resources */,

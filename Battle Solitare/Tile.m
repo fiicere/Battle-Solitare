@@ -95,7 +95,7 @@ const CGFloat numOffset = 0.3;
     }
     ImprovedChild * suitSprite = [[ImprovedChild alloc] initWithParent:self andFile:file];
     [self scaleSuit:suitSprite];
-    [self addChild:suitSprite z:1];
+    [self addChild:suitSprite z:2];
 }
 
 -(void) addValue{
