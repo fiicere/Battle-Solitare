@@ -66,7 +66,6 @@
 		4623441818D1187D009B9CD5 /* r3.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441018D1187D009B9CD5 /* r3.tif */; };
 		4623441918D1187D009B9CD5 /* r4.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441118D1187D009B9CD5 /* r4.tif */; };
 		4623441A18D1187D009B9CD5 /* r5.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441218D1187D009B9CD5 /* r5.tif */; };
-		4623441D18D118DD009B9CD5 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623441C18D118DD009B9CD5 /* Card.m */; };
 		4623441F18D118FD009B9CD5 /* spades.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623441E18D118FD009B9CD5 /* spades.tif */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
@@ -272,8 +271,6 @@
 		4623441018D1187D009B9CD5 /* r3.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r3.tif; sourceTree = "<group>"; };
 		4623441118D1187D009B9CD5 /* r4.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r4.tif; sourceTree = "<group>"; };
 		4623441218D1187D009B9CD5 /* r5.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = r5.tif; sourceTree = "<group>"; };
-		4623441B18D118DD009B9CD5 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		4623441C18D118DD009B9CD5 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		4623441E18D118FD009B9CD5 /* spades.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = spades.tif; sourceTree = "<group>"; };
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -625,8 +622,6 @@
 			children = (
 				46B871A3169260E100B1CACB /* AppDelegate.h */,
 				46B871A4169260E100B1CACB /* AppDelegate.m */,
-				4623441B18D118DD009B9CD5 /* Card.h */,
-				4623441C18D118DD009B9CD5 /* Card.m */,
 				462343D518C69DB4009B9CD5 /* Deck.h */,
 				462343D618C69DB4009B9CD5 /* Deck.m */,
 				46B871B71872026100B1CACB /* Grid.h */,
@@ -1255,7 +1250,6 @@
 				46B87090169260E000B1CACB /* CCLayer.m in Sources */,
 				46B87094169260E000B1CACB /* CCMenu.m in Sources */,
 				46B87097169260E000B1CACB /* CCMenuItem.m in Sources */,
-				4623441D18D118DD009B9CD5 /* Card.m in Sources */,
 				46B8709A169260E000B1CACB /* CCMotionStreak.m in Sources */,
 				46B8709D169260E000B1CACB /* CCNode+Debug.m in Sources */,
 				46B870A0169260E000B1CACB /* CCNode.m in Sources */,
