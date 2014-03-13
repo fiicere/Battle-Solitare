@@ -30,6 +30,8 @@ const CGFloat margin = 5;
     return self;
 }
 
+
+// Create a card with a set suit, value, and color
 -(id) initWithSuit:(NSString *)suit Value:(int)val Color:(NSString *)col{
     
     //Check to make sure all card properties are valid
@@ -47,7 +49,12 @@ const CGFloat margin = 5;
     NSString * filename = [NSString stringWithFormat:@"%@%d%@%s", col, val, suit, ".tif"];
     
     //Create the tile
-    self = [super initWithFile:filename];
+    if([col isEqualToString:@"b"]){
+        self = [super initWithFile:@"black card.tif"];
+    }
+    else if([col isEqualToString:@"w"]){
+        self = [super initWithFile:@"white card.tif"];
+    }
     
     //Scale it to the grid
     [self scaleToGrid];
@@ -59,6 +66,7 @@ const CGFloat margin = 5;
     return self;
 }
 
+// Returns a wild card
 -(id) initWildCard{
     self = [super initWithFile:@"Default.png"];
     [self scaleToGrid];
@@ -66,14 +74,15 @@ const CGFloat margin = 5;
     _value = 1;
     _backgroundColor = @"wild";
     return self;
-
 }
 
+
+// Scales this sprite to the size of
 -(void)scaleToGrid{
     [self scaleToX:[Grid getInstance].sqWidth - margin Y:[Grid getInstance].sqHeight - margin];
 }
 
-
+// Returns true if the tile matches this one in suit or value. False otherwise
 -(BOOL) matches:(Tile*)t{
     if([t.suit isEqualToString:@"wild"]){
         return true;
