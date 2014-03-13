@@ -11,8 +11,9 @@
 #import "CCSprite.h"
 #import "Grid.h"
 
-const CGFloat margin = 5;
-
+const CGFloat cardMargin = 5;
+const CGFloat suitSize = 0.5;
+const CGFloat numSize = 0.2;
 
 @implementation Tile
 
@@ -25,7 +26,7 @@ const CGFloat margin = 5;
 
 -(id) initWithFile:(NSString*) filename{
     self = [super initWithFile:filename];
-    [self scaleToGrid];
+    [self scaleCard];
 
     return self;
 }
@@ -45,9 +46,6 @@ const CGFloat margin = 5;
              || [suit isEqualToString:@"c"]
              || [suit isEqualToString:@"wild"], @"Invalid card Color");
     
-    //Generate the filename based on card properties
-    NSString * filename = [NSString stringWithFormat:@"%@%d%@%s", col, val, suit, ".tif"];
-    
     //Create the tile
     if([col isEqualToString:@"b"]){
         self = [super initWithFile:@"black card.tif"];
@@ -57,29 +55,96 @@ const CGFloat margin = 5;
     }
     
     //Scale it to the grid
-    [self scaleToGrid];
+    [self scaleCard];
     
     //Have it remember its properties
     _suit = suit;
     _value = val;
     _backgroundColor = col;
+    
+    
+    //Add the suit icon
+    [self addSuit];
+    
+    //Add the value icon
+    [self addValue];
+    
+
     return self;
 }
 
 // Returns a wild card
 -(id) initWildCard{
     self = [super initWithFile:@"Default.png"];
-    [self scaleToGrid];
+    [self scaleCard];
     _suit = @"wild";
     _value = 1;
     _backgroundColor = @"wild";
     return self;
 }
 
+-(void) addSuit{
+
+    NSString * file;
+    if([_suit isEqualToString:@"s"]){
+        file = @"spades.tif";
+    }
+    else if([_suit isEqualToString:@"c"]){
+        file = @"clubs.tif";
+
+    }
+    else if([_suit isEqualToString:@"h"]){
+        file = @"hearts.tif";
+
+    }
+    else if([_suit isEqualToString:@"d"]){
+        file = @"diamonds.tif";
+    }
+    ImprovedSprite * suitSprite = [[ImprovedSprite alloc] initWithFile:file];
+    [self scaleSuit:suitSprite];
+    suitSprite.position = ccp(self.boundingBox.size.width, self.boundingBox.size.height);
+    [self addChild:suitSprite z:1];
+}
+
+-(void) addValue{
+    // If Card is Red
+    NSString * filename;
+    if([_suit isEqualToString:@"h"] || [_suit isEqualToString:@"h"]){
+        filename = [NSString stringWithFormat:@"r%d%s", _value, ".tif"];
+    }
+    else{
+        filename = [NSString stringWithFormat:@"b%d%s", _value, ".tif"];
+    }
+    ImprovedSprite * ns1 = [[ImprovedSprite alloc] initWithFile:filename];
+    ImprovedSprite * ns2 = [[ImprovedSprite alloc] initWithFile:filename];
+    ns2.rotation = 180;
+    
+    [self scaleNum:ns1];
+    [self scaleNum:ns2];
+    
+    ns2.position = ccp(self.boundingBox.size.width * .75 + self.boundingBox.size.width,
+                       self.boundingBox.size.height * .75 + self.boundingBox.size.height);
+    ns1.position = ccp(-self.boundingBox.size.width * .75 + self.boundingBox.size.width,
+                       -self.boundingBox.size.height * .75 + self.boundingBox.size.height);
+    
+    [self addChild:ns1 z:1];
+    [self addChild:ns2 z:1];
+}
+
 
 // Scales this sprite to the size of
--(void)scaleToGrid{
-    [self scaleToX:[Grid getInstance].sqWidth - margin Y:[Grid getInstance].sqHeight - margin];
+-(void)scaleCard{
+    [self scaleToX:[Grid getInstance].sqWidth - cardMargin Y:[Grid getInstance].sqHeight - cardMargin];
+}
+
+// Scales a suit sprite
+-(void)scaleSuit:(ImprovedSprite*) suitSprite{
+    [suitSprite scaleToX:self.boundingBox.size.width * suitSize Y:self.boundingBox.size.height * suitSize];
+}
+
+// Scales a suit sprite
+-(void)scaleNum:(ImprovedSprite*) numSprite{
+    [numSprite scaleToX:self.boundingBox.size.width * numSize Y:self.boundingBox.size.height * numSize];
 }
 
 // Returns true if the tile matches this one in suit or value. False otherwise
