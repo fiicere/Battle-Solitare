@@ -93,8 +93,11 @@ const CGFloat numOffset = 0.3;
     else if([_suit isEqualToString:@"d"]){
         file = @"diamonds.png";
     }
+    
     ImprovedChild * suitSprite = [[ImprovedChild alloc] initWithParent:self andFile:file];
+    
     [self scaleSuit:suitSprite];
+
     [self addChild:suitSprite z:2];
 }
 
@@ -119,8 +122,8 @@ const CGFloat numOffset = 0.3;
 
 
 
-    [self addChild:ns1 z:1];
-    [self addChild:ns2 z:1];
+    [self addChild:ns1 z:2];
+    [self addChild:ns2 z:2];
 }
 
 

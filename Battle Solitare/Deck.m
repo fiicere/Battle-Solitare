@@ -46,6 +46,10 @@ NSArray * allColors;
 
 // Creates 1 of each card (and numWilds wild cards)
 -(void)initializeCards{
+    for (int i=0; i< numWilds; i++){
+        Tile * t = [[Tile alloc] initWildCard];
+        [cardsInDeck addObject:t];
+    }
     for(NSString * suit in allSuits){
         for(NSString * color in allColors){
             for(int i = 1; i <= 5; i++){
@@ -53,10 +57,6 @@ NSArray * allColors;
                 [cardsInDeck addObject:t];
             }
         }
-    }
-    for (int i=0; i< numWilds; i++){
-        Tile * t = [[Tile alloc] initWildCard];
-        [cardsInDeck addObject:t];
     }
 }
 

@@ -16,5 +16,6 @@
 -(id) initWithParent:(ImprovedSprite*) p andFile:(NSString*)filename;
 -(void) scaleToX:(CGFloat)newX Y:(CGFloat)newY;
 -(void) setPositionX:(CGFloat)x Y:(CGFloat)y;
+-(void) debug;
 
 @end
