@@ -70,13 +70,11 @@ NSArray *whiteTiles;
         if([color isEqualToString:@"b"]){
             if(tiles.count > blackTiles.count){
                 blackTiles = [[NSArray alloc] initWithArray:tiles];
-                NSLog(@"Black Score = %u", blackTiles.count);
             }
         }
         if([color isEqualToString:@"w"]){
             if(tiles.count > whiteTiles.count){
                 whiteTiles = [[NSArray alloc] initWithArray:tiles];
-                NSLog(@"White Score = %u", whiteTiles.count);
             }
         }
         [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.position]];
