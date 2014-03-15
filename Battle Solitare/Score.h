@@ -18,4 +18,7 @@
 
 -(NSArray*) blackPath;
 -(NSArray*) whitePath;
+
+-(void) printWhitePath;
+-(void) printBlackPath;
 @end

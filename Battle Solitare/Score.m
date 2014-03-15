@@ -39,15 +39,19 @@ NSArray *whiteTiles;
 
 -(void) updateScores{
     for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
-        if([startTile.backgroundColor isEqualToString:@"wild"]){
-            continue;
-        }
         NSMutableArray * a = [NSMutableArray new];
+        NSString *startColor;
+        if([startTile.backgroundColor isEqualToString:@"wild"]){
+            startColor = @"none";
+        }
+        else{
+            startColor = startTile.backgroundColor;
+        }
         [a addObject:startTile];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startTile.backgroundColor toTile:[[TileManager getInstance] getRight:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startTile.backgroundColor toTile:[[TileManager getInstance] getLeft:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startTile.backgroundColor toTile:[[TileManager getInstance] getAbove:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startTile.backgroundColor toTile:[[TileManager getInstance] getBelow:startTile.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.position]];
     }
 
 }
@@ -64,8 +68,30 @@ NSArray *whiteTiles;
     if(t == nil){
         return;
     }
+    // If the path currently does not belong to either color, and you get a colored tile
+    else if([color isEqualToString:@"none"] && ![t.backgroundColor isEqualToString:@"wild"]){
+        // Extend the path with the color of the colored tile
+        [tiles addObject:t];
+        color = t.backgroundColor;
+        
+        if([color isEqualToString:@"b"]){
+            if(tiles.count > blackTiles.count){
+                blackTiles = [[NSArray alloc] initWithArray:tiles];
+            }
+        }
+        if([color isEqualToString:@"w"]){
+            if(tiles.count > whiteTiles.count){
+                whiteTiles = [[NSArray alloc] initWithArray:tiles];
+            }
+        }
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.position]];
+    }
     // Otherwise if the background color of the new card matches, or if the new card is wild
     else if(t.backgroundColor == color || [t.backgroundColor isEqualToString:@"wild"]){
+        //Extend the path with the current tile
         [tiles addObject:t];
         
         if([color isEqualToString:@"b"]){
@@ -96,6 +122,16 @@ NSArray *whiteTiles;
 }
 -(NSArray *)whitePath{
     return [NSMutableArray arrayWithArray:whiteTiles];
+}
+-(void) printWhitePath{
+    for(Tile* t in whiteTiles){
+        [t printCard];
+    }
+}
+-(void) printBlackPath{
+    for(Tile* t in blackTiles){
+        [t printCard];
+    }
 }
 
 @end

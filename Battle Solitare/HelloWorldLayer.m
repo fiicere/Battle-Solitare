@@ -277,14 +277,10 @@ CCLabelTTF * topLabel;
         }
         
         if(CGRectContainsPoint(botLabel.boundingBox, loc)){
-            for(Tile* t in [[Score getInstance] whitePath]){
-                [t printCard];
-            }
+            [[Score getInstance] printWhitePath];
         }
         if(CGRectContainsPoint(topLabel.boundingBox, loc)){
-            for(Tile* t in [[Score getInstance] blackPath]){
-                [t printCard];
-            }
+            [[Score getInstance] printBlackPath];
         }
     }
 }
