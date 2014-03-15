@@ -13,7 +13,7 @@
 #import "Deck.h"
 
 TileManager* instance;
-NSMutableArray* allTiles;
+NSMutableArray* placedTiles;
 
 @implementation TileManager
 
@@ -28,22 +28,26 @@ NSMutableArray* allTiles;
     if(self = [super init]){
         
     }
-    allTiles = [[NSMutableArray alloc] init];
+    placedTiles = [[NSMutableArray alloc] init];
     return self;
 }
 
--(Tile *)newBotTile{
+-(Tile *)newTopTile{
+    if(_topCard != nil){
+     [placedTiles addObject:_topCard];
+    }
     Tile * t = [[Deck getInstance] getNextCard];
-    t.position = [[Grid getInstance] botCardLoc];
-    [allTiles addObject:t];
+    t.position = [[Grid getInstance] topCardLoc];
     _topCard = t;
     return t;
 }
 
--(Tile *)newTopTile{
+-(Tile *)newBotTile{
+    if(_botCard != nil){
+        [placedTiles addObject:_botCard];
+    }
     Tile * t = [[Deck getInstance] getNextCard];
-    t.position = [[Grid getInstance] topCardLoc];
-    [allTiles addObject:t];
+    t.position = [[Grid getInstance] botCardLoc];
     _botCard = t;
     return t;
 }
@@ -51,12 +55,12 @@ NSMutableArray* allTiles;
 -(Tile *)newCenterTile{
     Tile * t = [[Tile alloc] initWildCard];
     t.position = ccp(([Grid getInstance].width / 2), [Grid getInstance].height/2);
-    [allTiles addObject:t];
+    [placedTiles addObject:t];
     return t;
 }
 
--(NSMutableArray*) getAllTiles{
-    return allTiles;
+-(NSMutableArray*) getPlacedTiles{
+    return placedTiles;
 }
 
 -(BOOL)moveTile:(Tile *)t toLoc:(CGPoint)loc{
@@ -87,7 +91,7 @@ NSMutableArray* allTiles;
 // Note: Only works if given a grid location
 // CAN RETURN NULL!!!!
 -(Tile *) tileOnSquare:(CGPoint) gridLoc{
-    for(Tile * t in allTiles){
+    for(Tile * t in placedTiles){
         if(t.position.x == gridLoc.x && t.position.y == gridLoc.y){
             return t;
         }

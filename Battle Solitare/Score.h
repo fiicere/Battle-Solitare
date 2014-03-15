@@ -16,4 +16,6 @@
 -(int)blackScore;
 -(int)whiteScore;
 
+-(NSArray*) blackPath;
+-(NSArray*) whitePath;
 @end

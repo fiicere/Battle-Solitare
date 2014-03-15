@@ -21,7 +21,7 @@
 
 -(BOOL)moveTile:(Tile *)tile toLoc:(CGPoint)point;
 
--(NSMutableArray*) getAllTiles;
+-(NSMutableArray*) getPlacedTiles;
 
 -(Tile*) getRight:(CGPoint)loc;
 -(Tile*) getLeft:(CGPoint)loc;

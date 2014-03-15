@@ -38,7 +38,7 @@ NSArray *whiteTiles;
 }
 
 -(void) updateScores{
-    for(Tile* startTile in [[TileManager getInstance] getAllTiles]){
+    for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
         if([startTile.backgroundColor isEqualToString:@"wild"]){
             continue;
         }
@@ -60,10 +60,11 @@ NSArray *whiteTiles;
             return;
         }
     }
-    //No empty squares
+    // No empty squares
     if(t == nil){
         return;
     }
+    // Otherwise if the background color of the new card matches, or if the new card is wild
     else if(t.backgroundColor == color || [t.backgroundColor isEqualToString:@"wild"]){
         [tiles addObject:t];
         
@@ -89,6 +90,12 @@ NSArray *whiteTiles;
 }
 -(int)whiteScore{
     return (int) whiteTiles.count;
+}
+-(NSArray *)blackPath{
+    return [NSMutableArray arrayWithArray:blackTiles];
+}
+-(NSArray *)whitePath{
+    return [NSMutableArray arrayWithArray:whiteTiles];
 }
 
 @end

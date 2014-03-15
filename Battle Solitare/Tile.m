@@ -160,4 +160,13 @@ const CGFloat numOffset = 0.3;
     return false;
 }
 
+-(void) printCard{
+    if([_suit isEqualToString:@"wild"]){
+        NSLog(@"Wild Card at (%f, %f)", self.position.x, self.position.y);
+    }
+    else{
+        NSLog(@"%@%u%@ at (%f, %f)", _backgroundColor, _value, _suit, self.position.x, self.position.y);
+    }
+}
+
 @end

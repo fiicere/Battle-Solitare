@@ -28,12 +28,9 @@ NSString * whiteScoreText;
 NSString * blackScoreText;
 const int scoreOffset = 50;
 
-CCLabelTTF * whiteLabel;
-CCLabelTTF * blackLabel;
+CCLabelTTF * botLabel;
+CCLabelTTF * topLabel;
 
-
-CCLabelTTF * whiteLabel;
-CCLabelTTF * blackLabel;
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -183,7 +180,7 @@ CCLabelTTF * blackLabel;
 
 -(void) testGrid{
     CGSize size = [[CCDirector sharedDirector] winSize];
-    while([[TileManager getInstance] getAllTiles].count < 50){
+    while([[TileManager getInstance] getPlacedTiles].count < 50){
         Tile * card = [[TileManager getInstance] newBotTile];
         card.position = ccp((arc4random() % (int)size.width), (arc4random() % (int)size.height));
         [self addChild: card];
@@ -227,8 +224,8 @@ CCLabelTTF * blackLabel;
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    [whiteLabel setString:whiteScoreText];
-    [blackLabel setString:blackScoreText];
+    [botLabel setString:whiteScoreText];
+    [topLabel setString:blackScoreText];
     
 }
 
@@ -236,19 +233,19 @@ CCLabelTTF * blackLabel;
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    whiteLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"Marker Felt" fontSize:12];
-    blackLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"Marker Felt" fontSize:12];
+    botLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"Marker Felt" fontSize:12];
+    topLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"Marker Felt" fontSize:12];
     
-    blackLabel.rotation = 180;
+    topLabel.rotation = 180;
     
-    blackLabel.color = ccWHITE;
-    whiteLabel.color = ccBLACK;
+    topLabel.color = ccWHITE;
+    botLabel.color = ccBLACK;
     
-    whiteLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] botCardLoc].y);
-    blackLabel.position = ccp(scoreOffset, [[Grid getInstance] topCardLoc].y);
+    botLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] botCardLoc].y);
+    topLabel.position = ccp(scoreOffset, [[Grid getInstance] topCardLoc].y);
     
-    [self addChild:blackLabel];
-    [self addChild:whiteLabel];
+    [self addChild:topLabel];
+    [self addChild:botLabel];
 }
 ////////////////////////////////TOUCH HANDLING////////////////////////////////
 
@@ -279,6 +276,16 @@ CCLabelTTF * blackLabel;
             [touchDict setObject:t forKey:touch];
         }
         
+        if(CGRectContainsPoint(botLabel.boundingBox, loc)){
+            for(Tile* t in [[Score getInstance] whitePath]){
+                [t printCard];
+            }
+        }
+        if(CGRectContainsPoint(topLabel.boundingBox, loc)){
+            for(Tile* t in [[Score getInstance] blackPath]){
+                [t printCard];
+            }
+        }
     }
 }
 

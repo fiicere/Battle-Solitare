@@ -23,4 +23,6 @@
 -(id) initWildCard;
 
 -(BOOL) matches:(Tile*)t;
+
+-(void) printCard;
 @end
