@@ -296,18 +296,16 @@ CCLabelTTF * topLabel;
         }
         // Else if valid location
         else{
-            if(CGPointEqualToPoint([t getStartPoint], [[Grid getInstance] topCardLoc])){
+            if([t getTile] == [[TileManager getInstance] topCard]){
                 [self addTopCard];
             }
-            else if(CGPointEqualToPoint([t getStartPoint], [[Grid getInstance] botCardLoc])){
+            else if([t getTile] == [[TileManager getInstance] botCard]){
                 [self addBotCard];
             }
             [[Score getInstance] updateScores];
         }
-        
         [touchDict removeObjectForKey:touch];
     }
-
 }
 
 -(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -318,7 +316,6 @@ CCLabelTTF * topLabel;
         
         tile.position = loc;
     }
-    
 }
 
 

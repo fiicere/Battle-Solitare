@@ -76,7 +76,7 @@ NSArray * allColors;
 //Returns a random card in the deck
 -(Tile *) getNextCard{
     if([cardsInDeck count] == 0){
-        return nil;
+        return [[Tile alloc] initWildCard];
     }
     int r =(arc4random() % [cardsInDeck count]);
     Tile * t = [cardsInDeck objectAtIndex:r];
