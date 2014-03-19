@@ -8,7 +8,7 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "GameLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -33,7 +33,7 @@ CCLabelTTF * topLabel;
 
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation GameLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -42,7 +42,7 @@ CCLabelTTF * topLabel;
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	GameLayer *layer = [GameLayer node];
     
 	// add layer as a child to scene
 	[scene addChild: layer z:1];
@@ -247,6 +247,17 @@ CCLabelTTF * topLabel;
     [self addChild:topLabel];
     [self addChild:botLabel];
 }
+
+-(void)checkGameOver{
+    if([[TileManager getInstance] getPlacedTiles].count >= 49){
+        [self gameOver];
+    }
+}
+
+-(void)gameOver{
+    
+}
+
 ////////////////////////////////TOUCH HANDLING////////////////////////////////
 
 
@@ -306,6 +317,7 @@ CCLabelTTF * topLabel;
         }
         [touchDict removeObjectForKey:touch];
     }
+    [self checkGameOver];
 }
 
 -(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{

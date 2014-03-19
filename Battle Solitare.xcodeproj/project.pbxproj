@@ -70,6 +70,7 @@
 		4623445018D79380009B9CD5 /* diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444C18D79380009B9CD5 /* diamonds.png */; };
 		4623445118D79380009B9CD5 /* hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444D18D79380009B9CD5 /* hearts.png */; };
 		4623445218D79380009B9CD5 /* spades.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444E18D79380009B9CD5 /* spades.png */; };
+		4623445618DA0B6A009B9CD5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445518DA0B6A009B9CD5 /* GameScene.m */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
@@ -203,7 +204,7 @@
 		46B8719D169260E100B1CACB /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 46B8719C169260E100B1CACB /* vec4.c */; };
 		46B871A2169260E100B1CACB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A1169260E100B1CACB /* main.m */; };
 		46B871A5169260E100B1CACB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A4169260E100B1CACB /* AppDelegate.m */; };
-		46B871A8169260E200B1CACB /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A7169260E200B1CACB /* HelloWorldLayer.m */; };
+		46B871A8169260E200B1CACB /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A7169260E200B1CACB /* GameLayer.m */; };
 		46B871AB169260E200B1CACB /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871AA169260E200B1CACB /* IntroLayer.m */; };
 		46B871B31872024400B1CACB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B21872024400B1CACB /* Tile.m */; };
 		46B871B61872025600B1CACB /* TileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B51872025600B1CACB /* TileManager.m */; };
@@ -279,6 +280,8 @@
 		4623444C18D79380009B9CD5 /* diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamonds.png; sourceTree = "<group>"; };
 		4623444D18D79380009B9CD5 /* hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hearts.png; sourceTree = "<group>"; };
 		4623444E18D79380009B9CD5 /* spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spades.png; sourceTree = "<group>"; };
+		4623445418DA0B6A009B9CD5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		4623445518DA0B6A009B9CD5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -557,8 +560,8 @@
 		46B871A1169260E100B1CACB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46B871A3169260E100B1CACB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46B871A4169260E100B1CACB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		46B871A6169260E100B1CACB /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		46B871A7169260E200B1CACB /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		46B871A6169260E100B1CACB /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		46B871A7169260E200B1CACB /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		46B871A9169260E200B1CACB /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		46B871AA169260E200B1CACB /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		46B871B11872024400B1CACB /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
@@ -638,6 +641,15 @@
 			name = "Old Assets";
 			sourceTree = "<group>";
 		};
+		4623445318DA0B26009B9CD5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4623445418DA0B6A009B9CD5 /* GameScene.h */,
+				4623445518DA0B6A009B9CD5 /* GameScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		46B86FF2169260DF00B1CACB = {
 			isa = PBXGroup;
 			children = (
@@ -675,14 +687,15 @@
 		46B87012169260DF00B1CACB /* Battle Solitare */ = {
 			isa = PBXGroup;
 			children = (
+				4623445318DA0B26009B9CD5 /* Scenes */,
 				46B871A3169260E100B1CACB /* AppDelegate.h */,
 				46B871A4169260E100B1CACB /* AppDelegate.m */,
 				462343D518C69DB4009B9CD5 /* Deck.h */,
 				462343D618C69DB4009B9CD5 /* Deck.m */,
 				46B871B71872026100B1CACB /* Grid.h */,
 				46B871B81872026100B1CACB /* Grid.m */,
-				46B871A6169260E100B1CACB /* HelloWorldLayer.h */,
-				46B871A7169260E200B1CACB /* HelloWorldLayer.m */,
+				46B871A6169260E100B1CACB /* GameLayer.h */,
+				46B871A7169260E200B1CACB /* GameLayer.m */,
 				4623442718D2600F009B9CD5 /* ImprovedChild.h */,
 				4623442818D2600F009B9CD5 /* ImprovedChild.m */,
 				462343DC18C9192C009B9CD5 /* ImprovedSprite.h */,
@@ -1306,6 +1319,7 @@
 				46B87104169260E100B1CACB /* CCTransitionPageTurn.m in Sources */,
 				46B87107169260E100B1CACB /* CCTransitionProgress.m in Sources */,
 				46B8710B169260E100B1CACB /* cocos2d.m in Sources */,
+				4623445618DA0B6A009B9CD5 /* GameScene.m in Sources */,
 				46B87112169260E100B1CACB /* CCDirectorIOS.m in Sources */,
 				46B87115169260E100B1CACB /* CCES2Renderer.m in Sources */,
 				46B87119169260E100B1CACB /* CCGLView.m in Sources */,
@@ -1351,7 +1365,7 @@
 				46B8719D169260E100B1CACB /* vec4.c in Sources */,
 				46B871A2169260E100B1CACB /* main.m in Sources */,
 				46B871A5169260E100B1CACB /* AppDelegate.m in Sources */,
-				46B871A8169260E200B1CACB /* HelloWorldLayer.m in Sources */,
+				46B871A8169260E200B1CACB /* GameLayer.m in Sources */,
 				46B871AB169260E200B1CACB /* IntroLayer.m in Sources */,
 				46B871B31872024400B1CACB /* Tile.m in Sources */,
 				46B871B61872025600B1CACB /* TileManager.m in Sources */,
