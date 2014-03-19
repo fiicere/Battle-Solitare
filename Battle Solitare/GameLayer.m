@@ -35,23 +35,6 @@ CCLabelTTF * topLabel;
 // HelloWorldLayer implementation
 @implementation GameLayer
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	GameLayer *layer = [GameLayer node];
-    
-	// add layer as a child to scene
-	[scene addChild: layer z:1];
-	
-	// return the scene
-	return scene;
-}
-
-
 
 // on "init" you need to initialize your instance
 -(id) init

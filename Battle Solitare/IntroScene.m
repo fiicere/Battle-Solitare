@@ -8,14 +8,15 @@
 
 
 // Import the interfaces
-#import "IntroLayer.h"
+#import "IntroScene.h"
 #import "GameLayer.h"
+#import "GameScene.h"
 
 
 #pragma mark - IntroLayer
 
 // HelloWorldLayer implementation
-@implementation IntroLayer
+@implementation IntroScene
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -24,7 +25,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	IntroLayer *layer = [IntroLayer node];
+	IntroScene *layer = [IntroScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -61,6 +62,6 @@
 -(void) onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLayer scene] ]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene] ]];
 }
 @end

@@ -12,5 +12,5 @@
 @interface GameScene : CCLayer {
     
 }
-
++(CCScene *) scene;
 @end
