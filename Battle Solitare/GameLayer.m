@@ -238,7 +238,7 @@ CCLabelTTF * topLabel;
 }
 
 -(void)gameOver{
-    
+    [[self parent] gameOver];
 }
 
 ////////////////////////////////TOUCH HANDLING////////////////////////////////

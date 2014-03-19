@@ -11,7 +11,7 @@
 #import "cocos2d.h"
 
 // HelloWorldLayer
-@interface IntroScene : CCLayer
+@interface IntroScene : CCScene
 {
 }
 

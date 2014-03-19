@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 #import "GameLayer.h"
-
+#import "ScoreScreen.h"
 
 @implementation GameScene
 
@@ -16,16 +16,20 @@
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
+	GameScene *scene = [GameScene node];
 	
 	// 'layer' is an autorelease object.
 	GameLayer *layer = [GameLayer node];
     
 	// add layer as a child to scene
 	[scene addChild: layer z:0];
-	
+
 	// return the scene
 	return scene;
+}
+
+-(void) gameOver{
+ 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[[ScoreScreen alloc] init]]];
 }
 
 

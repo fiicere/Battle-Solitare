@@ -1,5 +1,5 @@
 //
-//  GameScene.h
+//  ScoreScreen.h
 //  Battle Solitare
 //
 //  Created by Kevin Yue on 3/19/14.
@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameScene : CCScene{
+@interface ScoreScreen : CCScene{
     
 }
-+(CCScene *) scene;
--(void) gameOver;
+
 @end

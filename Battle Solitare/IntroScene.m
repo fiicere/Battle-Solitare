@@ -11,6 +11,7 @@
 #import "IntroScene.h"
 #import "GameLayer.h"
 #import "GameScene.h"
+#import "ScoreScreen.h"
 
 
 #pragma mark - IntroLayer
@@ -63,5 +64,9 @@
 {
 	[super onEnter];
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene] ]];
+}
+
+-(void)onExit{
+    [super onExit];
 }
 @end
