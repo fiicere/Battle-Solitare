@@ -78,7 +78,7 @@
 /////////////////////////TOUCH EVENTS//////////////////////////
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[[GameScene alloc] init]]];}
+    [[CCDirector sharedDirector] replaceScene:[GameScene scene]];}
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 

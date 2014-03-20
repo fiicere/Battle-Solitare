@@ -49,6 +49,7 @@ NSArray * allColors;
         Tile * t = [[Tile alloc] initWildCard];
         [cardsInDeck addObject:t];
     }
+    [self setupArrays];
     for(NSString * suit in allSuits){
         for(NSString * color in allColors){
             for(int i = 1; i <= 5; i++){

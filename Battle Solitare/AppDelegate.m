@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "GameScene.h"
 #import "IntroScene.h"
+#import "ScoreScreen.h"
 
 @implementation MyNavigationController
 
