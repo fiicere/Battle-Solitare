@@ -9,6 +9,7 @@
 #import "ScoreScreen.h"
 #import "Score.h"
 #import "IntroScene.h"
+#import "GameScene.h"
 
 @implementation ScoreScreen
 
@@ -64,11 +65,6 @@
 }
 
 
--(void)returnToIntro{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[[IntroScene alloc] init]]];
-}
-
-
 -(void)onEnter{
     [[CCTouchDispatcher sharedDispatcher] addStandardDelegate:self priority:0];
     [super onEnter];
@@ -82,8 +78,7 @@
 /////////////////////////TOUCH EVENTS//////////////////////////
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self returnToIntro];
-}
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[[GameScene alloc] init]]];}
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 
