@@ -41,6 +41,10 @@ NSMutableArray* placedTiles;
     for(Tile * t in placedTiles){
         [t release];
     }
+    [_topCard release];
+    [_botCard release];
+    _topCard = nil;
+    _botCard = nil;
     placedTiles = [[NSMutableArray alloc] init];
 }
 
