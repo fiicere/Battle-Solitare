@@ -28,8 +28,20 @@ NSMutableArray* placedTiles;
     if(self = [super init]){
         
     }
-    placedTiles = [[NSMutableArray alloc] init];
+    [self reset];
     return self;
+}
+
+-(void) reset{
+    [self replaceTiles];
+    [[Deck getInstance] resetDeck];
+}
+
+-(void)replaceTiles{
+    for(Tile * t in placedTiles){
+        [t release];
+    }
+    placedTiles = [[NSMutableArray alloc] init];
 }
 
 -(Tile *)newTopTile{

@@ -30,4 +30,6 @@
 
 -(void) printCard:(Tile*)t;
 
+-(void) reset;
+
 @end

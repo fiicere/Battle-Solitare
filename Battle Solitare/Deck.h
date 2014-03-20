@@ -13,5 +13,6 @@
 
 -(Tile *) getNextCard;
 +(Deck *) getInstance;
+-(void)resetDeck;
 
 @end

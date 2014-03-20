@@ -43,16 +43,7 @@ CCLabelTTF * topLabel;
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super initWithColor:ccc4(47, 99, 55, 255)]) ) {
         
-        // schedule a repeating callback on every frame
-        [self schedule:@selector(nextTick:)];
-        
-        [self setupVariables];
-
-        [self createStartingCards];
-        
-        [self addPlayerRects];
-        
-        [self addScore];
+        [self newGame];
         
         [self schedule:@selector(updateScore:) interval:0.1];
         
@@ -153,12 +144,21 @@ CCLabelTTF * topLabel;
 }
 ////////////////////////////////MY CODE////////////////////////////////
 
--(void) setupVariables{
-    touchDict = [NSMapTable new];
-}
+-(void)newGame{
+    for(CCNode* c in self.children){
+        [c release];
+    }
+    [[TileManager getInstance] reset];
+    [[Score getInstance] reset];
 
--(void) nextTick:(ccTime)dt{
-    return;
+    touchDict = [NSMapTable new];
+    
+    [self createStartingCards];
+    
+    [self addPlayerRects];
+
+    [self addScore];
+
 }
 
 -(void) testGrid{

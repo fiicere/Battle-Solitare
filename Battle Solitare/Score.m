@@ -27,15 +27,10 @@ NSArray *whiteTiles;
 
 -(id) init{
     self = [super init];
-    [self resetVariables];
+    [self reset];
     return self;
 }
 
--(void) resetVariables{
-    blackTiles = [NSArray new];
-    whiteTiles = [NSArray new];
-
-}
 
 -(void) updateScores{
     for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
@@ -132,6 +127,11 @@ NSArray *whiteTiles;
     for(Tile* t in blackTiles){
         [t printCard];
     }
+}
+
+-(void)reset{
+    blackTiles = [NSArray new];
+    whiteTiles = [NSArray new];
 }
 
 @end

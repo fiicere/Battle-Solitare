@@ -21,4 +21,6 @@
 
 -(void) printWhitePath;
 -(void) printBlackPath;
+
+-(void) reset;
 @end

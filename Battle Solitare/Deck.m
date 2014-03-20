@@ -31,8 +31,7 @@ NSArray * allColors;
     self = [super init];
     
     [self setupArrays];
-    [self initializeCards];
-//    [self shuffleDeck];
+    [self resetDeck];
     
     return self;
 }
@@ -45,7 +44,7 @@ NSArray * allColors;
 }
 
 // Creates 1 of each card (and numWilds wild cards)
--(void)initializeCards{
+-(void)resetDeck{
     for (int i=0; i< numWilds; i++){
         Tile * t = [[Tile alloc] initWildCard];
         [cardsInDeck addObject:t];
