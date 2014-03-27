@@ -35,22 +35,18 @@ CCLayer * ml;
     
     CCMenuItem *gameButton = [CCMenuItemLabel itemWithLabel:startGame target:self selector:@selector(newGame)];
     CCMenuItem *rulesButton = [CCMenuItemLabel itemWithLabel:instructions target:self selector:@selector(insPage)];
-    CCMenuItem *optionsButton = [CCMenuItemLabel itemWithLabel:instructions target:self selector:@selector(opPage)];
+    CCMenuItem *optionsButton = [CCMenuItemLabel itemWithLabel:options target:self selector:@selector(opPage)];
 
     
     
     
     [menu addChild:gameButton];
     [menu addChild:rulesButton];
-    [menu addChild:options];
+    [menu addChild:optionsButton];
 
     
     [menu alignItemsVerticallyWithPadding:32.0f];
     [menuLayer addChild:menu];
-    
-    
-    // Timer
-    [self schedule:@selector(checkStart:)];
 }
 
 -(void)newGame{
