@@ -72,6 +72,7 @@
 		4623445218D79380009B9CD5 /* spades.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444E18D79380009B9CD5 /* spades.png */; };
 		4623445618DA0B6A009B9CD5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445518DA0B6A009B9CD5 /* GameScene.m */; };
 		4623445918DA18FE009B9CD5 /* ScoreScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445818DA18FE009B9CD5 /* ScoreScreen.m */; };
+		4623445C18E48197009B9CD5 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445B18E48197009B9CD5 /* MenuScene.m */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
@@ -285,6 +286,8 @@
 		4623445518DA0B6A009B9CD5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		4623445718DA18FE009B9CD5 /* ScoreScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreScreen.h; sourceTree = "<group>"; };
 		4623445818DA18FE009B9CD5 /* ScoreScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreScreen.m; sourceTree = "<group>"; };
+		4623445A18E48197009B9CD5 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		4623445B18E48197009B9CD5 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -651,6 +654,8 @@
 				4623445518DA0B6A009B9CD5 /* GameScene.m */,
 				46B871A9169260E200B1CACB /* IntroScene.h */,
 				46B871AA169260E200B1CACB /* IntroScene.m */,
+				4623445A18E48197009B9CD5 /* MenuScene.h */,
+				4623445B18E48197009B9CD5 /* MenuScene.m */,
 				4623445718DA18FE009B9CD5 /* ScoreScreen.h */,
 				4623445818DA18FE009B9CD5 /* ScoreScreen.m */,
 			);
@@ -1365,6 +1370,7 @@
 				46B87193169260E100B1CACB /* quaternion.c in Sources */,
 				46B87195169260E100B1CACB /* ray2.c in Sources */,
 				46B87197169260E100B1CACB /* utility.c in Sources */,
+				4623445C18E48197009B9CD5 /* MenuScene.m in Sources */,
 				46B87199169260E100B1CACB /* vec2.c in Sources */,
 				462343E118CA81AD009B9CD5 /* Score.m in Sources */,
 				46B8719B169260E100B1CACB /* vec3.c in Sources */,

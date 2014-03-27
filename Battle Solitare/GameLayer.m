@@ -27,6 +27,7 @@ const CGFloat playerRectOpacity = 180;
 NSString * whiteScoreText;
 NSString * blackScoreText;
 const int scoreOffset = 50;
+const int rectMargin = 20;
 
 CCLabelTTF * botLabel;
 CCLabelTTF * topLabel;
@@ -188,11 +189,11 @@ CCLabelTTF * topLabel;
     ImprovedSprite * top = [[ImprovedSprite alloc] initWithFile:@"Black Pixel.tiff"];
     ImprovedSprite * bot = [[ImprovedSprite alloc] initWithFile:@"White Pixel.tiff"];
     
-    [bot scaleToX:x Y:y - [[Grid getInstance] sqHeight]/2];
-    [top scaleToX:x Y:y - [[Grid getInstance] sqHeight]/2];
+    [bot scaleToX:x - rectMargin Y:y - [[Grid getInstance] sqHeight]/2 - rectMargin];
+    [top scaleToX:x - rectMargin Y:y - [[Grid getInstance] sqHeight]/2 - rectMargin];
     
-    bot.position = ccp(bot.boundingBox.size.width/2, bot.boundingBox.size.height/2);
-    top.position = ccp(top.boundingBox.size.width/2, [[Grid getInstance] height] - top.boundingBox.size.height/2);
+    bot.position = ccp(bot.boundingBox.size.width/2 + rectMargin/2, bot.boundingBox.size.height/2 + rectMargin/2);
+    top.position = ccp(top.boundingBox.size.width/2 + rectMargin/2, [[Grid getInstance] height] - top.boundingBox.size.height/2 - rectMargin/2);
     
     bot.opacity = playerRectOpacity;
     top.opacity = playerRectOpacity;
