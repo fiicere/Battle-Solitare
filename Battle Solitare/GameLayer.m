@@ -42,7 +42,7 @@ CCLabelTTF * topLabel;
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super initWithColor:ccc4(47, 99, 55, 255)]) ) {
+	if( (self=[super initWithColor:ccc4(24, 70, 28, 255)]) ) {
         
         [self newGame];
         

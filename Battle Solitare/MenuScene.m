@@ -9,14 +9,14 @@
 #import "MenuScene.h"
 #import "GameScene.h"
 
-CCLayer * ml;
+CCLayerColor * ml;
 
 @implementation MenuScene
 
 -(id) init {
     self = [super init];
     
-    ml = [CCLayer node];
+    ml = [[CCLayerColor alloc] initWithColor:ccc4(24, 70, 28, 255)];
     
     [self SetUpMenu:ml];
     
