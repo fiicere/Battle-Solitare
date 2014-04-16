@@ -22,7 +22,6 @@
 #pragma mark - HelloWorldLayer
 
 NSMapTable * touchDict;
-const CGFloat playerRectOpacity = 180;
 
 NSString * whiteScoreText;
 NSString * blackScoreText;
@@ -42,7 +41,7 @@ CCLabelTTF * topLabel;
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
-	if( (self=[super initWithColor:ccc4(24, 70, 28, 255)]) ) {
+	if( (self=[super init]) ) {
         
         [self newGame];
         
@@ -186,17 +185,14 @@ CCLabelTTF * topLabel;
 -(void)addPlayerRects{
     CGFloat x = [[Grid getInstance] width];
     CGFloat y = [[Grid getInstance] verticalMargin];
-    ImprovedSprite * top = [[ImprovedSprite alloc] initWithFile:@"Black Pixel.tiff"];
-    ImprovedSprite * bot = [[ImprovedSprite alloc] initWithFile:@"White Pixel.tiff"];
+    ImprovedSprite * top = [[ImprovedSprite alloc] initWithFile:@"black felt.png"];
+    ImprovedSprite * bot = [[ImprovedSprite alloc] initWithFile:@"white felt.png"];
     
     [bot scaleToX:x - rectMargin Y:y - [[Grid getInstance] sqHeight]/2 - rectMargin];
     [top scaleToX:x - rectMargin Y:y - [[Grid getInstance] sqHeight]/2 - rectMargin];
     
     bot.position = ccp(bot.boundingBox.size.width/2 + rectMargin/2, bot.boundingBox.size.height/2 + rectMargin/2);
     top.position = ccp(top.boundingBox.size.width/2 + rectMargin/2, [[Grid getInstance] height] - top.boundingBox.size.height/2 - rectMargin/2);
-    
-    bot.opacity = playerRectOpacity;
-    top.opacity = playerRectOpacity;
     
     
     [self addChild:top];
@@ -217,8 +213,8 @@ CCLabelTTF * topLabel;
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    botLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"Marker Felt" fontSize:12];
-    topLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"Marker Felt" fontSize:12];
+    botLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    topLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:12];
     
     topLabel.rotation = 180;
     

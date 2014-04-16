@@ -8,6 +8,7 @@
 
 #import "MenuScene.h"
 #import "GameScene.h"
+#import "BackgroundLayer.h"
 
 CCLayerColor * ml;
 
@@ -16,11 +17,12 @@ CCLayerColor * ml;
 -(id) init {
     self = [super init];
     
-    ml = [[CCLayerColor alloc] initWithColor:ccc4(24, 70, 28, 255)];
-    
+    ml = [[BackgroundLayer alloc] init];
+        
     [self SetUpMenu:ml];
     
     [self addChild:ml];
+    
     return self;
 }
 
@@ -28,9 +30,9 @@ CCLayerColor * ml;
     CCMenu *menu = [CCMenu menuWithItems:nil];
     
     // Game Mode Labels
-    CCLabelTTF * startGame = [CCLabelTTF labelWithString:@"Start Game" fontName:@"Arial" fontSize:32];
-    CCLabelTTF * instructions = [CCLabelTTF labelWithString:@"How to Play" fontName:@"Arial" fontSize:32];
-    CCLabelTTF * options = [CCLabelTTF labelWithString:@"Options" fontName:@"Arial" fontSize:32];
+    CCLabelTTF * startGame = [CCLabelTTF labelWithString:@"Start Game" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * instructions = [CCLabelTTF labelWithString:@"How to Play" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * options = [CCLabelTTF labelWithString:@"Options" fontName:@"TrajanPro-Regular" fontSize:32];
 
     
     CCMenuItem *gameButton = [CCMenuItemLabel itemWithLabel:startGame target:self selector:@selector(newGame)];

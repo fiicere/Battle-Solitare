@@ -68,7 +68,7 @@ const CGFloat numOffset = 0.3;
 
 // Returns a wild card
 -(id) initWildCard{
-    self = [super initWithFile:@"Default.png"];
+    self = [super initWithFile:@"wild card.png"];
     [self scaleCard];
     _suit = @"wild";
     _value = 1;

@@ -10,6 +10,7 @@
 #import "Score.h"
 #import "IntroScene.h"
 #import "GameScene.h"
+#import "BackgroundLayer.h"
 
 @implementation ScoreScreen
 
@@ -20,7 +21,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	ScoreScreen * layer = [ScoreScreen node];
+	BackgroundLayer * layer = [[BackgroundLayer alloc] init];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -57,7 +58,7 @@
     
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Arial" fontSize:32];
+    CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"TrajanPro-Regular" fontSize:32];
     label.color = ccc3(255,255,255);
     label.position = ccp(winSize.width/2, winSize.height/2);
     
