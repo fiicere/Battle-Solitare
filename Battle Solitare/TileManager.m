@@ -90,14 +90,13 @@ NSMutableArray* placedTiles;
 }
 
 -(BOOL) isValidTile:(Tile *) t Loc:(CGPoint)loc{
-    CGPoint gridLoc = [[Grid getInstance] getGridPoint:loc];
-    if(! [[Grid getInstance] isOnGrid:gridLoc]){
+    if(! [[Grid getInstance] isOnGrid:loc]){
         return false;
     }
-    if([self tileOnSquare:gridLoc] != nil){
+    if([self tileOnSquare:loc] != nil){
         return false;
     }
-    if(! [self hasMatchingTile:t atLoc:gridLoc]){
+    if(! [self hasMatchingTile:t]){
         return false;
     }
 
@@ -106,7 +105,8 @@ NSMutableArray* placedTiles;
 
 // Note: Only works if given a grid location
 // CAN RETURN NULL!!!!
--(Tile *) tileOnSquare:(CGPoint) gridLoc{
+-(Tile *) tileOnSquare:(CGPoint) loc{
+    CGPoint gridLoc = [[Grid getInstance] getGridPoint:loc];
     for(Tile * t in placedTiles){
         if(t.position.x == gridLoc.x && t.position.y == gridLoc.y){
             return t;
@@ -116,7 +116,9 @@ NSMutableArray* placedTiles;
 }
 
 //Note: Only works if given a grid location
--(BOOL) isAdjacentTile:(CGPoint)gridLoc{
+-(BOOL) isAdjacentTile:(CGPoint)loc{
+    CGPoint gridLoc = [[Grid getInstance] getGridPoint:loc];
+
     if([self tileOnSquare:ccp(gridLoc.x+[Grid getInstance].sqWidth, gridLoc.y)]){
         return true;
     }
@@ -133,7 +135,8 @@ NSMutableArray* placedTiles;
 }
 
 //Note: Only works if given a grid location
--(BOOL) hasMatchingTile:(Tile *)t atLoc:(CGPoint) gridLoc{
+-(BOOL) hasMatchingTile:(Tile *)t{
+    CGPoint gridLoc = [[Grid getInstance] getGridPoint:t.position];
     Tile * adj = [self getRight:gridLoc];
     if(adj != nil){
         if([t matches:adj]){

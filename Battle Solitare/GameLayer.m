@@ -252,6 +252,7 @@ CCLabelTTF * topLabel;
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
+        NSLog(@"Clicked (%f, %f)", loc.x, loc.y);
         
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];
