@@ -296,8 +296,6 @@ CCLabelTTF * topLabel;
             else if([t getTile] == [[TileManager getInstance] botCard]){
                 [self addBotCard];
             }
-            // Update the score
-            [[Score getInstance] updateScores];
         }
         [touchDict removeObjectForKey:touch];
     }

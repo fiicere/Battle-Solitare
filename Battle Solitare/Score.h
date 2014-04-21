@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Tile.h"
+
 @interface Score : NSObject
 
 +(Score *) getInstance;
 -(void) updateScores;
+-(void) improvedUpdate:(Tile*)t;
 
 -(int)blackScore;
 -(int)whiteScore;

@@ -52,6 +52,7 @@ NSMutableArray* placedTiles;
 -(Tile *)newTopTile{
     if(_topCard != nil){
      [placedTiles addObject:_topCard];
+     [[Score getInstance] improvedUpdate:_topCard];
     }
     Tile * t = [[Deck getInstance] getNextCard];
     t.position = [[Grid getInstance] topCardLoc];
@@ -62,6 +63,7 @@ NSMutableArray* placedTiles;
 -(Tile *)newBotTile{
     if(_botCard != nil){
         [placedTiles addObject:_botCard];
+        [[Score getInstance] improvedUpdate:_botCard];
     }
     Tile * t = [[Deck getInstance] getNextCard];
     t.position = [[Grid getInstance] botCardLoc];

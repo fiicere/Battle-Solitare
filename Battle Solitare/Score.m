@@ -51,6 +51,32 @@ NSArray *whiteTiles;
 
 }
 
+-(void) improvedUpdate:(Tile*)t{
+    NSString *startColor;
+    if([t.backgroundColor isEqualToString:@"wild"]){
+        return [self updateScores];
+    }
+    else{
+        startColor = t.backgroundColor;
+    }
+
+    for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
+        NSMutableArray * a = [NSMutableArray new];
+        
+        if(![startTile.backgroundColor isEqualToString:@"wild"] &&
+           ![startTile.backgroundColor isEqualToString:startColor]){
+            continue;
+        }
+
+        [a addObject:startTile];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.sqID]];
+    }
+    
+}
+
 -(void) extendChain:(NSMutableArray*)tiles ofColor:(NSString*)color toTile:(Tile* )t{
     
     //No duplicate tiles
