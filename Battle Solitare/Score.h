@@ -12,6 +12,8 @@
 
 +(Score *) getInstance;
 -(void) updateScores;
+-(void) updateBlackScore;
+-(void) updateWhiteScore;
 
 -(int)blackScore;
 -(int)whiteScore;
