@@ -287,13 +287,13 @@ CCLabelTTF * topLabel;
         }
         // Else if valid location
         else{
-            // Add New Card
             if([t getTile] == [[TileManager getInstance] topCard]){
                 [self addTopCard];
             }
             else if([t getTile] == [[TileManager getInstance] botCard]){
                 [self addBotCard];
             }
+            [[Score getInstance] updateScores];
         }
         [touchDict removeObjectForKey:touch];
     }

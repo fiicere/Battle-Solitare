@@ -11,7 +11,6 @@
 #import "cocos2d.h"
 #import "Grid.h"
 #import "Deck.h"
-#import "Score.h"
 
 TileManager* instance;
 NSMutableArray* placedTiles;
@@ -84,17 +83,6 @@ NSMutableArray* placedTiles;
     if([self isValidTile: t Loc:loc]){
         
         t.position = [[Grid getInstance] getGridPoint:loc];
-        
-        // Update Score
-        if([t.backgroundColor isEqualToString:@"wild"]){
-            [[Score getInstance] updateScores];
-        }
-        if([t.backgroundColor isEqualToString:@"b"]){
-            [[Score getInstance] updateBlackScore];
-        }
-        if([t.backgroundColor isEqualToString:@"w"]){
-            [[Score getInstance] updateWhiteScore];
-        }
         
         return true;
     }
@@ -191,7 +179,6 @@ NSMutableArray* placedTiles;
 }
 -(Tile*) getBelow:(CGPoint)p{
     CGPoint loc = [[Grid getInstance] getGridPoint:p];
-    NSLog(@"Coords = (%f,%f)", loc.x, loc.y-[Grid getInstance].sqHeight);
     return [self tileOnSquare:ccp(loc.x, loc.y-[Grid getInstance].sqHeight)];
 }
 

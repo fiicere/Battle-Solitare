@@ -51,41 +51,6 @@ NSArray *whiteTiles;
 
 }
 
-
--(void) updateBlackScore{
-    for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
-        NSMutableArray * a = [NSMutableArray new];
-        NSString *startColor = @"b";
-        if(![startTile.backgroundColor isEqualToString:@"wild"] &&
-           ![startTile.backgroundColor isEqualToString:startColor]){
-            continue;
-        }
-
-        [a addObject:startTile];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.position]];
-    }
-}
--(void) updateWhiteScore{
-    for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
-        NSMutableArray * a = [NSMutableArray new];
-        NSString *startColor = @"w";
-        
-        if(![startTile.backgroundColor isEqualToString:@"wild"] &&
-           ![startTile.backgroundColor isEqualToString:startColor]){
-            continue;
-        }
-        
-        [a addObject:startTile];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.position]];
-    }
-}
-
 -(void) extendChain:(NSMutableArray*)tiles ofColor:(NSString*)color toTile:(Tile* )t{
     
     //No duplicate tiles
