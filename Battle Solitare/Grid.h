@@ -13,6 +13,12 @@
     
 }
 
+struct SqID {
+    int x;
+    int y;
+};
+typedef struct SqID SqID;
+
 +(Grid *)getInstance;
 
 @property (nonatomic, assign) CGFloat width;
@@ -25,15 +31,18 @@
 @property (nonatomic, assign) CGPoint topCardLoc;
 @property (nonatomic, assign) CGPoint botCardLoc;
 
+-(SqID) getSquareID:(CGPoint)loc;
+-(CGPoint) getCenter:(SqID)squareID;
+-(CGPoint) getNearestCenter:(CGPoint)loc;
 
--(CGPoint)getGridPoint:(CGPoint)point;
--(CGPoint)getGridX:(CGFloat)x Y:(CGFloat)y;
--(BOOL) isOnGrid:(CGPoint) loc;
+-(BOOL) isOnGrid:(SqID) loc;
 
 
--(CGPoint)getRight:(CGPoint)point;
--(CGPoint)getLeft:(CGPoint)point;
--(CGPoint)getUp:(CGPoint)point;
--(CGPoint)getDown:(CGPoint)point;
+-(SqID)right:(SqID)point;
+-(SqID)left:(SqID)point;
+-(SqID)up:(SqID)point;
+-(SqID)down:(SqID)point;
+
+-(BOOL) thisID:(SqID)a equalsThisID:(SqID)b;
 
 @end

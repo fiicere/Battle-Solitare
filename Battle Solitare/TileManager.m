@@ -79,21 +79,26 @@ NSMutableArray* placedTiles;
     return placedTiles;
 }
 
+
+// Tries to move a tile to a location, returns false if invalid move
 -(BOOL)moveTile:(Tile *)t toLoc:(CGPoint)loc{
     if([self isValidTile: t Loc:loc]){
         
-        t.position = [[Grid getInstance] getGridPoint:loc];
-        
+        t.position = [[Grid getInstance] getNearestCenter:loc];
+        t.sqID = [[Grid getInstance] getSquareID:t.position];
         return true;
     }
     return false;
 }
 
+// Checks move validity
 -(BOOL) isValidTile:(Tile *) t Loc:(CGPoint)loc{
-    if(! [[Grid getInstance] isOnGrid:loc]){
+    SqID locID = [[Grid getInstance] getSquareID:loc];
+    
+    if(! [[Grid getInstance] isOnGrid:locID]){
         return false;
     }
-    if([self tileOnSquare:loc] != nil){
+    if([self tileOnSquare:locID] != nil){
         return false;
     }
     if(! [self hasMatchingTile:t]){
@@ -103,12 +108,11 @@ NSMutableArray* placedTiles;
     return true;
 }
 
-// Note: Only works if given a grid location
+// Returns the tile at a sqID, or nil if there is none
 // CAN RETURN NULL!!!!
--(Tile *) tileOnSquare:(CGPoint) loc{
-    CGPoint gridLoc = [[Grid getInstance] getGridPoint:loc];
+-(Tile *) tileOnSquare:(SqID) sqID{
     for(Tile * t in placedTiles){
-        if(t.position.x == gridLoc.x && t.position.y == gridLoc.y){
+        if([[Grid getInstance] thisID:sqID equalsThisID:[[Grid getInstance] getSquareID:t.position]]){
             return t;
         }
     }
@@ -116,49 +120,31 @@ NSMutableArray* placedTiles;
 }
 
 //Note: Only works if given a grid location
--(BOOL) isAdjacentTile:(CGPoint)loc{
-    CGPoint gridLoc = [[Grid getInstance] getGridPoint:loc];
-
-    if([self tileOnSquare:ccp(gridLoc.x+[Grid getInstance].sqWidth, gridLoc.y)]){
-        return true;
-    }
-    if([self tileOnSquare:ccp(gridLoc.x-[Grid getInstance].sqWidth, gridLoc.y)]){
-        return true;
-    }
-    if([self tileOnSquare:ccp(gridLoc.x, gridLoc.y+[Grid getInstance].sqHeight)]){
-        return true;
-    }
-    if([self tileOnSquare:ccp(gridLoc.x, gridLoc.y-[Grid getInstance].sqHeight)]){
-        return true;
-    }
-    return false;
-}
-
-//Note: Only works if given a grid location
 -(BOOL) hasMatchingTile:(Tile *)t{
-    CGPoint gridLoc = [[Grid getInstance] getGridPoint:t.position];
-    Tile * adj = [self getRight:gridLoc];
+    SqID sqID = [[Grid getInstance] getSquareID:t.position];
+    
+    Tile * adj = [self getRight:sqID];
     if(adj != nil){
         if([t matches:adj]){
             return true;
         }
     }
     
-    adj = [self getLeft:gridLoc];
+    adj = [self getLeft:sqID];
     if(adj != nil){
         if([t matches:adj]){
             return true;
         }
     }
     
-    adj = [self getAbove:gridLoc];
+    adj = [self getAbove:sqID];
     if(adj != nil){
         if([t matches:adj]){
             return true;
         }
     }
     
-    adj = [self getBelow:gridLoc];
+    adj = [self getBelow:sqID];
     if(adj != nil){
         if([t matches:adj]){
             return true;
@@ -168,21 +154,19 @@ NSMutableArray* placedTiles;
     return false;
 }
 
--(Tile*) getRight:(CGPoint)p{
-    CGPoint loc = [[Grid getInstance] getGridPoint:p];
-    return [self tileOnSquare:ccp(loc.x+[Grid getInstance].sqWidth, loc.y)];
+-(Tile*) getRight:(SqID)loc{
+    return [self tileOnSquare:[[Grid getInstance] right:loc]];
+    
 }
--(Tile*) getLeft:(CGPoint)p{
-    CGPoint loc = [[Grid getInstance] getGridPoint:p];
-    return [self tileOnSquare:ccp(loc.x-[Grid getInstance].sqWidth, loc.y)];
+-(Tile*) getLeft:(SqID)loc{
+    return [self tileOnSquare:[[Grid getInstance] left:loc]];
 }
--(Tile*) getAbove:(CGPoint)p{
-    CGPoint loc = [[Grid getInstance] getGridPoint:p];
-    return [self tileOnSquare:ccp(loc.x, loc.y+[Grid getInstance].sqHeight)];
+-(Tile*) getAbove:(SqID)loc{
+    return [self tileOnSquare:[[Grid getInstance] up:loc]];
+
 }
--(Tile*) getBelow:(CGPoint)p{
-    CGPoint loc = [[Grid getInstance] getGridPoint:p];
-    return [self tileOnSquare:ccp(loc.x, loc.y-[Grid getInstance].sqHeight)];
+-(Tile*) getBelow:(SqID)loc{
+    return [self tileOnSquare:[[Grid getInstance] down:loc]];
 }
 
 -(void) printCard:(Tile*)t{

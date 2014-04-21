@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Tile.h"
+#import "Grid.h"
 
 @interface TileManager : NSObject
 
@@ -23,10 +24,10 @@
 
 -(NSMutableArray*) getPlacedTiles;
 
--(Tile*) getRight:(CGPoint)loc;
--(Tile*) getLeft:(CGPoint)loc;
--(Tile*) getAbove:(CGPoint)loc;
--(Tile*) getBelow:(CGPoint)loc;
+-(Tile*) getRight:(SqID)loc;
+-(Tile*) getLeft:(SqID)loc;
+-(Tile*) getAbove:(SqID)loc;
+-(Tile*) getBelow:(SqID)loc;
 
 -(void) printCard:(Tile*)t;
 

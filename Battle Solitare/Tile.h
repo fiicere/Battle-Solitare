@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "ImprovedSprite.h"
-
+#import "Grid.h"
 #import "CCSprite.h"
 
 @interface Tile : ImprovedSprite
@@ -18,6 +18,7 @@
 @property (nonatomic, assign, readonly) NSString * backgroundColor;
 @property (nonatomic, assign, readonly) int value;
 
+@property (nonatomic, assign) SqID sqID;
 
 -(id) initWithSuit:(NSString *)suit Value:(int)val Color:(NSString *)col;
 -(id) initWildCard;

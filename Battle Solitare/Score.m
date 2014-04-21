@@ -43,10 +43,10 @@ NSArray *whiteTiles;
             startColor = startTile.backgroundColor;
         }
         [a addObject:startTile];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.sqID]];
     }
 
 }
@@ -79,10 +79,10 @@ NSArray *whiteTiles;
                 whiteTiles = [[NSArray alloc] initWithArray:tiles];
             }
         }
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
     }
     // Otherwise if the background color of the new card matches, or if the new card is wild
     else if(t.backgroundColor == color || [t.backgroundColor isEqualToString:@"wild"]){
@@ -99,10 +99,10 @@ NSArray *whiteTiles;
                 whiteTiles = [[NSArray alloc] initWithArray:tiles];
             }
         }
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.position]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.position]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
+        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
     }
 }
 
