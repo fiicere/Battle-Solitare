@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "Grid.h"
 #import "Deck.h"
+#import "Score.h"
 
 TileManager* instance;
 NSMutableArray* placedTiles;
@@ -71,6 +72,7 @@ NSMutableArray* placedTiles;
 -(Tile *)newCenterTile{
     Tile * t = [[Tile alloc] initWildCard];
     t.position = ccp(([Grid getInstance].width / 2), [Grid getInstance].height/2);
+    t.sqID = [[Grid getInstance] getSquareID:t.position];
     [placedTiles addObject:t];
     return t;
 }
@@ -82,10 +84,14 @@ NSMutableArray* placedTiles;
 
 // Tries to move a tile to a location, returns false if invalid move
 -(BOOL)moveTile:(Tile *)t toLoc:(CGPoint)loc{
+    
+    //If valid location
     if([self isValidTile: t Loc:loc]){
         
+        // Move the tile
         t.position = [[Grid getInstance] getNearestCenter:loc];
         t.sqID = [[Grid getInstance] getSquareID:t.position];
+        
         return true;
     }
     return false;
@@ -112,7 +118,7 @@ NSMutableArray* placedTiles;
 // CAN RETURN NULL!!!!
 -(Tile *) tileOnSquare:(SqID) sqID{
     for(Tile * t in placedTiles){
-        if([[Grid getInstance] thisID:sqID equalsThisID:[[Grid getInstance] getSquareID:t.position]]){
+        if([[Grid getInstance] thisID:sqID equalsThisID:t.sqID]){
             return t;
         }
     }

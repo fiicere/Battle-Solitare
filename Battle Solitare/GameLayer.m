@@ -253,8 +253,8 @@ CCLabelTTF * topLabel;
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
         
-        SqID sqID = [[Grid getInstance] getSquareID:loc];
-        NSLog(@"Clicked (%u, %u)", sqID.x, sqID.y);
+//        SqID sqID = [[Grid getInstance] getSquareID:loc];
+//        NSLog(@"Clicked (%u, %u)", sqID.x, sqID.y);
         
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];
@@ -296,6 +296,7 @@ CCLabelTTF * topLabel;
             else if([t getTile] == [[TileManager getInstance] botCard]){
                 [self addBotCard];
             }
+            // Update the score
             [[Score getInstance] updateScores];
         }
         [touchDict removeObjectForKey:touch];

@@ -64,18 +64,6 @@ const int gridDimens = 7;
     return point;
 }
 
-//-(CGPoint)getGridPoint:(CGPoint)point{
-//    return [self getGridX:point.x Y:point.y];
-//}
-//
-//-(CGPoint)getGridX:(CGFloat)x Y:(CGFloat)y{
-//    CGPoint point;
-//    
-//    point.x = ((roundf((x-_sideMargin)/_sqWidth)*_sqWidth)+_sideMargin);
-//    point.y = ((roundf((y-_verticalMargin)/_sqHeight)*_sqHeight)+_verticalMargin);
-//    return point;
-//}
-
 //NOTE: Point not necessarily on grid
 -(SqID)right:(SqID)point{
     SqID new;
