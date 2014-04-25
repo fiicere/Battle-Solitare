@@ -52,8 +52,9 @@
                    [[Score getInstance] whiteScore]];
     }
     else{
-        message = [NSString stringWithFormat:@"Draw! \nBoth players have %d",
-                   [[Score getInstance]blackScore]];
+        message = [NSString stringWithFormat:@"Draw! \n%d to %d",
+                   [[Score getInstance] blackScore],
+                   [[Score getInstance] whiteScore]];
     }
     
     

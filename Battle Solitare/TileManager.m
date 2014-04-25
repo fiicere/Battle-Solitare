@@ -12,6 +12,7 @@
 #import "Grid.h"
 #import "Deck.h"
 #import "Score.h"
+#import "GameLayer.h"
 
 TileManager* instance;
 NSMutableArray* placedTiles;
@@ -47,16 +48,21 @@ NSMutableArray* placedTiles;
     _topCard = nil;
     _botCard = nil;
     placedTiles = [[NSMutableArray alloc] init];
-}
+
+    [self newBotTile];
+    [self newTopTile];
+    [self newCenterTile];
+    }
 
 -(Tile *)newTopTile{
     if(_topCard != nil){
-     [placedTiles addObject:_topCard];
-     [[Score getInstance] improvedUpdate:_topCard];
+        [placedTiles addObject:_topCard];
+        [[Score getInstance] improvedUpdate:_topCard];
     }
     Tile * t = [[Deck getInstance] getNextCard];
     t.position = [[Grid getInstance] topCardLoc];
     _topCard = t;
+
     return t;
 }
 
@@ -76,11 +82,12 @@ NSMutableArray* placedTiles;
     t.position = ccp(([Grid getInstance].width / 2), [Grid getInstance].height/2);
     t.sqID = [[Grid getInstance] getSquareID:t.position];
     [placedTiles addObject:t];
+    
     return t;
 }
 
 -(NSMutableArray*) getPlacedTiles{
-    return placedTiles;
+    return placedTiles.copy;
 }
 
 
@@ -93,6 +100,17 @@ NSMutableArray* placedTiles;
         // Move the tile
         t.position = [[Grid getInstance] getNearestCenter:loc];
         t.sqID = [[Grid getInstance] getSquareID:t.position];
+        
+        // Replace the tile
+        if(t == _topCard){
+            [self newTopTile];
+        }
+        else if(t == _botCard){
+            [self newBotTile];
+        }
+        else{
+            NSLog(@"ERROR: Card played that was neither top nor bot");
+        }
         
         return true;
     }

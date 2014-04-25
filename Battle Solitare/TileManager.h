@@ -13,9 +13,6 @@
 @interface TileManager : NSObject
 
 +(TileManager *)getInstance;
--(Tile*)newBotTile;
--(Tile*)newTopTile;
--(Tile *)newCenterTile;
 
 @property (nonatomic, assign) Tile * topCard;
 @property (nonatomic, assign) Tile * botCard;

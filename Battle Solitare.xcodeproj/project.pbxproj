@@ -711,16 +711,13 @@
 			isa = PBXGroup;
 			children = (
 				4623445318DA0B26009B9CD5 /* Scenes */,
+				46F19A07190ADF5A002CF527 /* Layers */,
 				46B871A3169260E100B1CACB /* AppDelegate.h */,
 				46B871A4169260E100B1CACB /* AppDelegate.m */,
-				466004ED18F5C936008553AC /* BackgroundLayer.h */,
-				466004EE18F5C936008553AC /* BackgroundLayer.m */,
 				462343D518C69DB4009B9CD5 /* Deck.h */,
 				462343D618C69DB4009B9CD5 /* Deck.m */,
 				46B871B71872026100B1CACB /* Grid.h */,
 				46B871B81872026100B1CACB /* Grid.m */,
-				46B871A6169260E100B1CACB /* GameLayer.h */,
-				46B871A7169260E200B1CACB /* GameLayer.m */,
 				4623442718D2600F009B9CD5 /* ImprovedChild.h */,
 				4623442818D2600F009B9CD5 /* ImprovedChild.m */,
 				462343DC18C9192C009B9CD5 /* ImprovedSprite.h */,
@@ -1134,6 +1131,17 @@
 				46B871A1169260E100B1CACB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46F19A07190ADF5A002CF527 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				466004ED18F5C936008553AC /* BackgroundLayer.h */,
+				466004EE18F5C936008553AC /* BackgroundLayer.m */,
+				46B871A6169260E100B1CACB /* GameLayer.h */,
+				46B871A7169260E200B1CACB /* GameLayer.m */,
+			);
+			name = Layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

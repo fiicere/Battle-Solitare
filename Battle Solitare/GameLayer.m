@@ -31,6 +31,8 @@ const int rectMargin = 20;
 CCLabelTTF * botLabel;
 CCLabelTTF * topLabel;
 
+BOOL firstRun = true;
+
 
 // HelloWorldLayer implementation
 @implementation GameLayer
@@ -45,7 +47,9 @@ CCLabelTTF * topLabel;
         
         [self newGame];
         
-        [self schedule:@selector(updateScore:) interval:0.1];
+        firstRun = true;
+        
+        [self schedule:@selector(updateView:) interval:0.1];
         
         // to enable touch detection
         [self setIsTouchEnabled:YES];
@@ -78,70 +82,6 @@ CCLabelTTF * topLabel;
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 
--(void)existingCode{
-    
-    // create and initialize a Label
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-    
-    // ask director for the window size
-    CGSize size = [[CCDirector sharedDirector] winSize];
-	
-    // position the label on the center of the screen
-    label.position =  ccp( size.width /2 , size.height/2 );
-    
-    // add the label as a child to this Layer
-    [self addChild: label];
-    
-    glClearColor(0, 150, 150, 1);
-    
-    //
-    // Leaderboards and Achievements
-    //
-    
-    // Default font size will be 28 points.
-    [CCMenuItemFont setFontSize:28];
-    
-    // to avoid a retain-cycle with the menuitem and blocks
-    __block id copy_self = self;
-    
-    // Achievement Menu Item using blocks
-    CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-        
-        
-        GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-        achivementViewController.achievementDelegate = copy_self;
-        
-        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-        
-        [[app navController] presentModalViewController:achivementViewController animated:YES];
-        
-        [achivementViewController release];
-    }];
-    
-    // Leaderboard Menu Item using blocks
-    CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-        
-        
-        GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-        leaderboardViewController.leaderboardDelegate = copy_self;
-        
-        AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-        
-        [[app navController] presentModalViewController:leaderboardViewController animated:YES];
-        
-        [leaderboardViewController release];
-    }];
-    
-    
-    CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-    
-    [menu alignItemsHorizontallyWithPadding:20];
-    [menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-    
-    // Add the menu to the layer
-    [self addChild:menu];
-    
-}
 ////////////////////////////////MY CODE////////////////////////////////
 
 -(void)newGame{
@@ -152,8 +92,6 @@ CCLabelTTF * topLabel;
     [[Score getInstance] reset];
 
     touchDict = [NSMapTable new];
-    
-    [self createStartingCards];
     
     [self addPlayerRects];
 
@@ -166,22 +104,11 @@ CCLabelTTF * topLabel;
     while([[TileManager getInstance] getPlacedTiles].count < 50){
         Tile * card = [[TileManager getInstance] newBotTile];
         card.position = ccp((arc4random() % (int)size.width), (arc4random() % (int)size.height));
+
         [self addChild: card];
     }
 }
 
--(void) createStartingCards{
-    [self addChild:[[TileManager getInstance] newCenterTile]];
-    [self addTopCard];
-    [self addBotCard];
-}
-
--(void) addBotCard{
-    [self addChild:[[TileManager getInstance] newBotTile] z:1];
-}
--(void) addTopCard{
-    [self addChild:[[TileManager getInstance] newTopTile] z:1];
-}
 -(void)addPlayerRects{
     CGFloat x = [[Grid getInstance] width];
     CGFloat y = [[Grid getInstance] verticalMargin];
@@ -194,13 +121,50 @@ CCLabelTTF * topLabel;
     bot.position = ccp(bot.boundingBox.size.width/2 + rectMargin/2, bot.boundingBox.size.height/2 + rectMargin/2);
     top.position = ccp(top.boundingBox.size.width/2 + rectMargin/2, [[Grid getInstance] height] - top.boundingBox.size.height/2 - rectMargin/2);
     
-    
     [self addChild:top];
     [self addChild:bot];
     
 }
 
--(void) updateScore:(ccTime)dt{
+
+///////////////////////////UPDATES///////////////////////
+
+-(void)updateView:(ccTime)dt{
+    [self updateScore];
+    [self addHandCards];
+    
+    if(dt > .5 || firstRun){
+        [self addPlayedCards];
+        firstRun = false;
+    }
+}
+
+-(void)addPlayedCards{
+    for(Tile* t in [[[TileManager getInstance] getPlacedTiles] reverseObjectEnumerator]){
+        if([self isChild:t]){
+            return;
+        }
+        [self addChild:t];
+    }
+}
+
+-(void)addHandCards{
+    if(! [self isChild:[[TileManager getInstance] topCard]]){
+        [self addChild:[[TileManager getInstance] topCard]];
+    }
+    if(! [self isChild:[[TileManager getInstance] botCard]]){
+        [self addChild:[[TileManager getInstance] botCard]];
+    }
+}
+
+-(BOOL) isChild:(Tile*)t{
+    if(t.parent == self){
+        return true;
+    }
+    return false;
+}
+
+-(void) updateScore{
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
@@ -270,12 +234,14 @@ CCLabelTTF * topLabel;
             [touchDict setObject:t forKey:touch];
         }
         
-        if(CGRectContainsPoint(botLabel.boundingBox, loc)){
-            [[Score getInstance] printWhitePath];
-        }
-        if(CGRectContainsPoint(topLabel.boundingBox, loc)){
-            [[Score getInstance] printBlackPath];
-        }
+        
+        //DEBUG!!!
+//        if(CGRectContainsPoint(botLabel.boundingBox, loc)){
+//            [[Score getInstance] printWhitePath];
+//        }
+//        if(CGRectContainsPoint(topLabel.boundingBox, loc)){
+//            [[Score getInstance] printBlackPath];
+//        }
     }
 }
 
@@ -288,15 +254,7 @@ CCLabelTTF * topLabel;
         if(! [[TileManager getInstance] moveTile:tile toLoc:([self convertTouchToNodeSpace:touch])]){
             tile.position = t.getStartPoint;
         }
-        // Else if valid location
-        else{
-            if([t getTile] == [[TileManager getInstance] topCard]){
-                [self addTopCard];
-            }
-            else if([t getTile] == [[TileManager getInstance] botCard]){
-                [self addBotCard];
-            }
-        }
+
         [touchDict removeObjectForKey:touch];
     }
     [self checkGameOver];

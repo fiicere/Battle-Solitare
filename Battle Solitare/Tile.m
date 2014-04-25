@@ -121,7 +121,6 @@ const CGFloat numOffset = 0.3;
     [ns2 setPositionX:[[Grid getInstance] sqWidth] * numOffset Y:[[Grid getInstance] sqHeight]*-numOffset];
 
 
-
     [self addChild:ns1 z:2];
     [self addChild:ns2 z:2];
 }
