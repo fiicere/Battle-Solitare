@@ -9,21 +9,27 @@
 #import "MenuScene.h"
 #import "GameScene.h"
 #import "BackgroundLayer.h"
+#import "TileManager.h"
 
-CCLayerColor * ml;
+BackgroundLayer * ml;
 
 @implementation MenuScene
 
--(id) init {
-    self = [super init];
-    
++(CCScene *) scene{
+    // 'scene' is an autorelease object.
+	MenuScene *scene = [MenuScene node];
+	
     ml = [[BackgroundLayer alloc] init];
-        
-    [self SetUpMenu:ml];
     
-    [self addChild:ml];
+	// 'layer' is an autorelease object.
+	[scene SetUpMenu:ml];
     
-    return self;
+	// add layer as a child to scene
+	[scene addChild:ml];
+    
+	// return the scene
+	return scene;
+    
 }
 
 -(void) SetUpMenu:(CCLayer*) menuLayer {
@@ -50,14 +56,12 @@ CCLayerColor * ml;
     [menu addChild:rulesButton];
     [menu addChild:optionsButton];
 
-    
     [menu alignItemsVerticallyWithPadding:32.0f];
     [menuLayer addChild:menu];
 }
 
 -(void)newGame{
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene]]];
-
 }
 
 -(void)insPage{

@@ -1,32 +1,31 @@
 //
-//  GameScene.m
+//  PauseScene.m
 //  Battle Solitare
 //
-//  Created by Kevin Yue on 3/19/14.
+//  Created by Kevin Yue on 5/2/14.
 //  Copyright 2014 Kevin Yue. All rights reserved.
 //
 
-#import "GameScene.h"
-#import "GameLayer.h"
-#import "ScoreScreen.h"
+#import "PauseScene.h"
+#import "PauseLayer.h"
 
-@implementation GameScene
+
+@implementation PauseScene
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
++(CCScene *) sceneWithOrientation:(BOOL)upright
 {
 	// 'scene' is an autorelease object.
-	GameScene *scene = [GameScene node];
+	PauseScene *scene = [PauseScene node];
 	
 	// 'layer' is an autorelease object.
-	GameLayer *layer = [GameLayer node];
+	PauseLayer *pl = [PauseLayer node];
     
 	// add layer as a child to scene
-	[scene addChild: layer z:0];
-
+	[scene addChild: pl z:0];
+    
 	// return the scene
 	return scene;
 }
-
 
 @end

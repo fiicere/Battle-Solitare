@@ -17,8 +17,6 @@
 TileManager* instance;
 NSMutableArray* placedTiles;
 
-BOOL paused = false;
-
 @implementation TileManager
 
 +(TileManager *)getInstance{
@@ -40,7 +38,6 @@ BOOL paused = false;
     [self replaceTiles];
     [[Deck getInstance] resetDeck];
     [[Score getInstance] reset];
-    paused = false;
 }
 
 -(void)replaceTiles{
@@ -97,9 +94,7 @@ BOOL paused = false;
 
 // Tries to move a tile to a location, returns false if invalid move
 -(BOOL)moveTile:(Tile *)t toLoc:(CGPoint)loc{
-    if(paused){
-        return false;
-    }
+
     //If valid location
     if([self isValidTile: t Loc:loc]){
         

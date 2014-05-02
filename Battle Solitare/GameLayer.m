@@ -9,6 +9,8 @@
 
 // Import the interfaces
 #import "GameLayer.h"
+#import "ScoreScreen.h"
+#import "PauseScene.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -203,12 +205,12 @@ BOOL firstRun = true;
 }
 
 -(void) botPaused{
-    NSLog(@"Pause the Bloody Game");
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PauseScene sceneWithOrientation:true]]];
+
 }
 
 -(void) topPaused{
-    NSLog(@"Pause the Bloody Game");
-
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PauseScene sceneWithOrientation:false]]];
 }
 
 -(void)checkGameOver{
@@ -218,7 +220,7 @@ BOOL firstRun = true;
 }
 
 -(void)gameOver{
-    [[self parent] gameOver];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[[ScoreScreen alloc] init]]];
 }
 
 ////////////////////////////////TOUCH HANDLING////////////////////////////////
