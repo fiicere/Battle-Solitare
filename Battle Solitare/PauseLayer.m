@@ -13,7 +13,7 @@
 
 @implementation PauseLayer
 
-BOOL rightSideUp = true;
+BOOL rightSideUp;
 
 -(id)init{
     self = [super init];
@@ -49,19 +49,20 @@ BOOL rightSideUp = true;
         resumeButton.rotation = 180;
         newGameButton.rotation = 180;
         mainMenuButton.rotation = 180;
+        
+        // Add children
+        [menu addChild:mainMenuButton];
+        [menu addChild:newGameButton];
+        [menu addChild:resumeButton];
     }
-    
-    // Add children
-    [menu addChild:resumeButton];
-    [menu addChild:newGameButton];
-    [menu addChild:mainMenuButton];
-    
+    else{
+        // Add children
+        [menu addChild:resumeButton];
+        [menu addChild:newGameButton];
+        [menu addChild:mainMenuButton];
+    }
+
     [menu alignItemsVerticallyWithPadding:32.0f];
-    
-    // Menu Orientation
-    if(! rightSideUp){
-        menu.rotation = 180;
-    }
     
     [self addChild:menu];
 }

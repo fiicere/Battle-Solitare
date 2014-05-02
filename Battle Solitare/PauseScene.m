@@ -19,7 +19,7 @@
 	PauseScene *scene = [PauseScene node];
 	
 	// 'layer' is an autorelease object.
-	PauseLayer *pl = [PauseLayer node];
+	PauseLayer *pl = [[PauseLayer alloc] initWithOrientation:upright];
     
 	// add layer as a child to scene
 	[scene addChild: pl z:0];
