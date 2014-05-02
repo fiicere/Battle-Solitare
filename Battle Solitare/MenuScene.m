@@ -33,6 +33,10 @@ CCLayerColor * ml;
     CCLabelTTF * startGame = [CCLabelTTF labelWithString:@"Start Game" fontName:@"TrajanPro-Regular" fontSize:32];
     CCLabelTTF * instructions = [CCLabelTTF labelWithString:@"How to Play" fontName:@"TrajanPro-Regular" fontSize:32];
     CCLabelTTF * options = [CCLabelTTF labelWithString:@"Options" fontName:@"TrajanPro-Regular" fontSize:32];
+    
+    startGame.color = ccWHITE;
+    instructions.color = ccWHITE;
+    options.color = ccWHITE;
 
     
     CCMenuItem *gameButton = [CCMenuItemLabel itemWithLabel:startGame target:self selector:@selector(newGame)];

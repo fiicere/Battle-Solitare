@@ -28,6 +28,6 @@
 
 -(void) printCard:(Tile*)t;
 
--(void) reset;
+-(void) newGame;
 
 @end

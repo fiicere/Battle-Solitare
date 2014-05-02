@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "GameLayer.h"
 #import "ScoreScreen.h"
+#import "TileManager.h"
 
 @implementation GameScene
 
@@ -17,9 +18,13 @@
 {
 	// 'scene' is an autorelease object.
 	GameScene *scene = [GameScene node];
+    
+    // Tell the tilemanager to begin a new game
+    [[TileManager getInstance] newGame];
 	
 	// 'layer' is an autorelease object.
 	GameLayer *layer = [GameLayer node];
+    
     
 	// add layer as a child to scene
 	[scene addChild: layer z:0];

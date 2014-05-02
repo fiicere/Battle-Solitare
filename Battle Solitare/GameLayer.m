@@ -28,11 +28,12 @@ NSString * blackScoreText;
 const int scoreOffset = 50;
 const int rectMargin = 20;
 
-CCLabelTTF * botLabel;
-CCLabelTTF * topLabel;
+CCLabelTTF * botScoreLabel;
+CCLabelTTF * topScoreLabel;
+CCLabelTTF * botPauseLabel;
+CCLabelTTF * topPauseLabel;
 
 BOOL firstRun = true;
-
 
 // HelloWorldLayer implementation
 @implementation GameLayer
@@ -45,7 +46,14 @@ BOOL firstRun = true;
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
         
-        [self newGame];
+        // Add all layer objects
+        [self addPlayerRects];
+        [self addPauseButtons];
+        [self addScore];
+        
+        // Reset Touches
+        touchDict = [NSMapTable new];
+
         
         firstRun = true;
         
@@ -65,6 +73,7 @@ BOOL firstRun = true;
 	// cocos2d will automatically release all the children (Label)
 	
 	// don't forget to call "super dealloc"
+
 	[super dealloc];
 }
 
@@ -83,21 +92,6 @@ BOOL firstRun = true;
 }
 
 ////////////////////////////////MY CODE////////////////////////////////
-
--(void)newGame{
-    for(CCNode* c in self.children){
-        [c release];
-    }
-    [[TileManager getInstance] reset];
-    [[Score getInstance] reset];
-
-    touchDict = [NSMapTable new];
-    
-    [self addPlayerRects];
-
-    [self addScore];
-
-}
 
 -(void) testGrid{
     CGSize size = [[CCDirector sharedDirector] winSize];
@@ -168,8 +162,8 @@ BOOL firstRun = true;
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    [botLabel setString:whiteScoreText];
-    [topLabel setString:blackScoreText];
+    [botScoreLabel setString:whiteScoreText];
+    [topScoreLabel setString:blackScoreText];
     
 }
 
@@ -177,19 +171,44 @@ BOOL firstRun = true;
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    botLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:12];
-    topLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    topScoreLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:12];
     
-    topLabel.rotation = 180;
+    topScoreLabel.rotation = 180;
     
-    topLabel.color = ccWHITE;
-    botLabel.color = ccBLACK;
+    topScoreLabel.color = ccWHITE;
+    botScoreLabel.color = ccBLACK;
     
-    botLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] botCardLoc].y);
-    topLabel.position = ccp(scoreOffset, [[Grid getInstance] topCardLoc].y);
+    botScoreLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] botCardLoc].y);
+    topScoreLabel.position = ccp(scoreOffset, [[Grid getInstance] topCardLoc].y);
     
-    [self addChild:topLabel];
-    [self addChild:botLabel];
+    [self addChild:topScoreLabel];
+    [self addChild:botScoreLabel];
+}
+
+-(void)addPauseButtons{
+    topPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+    botPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+
+    topPauseLabel.rotation = 180;
+
+    topPauseLabel.color = ccWHITE;
+    botPauseLabel.color = ccBLACK;
+
+    botPauseLabel.position = ccp(scoreOffset, [[Grid getInstance] botCardLoc].y);
+    topPauseLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] topCardLoc].y);
+    
+    [self addChild:botPauseLabel];
+    [self addChild:topPauseLabel];
+}
+
+-(void) botPaused{
+    NSLog(@"Pause the Bloody Game");
+}
+
+-(void) topPaused{
+    NSLog(@"Pause the Bloody Game");
+
 }
 
 -(void)checkGameOver{
@@ -233,15 +252,23 @@ BOOL firstRun = true;
             Touch * t = [[Touch alloc] touchedTile:tile atLoc:tile.position];
             [touchDict setObject:t forKey:touch];
         }
-        
+
+        //Check for game paused
+        if(CGRectContainsPoint(botPauseLabel.boundingBox, loc)){
+            [self botPaused];
+        }
+        if(CGRectContainsPoint(topPauseLabel.boundingBox, loc)){
+            [self topPaused];
+        }
         
         //DEBUG!!!
-//        if(CGRectContainsPoint(botLabel.boundingBox, loc)){
+//        if(CGRectContainsPoint(botScoreLabel.boundingBox, loc)){
 //            [[Score getInstance] printWhitePath];
 //        }
-//        if(CGRectContainsPoint(topLabel.boundingBox, loc)){
+//        if(CGRectContainsPoint(topScoreLabel.boundingBox, loc)){
 //            [[Score getInstance] printBlackPath];
 //        }
+        
     }
 }
 
