@@ -91,7 +91,7 @@ const int gridDimens = 7;
 }
 
 -(BOOL) isOnGrid:(SqID)sqID{
-    if (sqID.x >= gridDimens || sqID.y >= gridDimens) {
+    if (sqID.x >= gridDimens || sqID.x < 0 || sqID.y >= gridDimens || sqID.y < 0) {
         return false;
     }
     return true;
