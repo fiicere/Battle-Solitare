@@ -8,10 +8,12 @@
 
 #import "ScoreLayer.h"
 #import "TileManager.h"
-#import "BackgroundLayer.h"
 #import "Tile.h"
 #import "MenuScene.h"
+#import "Score.h"
 
+const int scoreOffset = 50;
+const int rectMargin = 20;
 
 @implementation ScoreLayer
 
@@ -19,6 +21,9 @@
     self = [super init];
     
     [self addAllCards];
+//    [self addPlayerRects];
+    
+    [self schedule:@selector(drawPath:) interval:0.1];
     
     return self;
 }
@@ -31,6 +36,10 @@
 }
 
 
+/////////////////////////PATH DRAWING//////////////////////////
+-(void) drawPath:(ccTime)dt{
+    
+}
 
 
 
