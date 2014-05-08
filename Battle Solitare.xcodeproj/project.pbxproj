@@ -75,6 +75,7 @@
 		4623445C18E48197009B9CD5 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445B18E48197009B9CD5 /* MenuScene.m */; };
 		46412A13191418CE00E1902B /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A12191418CE00E1902B /* PauseLayer.m */; };
 		46412A1619141EBC00E1902B /* PauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A1519141EBC00E1902B /* PauseScene.m */; };
+		46412A19191AF83B00E1902B /* ScoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A18191AF83B00E1902B /* ScoreLayer.m */; };
 		465169A818F47DE100D6DF30 /* wild card.png in Resources */ = {isa = PBXBuildFile; fileRef = 465169A718F47DE100D6DF30 /* wild card.png */; };
 		466004E918F5C4D9008553AC /* green felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004E618F5C4D9008553AC /* green felt.png */; };
 		466004EA18F5C4D9008553AC /* white felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004E718F5C4D9008553AC /* white felt.png */; };
@@ -293,6 +294,8 @@
 		46412A12191418CE00E1902B /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
 		46412A1419141EBC00E1902B /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
 		46412A1519141EBC00E1902B /* PauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseScene.m; sourceTree = "<group>"; };
+		46412A17191AF83B00E1902B /* ScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLayer.h; sourceTree = "<group>"; };
+		46412A18191AF83B00E1902B /* ScoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreLayer.m; sourceTree = "<group>"; };
 		465169A718F47DE100D6DF30 /* wild card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wild card.png"; sourceTree = "<group>"; };
 		466004E618F5C4D9008553AC /* green felt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green felt.png"; sourceTree = "<group>"; };
 		466004E718F5C4D9008553AC /* white felt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white felt.png"; sourceTree = "<group>"; };
@@ -744,7 +747,6 @@
 			);
 			path = "Battle Solitare";
 			sourceTree = "<group>";
-			usesTabs = 0;
 		};
 		46B87013169260DF00B1CACB /* Resources */ = {
 			isa = PBXGroup;
@@ -1151,6 +1153,8 @@
 				46B871A7169260E200B1CACB /* GameLayer.m */,
 				46412A11191418CE00E1902B /* PauseLayer.h */,
 				46412A12191418CE00E1902B /* PauseLayer.m */,
+				46412A17191AF83B00E1902B /* ScoreLayer.h */,
+				46412A18191AF83B00E1902B /* ScoreLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1357,6 +1361,7 @@
 				46412A13191418CE00E1902B /* PauseLayer.m in Sources */,
 				46B87104169260E100B1CACB /* CCTransitionPageTurn.m in Sources */,
 				46B87107169260E100B1CACB /* CCTransitionProgress.m in Sources */,
+				46412A19191AF83B00E1902B /* ScoreLayer.m in Sources */,
 				46B8710B169260E100B1CACB /* cocos2d.m in Sources */,
 				4623445618DA0B6A009B9CD5 /* GameScene.m in Sources */,
 				46B87112169260E100B1CACB /* CCDirectorIOS.m in Sources */,
