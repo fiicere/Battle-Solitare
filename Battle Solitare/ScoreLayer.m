@@ -11,19 +11,7 @@
 #import "BackgroundLayer.h"
 #import "Tile.h"
 #import "MenuScene.h"
-#import "Score.h"
-#import "Grid.h"
 
-int blackScore;
-int whiteScore;
-
-int currentWhiteInd;
-int currentBlackInd;
-
-CGPoint lastPoint;
-
-// In pixels/second
-const float speed = 1000;
 
 @implementation ScoreLayer
 
@@ -31,15 +19,6 @@ const float speed = 1000;
     self = [super init];
     
     [self addAllCards];
-    blackScore = 0;
-    whiteScore = 0;
-    
-    currentWhiteInd = 0;
-    currentBlackInd = 0;
-    
-    lastPoint = [[[[Score getInstance] blackPath] objectAtIndex:0] position];
-    
-    [self schedule:@selector(pathing:)];
     
     return self;
 }
@@ -51,20 +30,6 @@ const float speed = 1000;
 
 }
 
--(void)pathing:(ccTime)dt{
-    // If drawing the black path
-    if(currentBlackInd < [[Score getInstance] blackScore]){
-        
-    }
-    // If drawing the white path
-    else if(currentWhiteInd < [[Score getInstance] whiteScore]){
-        
-    }
-    // Else if both paths finished
-    else{
-        
-    }
-}
 
 
 
