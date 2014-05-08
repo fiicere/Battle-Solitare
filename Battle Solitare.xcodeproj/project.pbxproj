@@ -76,6 +76,7 @@
 		46412A13191418CE00E1902B /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A12191418CE00E1902B /* PauseLayer.m */; };
 		46412A1619141EBC00E1902B /* PauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A1519141EBC00E1902B /* PauseScene.m */; };
 		46412A19191AF83B00E1902B /* ScoreLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A18191AF83B00E1902B /* ScoreLayer.m */; };
+		46412A1C191B1FB200E1902B /* Marker.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A1B191B1FB200E1902B /* Marker.m */; };
 		465169A818F47DE100D6DF30 /* wild card.png in Resources */ = {isa = PBXBuildFile; fileRef = 465169A718F47DE100D6DF30 /* wild card.png */; };
 		466004E918F5C4D9008553AC /* green felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004E618F5C4D9008553AC /* green felt.png */; };
 		466004EA18F5C4D9008553AC /* white felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004E718F5C4D9008553AC /* white felt.png */; };
@@ -296,6 +297,8 @@
 		46412A1519141EBC00E1902B /* PauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseScene.m; sourceTree = "<group>"; };
 		46412A17191AF83B00E1902B /* ScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLayer.h; sourceTree = "<group>"; };
 		46412A18191AF83B00E1902B /* ScoreLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreLayer.m; sourceTree = "<group>"; };
+		46412A1A191B1FB200E1902B /* Marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marker.h; sourceTree = "<group>"; };
+		46412A1B191B1FB200E1902B /* Marker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marker.m; sourceTree = "<group>"; };
 		465169A718F47DE100D6DF30 /* wild card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wild card.png"; sourceTree = "<group>"; };
 		466004E618F5C4D9008553AC /* green felt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green felt.png"; sourceTree = "<group>"; };
 		466004E718F5C4D9008553AC /* white felt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white felt.png"; sourceTree = "<group>"; };
@@ -611,8 +614,6 @@
 		4623442A18D2682E009B9CD5 /* Old Assets */ = {
 			isa = PBXGroup;
 			children = (
-				462343DA18C90FAD009B9CD5 /* White Pixel.tiff */,
-				462343D818C90FA5009B9CD5 /* Black Pixel.tiff */,
 				46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */,
 				4623438518C52903009B9CD5 /* b2c.tif */,
 				4623438618C52903009B9CD5 /* b2d.tif */,
@@ -733,6 +734,8 @@
 				4623442818D2600F009B9CD5 /* ImprovedChild.m */,
 				462343DC18C9192C009B9CD5 /* ImprovedSprite.h */,
 				462343DD18C9192C009B9CD5 /* ImprovedSprite.m */,
+				46412A1A191B1FB200E1902B /* Marker.h */,
+				46412A1B191B1FB200E1902B /* Marker.m */,
 				462343DF18CA81AD009B9CD5 /* Score.h */,
 				462343E018CA81AD009B9CD5 /* Score.m */,
 				46B871B11872024400B1CACB /* Tile.h */,
@@ -753,6 +756,8 @@
 			children = (
 				466004F418FF1914008553AC /* Fonts */,
 				4623442A18D2682E009B9CD5 /* Old Assets */,
+				462343DA18C90FAD009B9CD5 /* White Pixel.tiff */,
+				462343D818C90FA5009B9CD5 /* Black Pixel.tiff */,
 				4623444B18D79380009B9CD5 /* clubs.png */,
 				4623444C18D79380009B9CD5 /* diamonds.png */,
 				4623444D18D79380009B9CD5 /* hearts.png */,
@@ -1294,6 +1299,7 @@
 				46B87035169260DF00B1CACB /* CCActionCatmullRom.m in Sources */,
 				46B87038169260DF00B1CACB /* CCActionEase.m in Sources */,
 				46B8703B169260DF00B1CACB /* CCActionGrid.m in Sources */,
+				46412A1C191B1FB200E1902B /* Marker.m in Sources */,
 				46B8703E169260DF00B1CACB /* CCActionGrid3D.m in Sources */,
 				46B87041169260DF00B1CACB /* CCActionInstant.m in Sources */,
 				46B87044169260DF00B1CACB /* CCActionInterval.m in Sources */,
