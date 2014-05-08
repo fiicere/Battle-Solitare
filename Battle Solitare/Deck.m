@@ -44,6 +44,7 @@ NSArray * allColors;
 
 // Creates 1 of each card (and numWilds wild cards)
 -(void)resetDeck{
+    cardsInDeck = [NSMutableArray new];
     [self setupArrays];
     for (int i=0; i< numWilds; i++){
         Tile * t = [[Tile alloc] initWildCard];

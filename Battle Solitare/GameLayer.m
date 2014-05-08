@@ -35,8 +35,6 @@ CCLabelTTF * topScoreLabel;
 CCLabelTTF * botPauseLabel;
 CCLabelTTF * topPauseLabel;
 
-BOOL firstRun = true;
-
 // HelloWorldLayer implementation
 @implementation GameLayer
 
@@ -52,13 +50,11 @@ BOOL firstRun = true;
         [self addPlayerRects];
         [self addPauseButtons];
         [self addScore];
+        [self addPlayedCards];
         
         // Reset Touches
         touchDict = [NSMapTable new];
 
-        
-        firstRun = true;
-        
         [self schedule:@selector(updateView:) interval:0.1];
         
         // to enable touch detection
@@ -75,7 +71,7 @@ BOOL firstRun = true;
 	// cocos2d will automatically release all the children (Label)
 	
 	// don't forget to call "super dealloc"
-
+    
 	[super dealloc];
 }
 
@@ -129,9 +125,8 @@ BOOL firstRun = true;
     [self updateScore];
     [self addHandCards];
     
-    if(dt > .5 || firstRun){
+    if(dt > .5){
         [self addPlayedCards];
-        firstRun = false;
     }
 }
 
@@ -141,6 +136,12 @@ BOOL firstRun = true;
             return;
         }
         [self addChild:t];
+    }
+}
+
+-(void) removeAllCards{
+    for(Tile*t in [[TileManager getInstance] getPlacedTiles]){
+        [self removeChild:t];
     }
 }
 
@@ -220,7 +221,8 @@ BOOL firstRun = true;
 }
 
 -(void)gameOver{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[[ScoreScreen alloc] init]]];
+    [self removeAllCards];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[ScoreScreen scene]]];
 }
 
 ////////////////////////////////TOUCH HANDLING////////////////////////////////
