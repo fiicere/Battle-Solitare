@@ -10,11 +10,10 @@
 #import "Score.h"
 #import "IntroScene.h"
 #import "GameScene.h"
+#import "BackgroundLayer.h"
 #import "ScoreLayer.h"
 
 @implementation ScoreScreen
-
-ScoreLayer * cardLayer;
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -23,28 +22,15 @@ ScoreLayer * cardLayer;
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	cardLayer = [[ScoreLayer alloc] init];
-    
+	ScoreLayer * layer = [[ScoreLayer alloc] init];
+	
 	// add layer as a child to scene
-	[scene addChild: cardLayer];
+	[scene addChild: layer];
     
 	// return the scene
 	return scene;
 }
 
-
-/////////////////////////TOUCH EVENTS//////////////////////////
-
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [[CCDirector sharedDirector] replaceScene:[GameScene scene]];}
-
--(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-
-}
-
--(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-
-}
 
 
 @end
