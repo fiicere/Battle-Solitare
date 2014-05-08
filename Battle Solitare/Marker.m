@@ -15,6 +15,7 @@ const float speed = 500;
 int i;
 NSArray * path;
 ccColor4F myColor;
+CCMotionStreak * trail;
 
 
 -(id)init{
@@ -42,6 +43,8 @@ ccColor4F myColor;
     
     // Schedule Timers
     [self schedule:@selector(move:)];
+    
+    //
     
     return self;
 }
