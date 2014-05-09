@@ -11,7 +11,8 @@
 #import "BackgroundLayer.h"
 #import "Tile.h"
 #import "MenuScene.h"
-#import "Draw.h"
+#import "Drawer.h"
+#import "Score.h"
 
 
 @implementation ScoreLayer
@@ -21,7 +22,8 @@
     
     [self addAllCards];
     
-    [self addChild:[[Draw alloc]init] z:10];
+//    [self addChild:[[Drawer alloc]initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true] z:10];
+//    [self addChild:[[Drawer alloc]initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false] z:10];
     
     return self;
 }
