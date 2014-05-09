@@ -29,9 +29,7 @@ float yShrinkRate;
     self = [super init];
     
     [self addAllCards];
-    
-//    [self addChild:[[Drawer alloc]initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true] z:10];
-//    [self addChild:[[Drawer alloc]initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false] z:10];
+    [self addScore];
     
     xShrinkRate = [[Grid getInstance] sqWidth] / shrinkTime;
     yShrinkRate = [[Grid getInstance] sqHeight] / shrinkTime;
@@ -39,16 +37,10 @@ float yShrinkRate;
     dropList = [NSMutableArray new];
     notDropList = [NSMutableArray new];
     
-    [self schedule:@selector(dropCard:) interval:0.1];
+    [self schedule:@selector(dropCard:) interval:0.075];
     [self schedule:@selector(shrink:)];
     
     return self;
-}
-
--(void) addAllCards{
-    for (Tile * t in [[TileManager getInstance] getPlacedTiles]){
-        [self addChild:t];
-    }
 }
 
 -(void) dropCard:(ccTime)dt{
@@ -73,7 +65,7 @@ float yShrinkRate;
         }
     }
     [self unschedule:@selector(dropCard:)];
-
+    [self fireworks];
 }
 
 -(void)shrink:(ccTime)dt{
@@ -82,8 +74,8 @@ float yShrinkRate;
             continue;
         }
         else{
-            t.scaleX = t.scaleX / (1+dt);
-            t.scaleY = t.scaleY / (1+dt);
+            t.scaleX = t.scaleX / (1+dt*2);
+            t.scaleY = t.scaleY / (1+dt*2);
         }
     }
     for (Tile*t in notDropList){
@@ -92,6 +84,10 @@ float yShrinkRate;
             child.scaleY = child.scaleY/(1+dt*2);
         }
     }
+}
+
+-(void) fireworks{
+    
 }
 
 /////////////////////////INIT METHODS//////////////////////////
@@ -104,6 +100,31 @@ float yShrinkRate;
     [super onExit];
 }
 
+
+-(void) addAllCards{
+    for (Tile * t in [[TileManager getInstance] getPlacedTiles]){
+        [self addChild:t];
+    }
+}
+
+-(void) addScore{
+    NSString * blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
+    NSString * whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
+    
+    CCLabelTTF * botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:18];
+    CCLabelTTF * topScoreLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:18];
+    
+    topScoreLabel.rotation = 180;
+    
+    topScoreLabel.color = ccWHITE;
+    botScoreLabel.color = ccBLACK;
+    
+    botScoreLabel.position = ccp([[Grid getInstance] width]/2, [[Grid getInstance] botCardLoc].y);
+    topScoreLabel.position = ccp([[Grid getInstance] width]/2, [[Grid getInstance] topCardLoc].y);
+    
+    [self addChild:topScoreLabel];
+    [self addChild:botScoreLabel];
+}
 
 /////////////////////////TOUCH EVENTS//////////////////////////
 
