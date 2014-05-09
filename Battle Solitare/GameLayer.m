@@ -132,7 +132,7 @@ CCLabelTTF * topPauseLabel;
 
 -(void)addPlayedCards{
     for(Tile* t in [[[TileManager getInstance] getPlacedTiles] reverseObjectEnumerator]){
-        if([self isChild:t]){
+        if([self isParent:t]){
             return;
         }
         [self addChild:t];
@@ -146,15 +146,15 @@ CCLabelTTF * topPauseLabel;
 }
 
 -(void)addHandCards{
-    if(! [self isChild:[[TileManager getInstance] topCard]]){
+    if(! [self isParent:[[TileManager getInstance] topCard]]){
         [self addChild:[[TileManager getInstance] topCard]];
     }
-    if(! [self isChild:[[TileManager getInstance] botCard]]){
+    if(! [self isParent:[[TileManager getInstance] botCard]]){
         [self addChild:[[TileManager getInstance] botCard]];
     }
 }
 
--(BOOL) isChild:(Tile*)t{
+-(BOOL) isParent:(Tile*)t{
     if(t.parent == self){
         return true;
     }

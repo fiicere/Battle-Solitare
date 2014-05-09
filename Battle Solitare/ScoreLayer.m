@@ -11,6 +11,7 @@
 #import "BackgroundLayer.h"
 #import "Tile.h"
 #import "MenuScene.h"
+#import "Draw.h"
 
 
 @implementation ScoreLayer
@@ -19,6 +20,8 @@
     self = [super init];
     
     [self addAllCards];
+    
+    [self addChild:[[Draw alloc]init] z:10];
     
     return self;
 }
