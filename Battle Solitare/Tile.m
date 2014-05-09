@@ -17,6 +17,8 @@ const CGFloat suitSize = 0.45;
 const CGFloat numSize = 0.2;
 const CGFloat numOffset = 0.3;
 
+const float shrinkTime = 1;
+
 @implementation Tile
 
 -(id)init{
@@ -159,6 +161,7 @@ const CGFloat numOffset = 0.3;
     return false;
 }
 
+///////////////////////////DEBUG//////////////////////////////////
 -(void) printCard{
     if([_suit isEqualToString:@"wild"]){
         NSLog(@"Wild Card at (%u, %u)", _sqID.x, _sqID.y);
