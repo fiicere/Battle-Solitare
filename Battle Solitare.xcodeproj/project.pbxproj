@@ -214,6 +214,7 @@
 		46B871B61872025600B1CACB /* TileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B51872025600B1CACB /* TileManager.m */; };
 		46B871B91872026100B1CACB /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B81872026100B1CACB /* Grid.m */; };
 		46FE80A0191C3AFE003AEE55 /* Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE809F191C3AFE003AEE55 /* Drawer.m */; };
+		46FE80A6191D9E14003AEE55 /* BackgroundWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -588,6 +589,8 @@
 		46B871B81872026100B1CACB /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		46FE809E191C3AFE003AEE55 /* Drawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawer.h; sourceTree = "<group>"; };
 		46FE809F191C3AFE003AEE55 /* Drawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawer.m; sourceTree = "<group>"; };
+		46FE80A4191D9E14003AEE55 /* BackgroundWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundWithRects.h; sourceTree = "<group>"; };
+		46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundWithRects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1154,6 +1157,8 @@
 			children = (
 				466004ED18F5C936008553AC /* BackgroundLayer.h */,
 				466004EE18F5C936008553AC /* BackgroundLayer.m */,
+				46FE80A4191D9E14003AEE55 /* BackgroundWithRects.h */,
+				46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */,
 				46B871A6169260E100B1CACB /* GameLayer.h */,
 				46B871A7169260E200B1CACB /* GameLayer.m */,
 				46412A11191418CE00E1902B /* PauseLayer.h */,
@@ -1382,6 +1387,7 @@
 				462343DE18C9192C009B9CD5 /* ImprovedSprite.m in Sources */,
 				46B87130169260E100B1CACB /* base64.c in Sources */,
 				46B87134169260E100B1CACB /* CCArray.m in Sources */,
+				46FE80A6191D9E14003AEE55 /* BackgroundWithRects.m in Sources */,
 				46B87137169260E100B1CACB /* ccCArray.m in Sources */,
 				46B8713A169260E100B1CACB /* CCFileUtils.m in Sources */,
 				46B8713D169260E100B1CACB /* CCProfiling.m in Sources */,
