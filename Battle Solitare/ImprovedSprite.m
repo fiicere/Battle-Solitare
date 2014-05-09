@@ -24,5 +24,11 @@
     self.scaleY = newY / currentHeight;
 }
 
+-(void) changeOpacity:(CGFloat)newOpacity{
+    self.opacity = newOpacity;
+    for (ImprovedSprite* child in self.children){
+        [child changeOpacity:newOpacity];
+    }
+}
 
 @end

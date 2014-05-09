@@ -14,5 +14,6 @@
 }
 
 -(void)scaleToX:(CGFloat)newX Y:(CGFloat)newY;
+-(void) changeOpacity:(CGFloat)newOpacity;
 
 @end

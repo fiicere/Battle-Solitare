@@ -10,6 +10,7 @@
 #import "TileManager.h"
 #import "Tile.h"
 #import "MenuScene.h"
+#import "ImprovedChild.h"
 #import "Drawer.h"
 #import "Score.h"
 #import "Grid.h"
@@ -17,6 +18,7 @@
 @implementation ScoreLayer
 
 NSMutableArray * dropList;
+NSMutableArray * notDropList;
 
 const float shrinkTime = 1;
 
@@ -34,6 +36,9 @@ float yShrinkRate;
     xShrinkRate = [[Grid getInstance] sqWidth] / shrinkTime;
     yShrinkRate = [[Grid getInstance] sqHeight] / shrinkTime;
     
+    dropList = [NSMutableArray new];
+    notDropList = [NSMutableArray new];
+    
     [self schedule:@selector(dropCard:) interval:0.1];
     [self schedule:@selector(shrink:)];
     
@@ -48,37 +53,46 @@ float yShrinkRate;
 
 -(void) dropCard:(ccTime)dt{
     for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
-        if([[[Score getInstance] whitePath] containsObject:t]){
+        if([notDropList containsObject:t]){
             continue;
+        }
+        else if([dropList containsObject:t]){
+            continue;
+        }
+        else if([[[Score getInstance] whitePath] containsObject:t]){
+            [notDropList addObject:t];
+            return;
         }
         else if([[[Score getInstance] blackPath] containsObject:t]){
-            continue;
-        }
-        else if(![dropList containsObject:t]){
-            continue;
+            [notDropList addObject:t];
+            return;
         }
         else{
             [dropList addObject:t];
-            break;
+            return;
         }
-        [self unschedule:@selector(dropCard:)];
     }
+    [self unschedule:@selector(dropCard:)];
+
 }
 
 -(void)shrink:(ccTime)dt{
     for (Tile*t in dropList){
-        float height = t.boundingBox.size.height;
-        float width = t.boundingBox.size.width;
-        if(height <=0.1 && width <=0.1){
+        if(t.scaleX <=0.000001 && t.scaleY <=0.000001){
             continue;
         }
         else{
-            [t scaleToX:width/2 Y:height/2];
+            t.scaleX = t.scaleX / (1+dt);
+            t.scaleY = t.scaleY / (1+dt);
         }
     }
-    
+    for (Tile*t in notDropList){
+        for(ImprovedChild * child in t.children){
+            child.scaleX = child.scaleX/(1+dt*2);
+            child.scaleY = child.scaleY/(1+dt*2);
+        }
+    }
 }
-
 
 /////////////////////////INIT METHODS//////////////////////////
 -(void)onEnter{
