@@ -70,7 +70,7 @@
 		4623445018D79380009B9CD5 /* diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444C18D79380009B9CD5 /* diamonds.png */; };
 		4623445118D79380009B9CD5 /* hearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444D18D79380009B9CD5 /* hearts.png */; };
 		4623445218D79380009B9CD5 /* spades.png in Resources */ = {isa = PBXBuildFile; fileRef = 4623444E18D79380009B9CD5 /* spades.png */; };
-		4623445618DA0B6A009B9CD5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445518DA0B6A009B9CD5 /* GameScene.m */; };
+		4623445618DA0B6A009B9CD5 /* DuoGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445518DA0B6A009B9CD5 /* DuoGameScene.m */; };
 		4623445918DA18FE009B9CD5 /* ScoreScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445818DA18FE009B9CD5 /* ScoreScreen.m */; };
 		4623445C18E48197009B9CD5 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623445B18E48197009B9CD5 /* MenuScene.m */; };
 		46412A13191418CE00E1902B /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46412A12191418CE00E1902B /* PauseLayer.m */; };
@@ -216,6 +216,7 @@
 		46FE80A0191C3AFE003AEE55 /* Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE809F191C3AFE003AEE55 /* Drawer.m */; };
 		46FE80A6191D9E14003AEE55 /* BackgroundWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */; };
 		46FE80A91924201F003AEE55 /* SoloGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A81924201F003AEE55 /* SoloGameLayer.m */; };
+		46FE80AC192424B3003AEE55 /* SoloGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80AB192424B3003AEE55 /* SoloGameScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -287,8 +288,8 @@
 		4623444C18D79380009B9CD5 /* diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamonds.png; sourceTree = "<group>"; };
 		4623444D18D79380009B9CD5 /* hearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hearts.png; sourceTree = "<group>"; };
 		4623444E18D79380009B9CD5 /* spades.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spades.png; sourceTree = "<group>"; };
-		4623445418DA0B6A009B9CD5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		4623445518DA0B6A009B9CD5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		4623445418DA0B6A009B9CD5 /* DuoGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoGameScene.h; sourceTree = "<group>"; };
+		4623445518DA0B6A009B9CD5 /* DuoGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoGameScene.m; sourceTree = "<group>"; };
 		4623445718DA18FE009B9CD5 /* ScoreScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreScreen.h; sourceTree = "<group>"; };
 		4623445818DA18FE009B9CD5 /* ScoreScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreScreen.m; sourceTree = "<group>"; };
 		4623445A18E48197009B9CD5 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
@@ -594,6 +595,8 @@
 		46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundWithRects.m; sourceTree = "<group>"; };
 		46FE80A71924201F003AEE55 /* SoloGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoloGameLayer.h; sourceTree = "<group>"; };
 		46FE80A81924201F003AEE55 /* SoloGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoloGameLayer.m; sourceTree = "<group>"; };
+		46FE80AA192424B3003AEE55 /* SoloGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoloGameScene.h; sourceTree = "<group>"; };
+		46FE80AB192424B3003AEE55 /* SoloGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoloGameScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,8 +673,10 @@
 		4623445318DA0B26009B9CD5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4623445418DA0B6A009B9CD5 /* GameScene.h */,
-				4623445518DA0B6A009B9CD5 /* GameScene.m */,
+				4623445418DA0B6A009B9CD5 /* DuoGameScene.h */,
+				4623445518DA0B6A009B9CD5 /* DuoGameScene.m */,
+				46FE80AA192424B3003AEE55 /* SoloGameScene.h */,
+				46FE80AB192424B3003AEE55 /* SoloGameScene.m */,
 				46B871A9169260E200B1CACB /* IntroScene.h */,
 				46B871AA169260E200B1CACB /* IntroScene.m */,
 				4623445A18E48197009B9CD5 /* MenuScene.h */,
@@ -1380,7 +1385,7 @@
 				46B87107169260E100B1CACB /* CCTransitionProgress.m in Sources */,
 				46412A19191AF83B00E1902B /* ScoreLayer.m in Sources */,
 				46B8710B169260E100B1CACB /* cocos2d.m in Sources */,
-				4623445618DA0B6A009B9CD5 /* GameScene.m in Sources */,
+				4623445618DA0B6A009B9CD5 /* DuoGameScene.m in Sources */,
 				46B87112169260E100B1CACB /* CCDirectorIOS.m in Sources */,
 				46B87115169260E100B1CACB /* CCES2Renderer.m in Sources */,
 				46B87119169260E100B1CACB /* CCGLView.m in Sources */,
@@ -1430,6 +1435,7 @@
 				46B871A2169260E100B1CACB /* main.m in Sources */,
 				46B871A5169260E100B1CACB /* AppDelegate.m in Sources */,
 				46B871A8169260E200B1CACB /* DuoGameLayer.m in Sources */,
+				46FE80AC192424B3003AEE55 /* SoloGameScene.m in Sources */,
 				46B871AB169260E200B1CACB /* IntroScene.m in Sources */,
 				46B871B31872024400B1CACB /* Tile.m in Sources */,
 				46B871B61872025600B1CACB /* TileManager.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "MenuScene.h"
-#import "GameScene.h"
+#import "DuoGameScene.h"
 #import "BackgroundLayer.h"
 #import "TileManager.h"
 
@@ -36,23 +36,27 @@ BackgroundLayer * ml;
     CCMenu *menu = [CCMenu menuWithItems:nil];
     
     // Game Mode Labels
-    CCLabelTTF * startGame = [CCLabelTTF labelWithString:@"Start Game" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * startSoloGame = [CCLabelTTF labelWithString:@"Solo Game" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * startDuoGame = [CCLabelTTF labelWithString:@"Multiplayer Game" fontName:@"TrajanPro-Regular" fontSize:32];
+
     CCLabelTTF * instructions = [CCLabelTTF labelWithString:@"How to Play" fontName:@"TrajanPro-Regular" fontSize:32];
     CCLabelTTF * options = [CCLabelTTF labelWithString:@"Options" fontName:@"TrajanPro-Regular" fontSize:32];
     
-    startGame.color = ccWHITE;
+    startSoloGame.color = ccWHITE;
     instructions.color = ccWHITE;
     options.color = ccWHITE;
 
     
-    CCMenuItem *gameButton = [CCMenuItemLabel itemWithLabel:startGame target:self selector:@selector(newGame)];
+    CCMenuItem *soloGameButton = [CCMenuItemLabel itemWithLabel:startSoloGame target:self selector:@selector(newSoloGame)];
+    CCMenuItem *duoGameButton = [CCMenuItemLabel itemWithLabel:startDuoGame target:self selector:@selector(newDuoGame)];
     CCMenuItem *rulesButton = [CCMenuItemLabel itemWithLabel:instructions target:self selector:@selector(insPage)];
     CCMenuItem *optionsButton = [CCMenuItemLabel itemWithLabel:options target:self selector:@selector(opPage)];
 
     
     
     
-    [menu addChild:gameButton];
+    [menu addChild:soloGameButton];
+    [menu addChild:duoGameButton];
     [menu addChild:rulesButton];
     [menu addChild:optionsButton];
 
@@ -60,8 +64,12 @@ BackgroundLayer * ml;
     [menuLayer addChild:menu];
 }
 
--(void)newGame{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+-(void)newSoloGame{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
+}
+
+-(void)newDuoGame{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
 }
 
 -(void)insPage{

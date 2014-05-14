@@ -7,7 +7,7 @@
 //
 
 #import "PauseLayer.h"
-#import "GameScene.h"
+#import "DuoGameScene.h"
 #import "MenuScene.h"
 #import "TileManager.h"
 
@@ -68,12 +68,12 @@ BOOL rightSideUp;
 }
 
 -(void)resumeGame{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
 
 }
 -(void)startNewGame{
     [[TileManager getInstance] newGame];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
 
 }
 -(void)backToMenu{

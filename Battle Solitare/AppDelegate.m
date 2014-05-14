@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "GameScene.h"
+#import "DuoGameScene.h"
 #import "IntroScene.h"
 #import "ScoreScreen.h"
 #import "MenuScene.h"

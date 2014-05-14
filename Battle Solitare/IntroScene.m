@@ -10,7 +10,7 @@
 // Import the interfaces
 #import "IntroScene.h"
 #import "DuoGameLayer.h"
-#import "GameScene.h"
+#import "DuoGameScene.h"
 #import "ScoreScreen.h"
 
 
@@ -63,7 +63,7 @@
 -(void) onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
 }
 
 -(void)onExit{
