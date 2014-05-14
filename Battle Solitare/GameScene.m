@@ -7,7 +7,7 @@
 //
 
 #import "GameScene.h"
-#import "SoloGameLayer.h"
+#import "DuoGameLayer.h"
 #import "ScoreScreen.h"
 
 @implementation GameScene
@@ -19,7 +19,7 @@
 	GameScene *scene = [GameScene node];
 	
 	// 'layer' is an autorelease object.
-	SoloGameLayer *layer = [SoloGameLayer node];
+	DuoGameLayer *layer = [DuoGameLayer node];
     
 	// add layer as a child to scene
 	[scene addChild: layer z:0];

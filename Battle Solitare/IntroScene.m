@@ -9,7 +9,7 @@
 
 // Import the interfaces
 #import "IntroScene.h"
-#import "SoloGameLayer.h"
+#import "DuoGameLayer.h"
 #import "GameScene.h"
 #import "ScoreScreen.h"
 

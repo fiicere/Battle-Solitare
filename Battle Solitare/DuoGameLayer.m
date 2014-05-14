@@ -1,13 +1,14 @@
 //
-//  DuoGameLayer.m
+//  HelloWorldLayer.m
 //  Battle Solitare
 //
-//  Created by Kevin Yue on 5/14/14.
-//  Copyright 2014 Kevin Yue. All rights reserved.
+//  Created by Kevin Yue on 12/31/12.
+//  Copyright Kevin Yue 2012. All rights reserved.
 //
 
+
 // Import the interfaces
-#import "SoloGameLayer.h"
+#import "DuoGameLayer.h"
 #import "ScoreScreen.h"
 #import "PauseScene.h"
 
@@ -27,7 +28,7 @@ NSMapTable * touchDict;
 NSString * whiteScoreText;
 NSString * blackScoreText;
 
-const int soloScoreOffset = 50;
+const int scoreOffset = 50;
 
 CCLabelTTF * botScoreLabel;
 CCLabelTTF * topScoreLabel;
@@ -35,7 +36,7 @@ CCLabelTTF * botPauseLabel;
 CCLabelTTF * topPauseLabel;
 
 // HelloWorldLayer implementation
-@implementation SoloGameLayer
+@implementation DuoGameLayer
 
 
 // on "init" you need to initialize your instance
@@ -53,12 +54,12 @@ CCLabelTTF * topPauseLabel;
         
         // Reset Touches
         touchDict = [NSMapTable new];
-        
+
         [self schedule:@selector(updateView:) interval:0.1];
         
         // to enable touch detection
         [self setIsTouchEnabled:YES];
-    }
+        }
 	return self;
 }
 
@@ -164,8 +165,8 @@ CCLabelTTF * topPauseLabel;
     topScoreLabel.color = ccWHITE;
     botScoreLabel.color = ccBLACK;
     
-    botScoreLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] botCardLoc].y);
-    topScoreLabel.position = ccp(soloScoreOffset, [[Grid getInstance] topCardLoc].y);
+    botScoreLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] botCardLoc].y);
+    topScoreLabel.position = ccp(scoreOffset, [[Grid getInstance] topCardLoc].y);
     
     [self addChild:topScoreLabel];
     [self addChild:botScoreLabel];
@@ -174,14 +175,14 @@ CCLabelTTF * topPauseLabel;
 -(void)addPauseButtons{
     topPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
     botPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
-    
+
     topPauseLabel.rotation = 180;
-    
+
     topPauseLabel.color = ccWHITE;
     botPauseLabel.color = ccBLACK;
-    
-    botPauseLabel.position = ccp(soloScoreOffset, [[Grid getInstance] botCardLoc].y);
-    topPauseLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] topCardLoc].y);
+
+    botPauseLabel.position = ccp(scoreOffset, [[Grid getInstance] botCardLoc].y);
+    topPauseLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] topCardLoc].y);
     
     [self addChild:botPauseLabel];
     [self addChild:topPauseLabel];
@@ -189,7 +190,7 @@ CCLabelTTF * topPauseLabel;
 
 -(void) botPaused{
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PauseScene sceneWithOrientation:true]]];
-    
+
 }
 
 -(void) topPaused{
@@ -222,8 +223,8 @@ CCLabelTTF * topPauseLabel;
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
         
-        //        SqID sqID = [[Grid getInstance] getSquareID:loc];
-        //        NSLog(@"Clicked (%u, %u)", sqID.x, sqID.y);
+//        SqID sqID = [[Grid getInstance] getSquareID:loc];
+//        NSLog(@"Clicked (%u, %u)", sqID.x, sqID.y);
         
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];
@@ -238,7 +239,7 @@ CCLabelTTF * topPauseLabel;
             Touch * t = [[Touch alloc] touchedTile:tile atLoc:tile.position];
             [touchDict setObject:t forKey:touch];
         }
-        
+
         //Check for game paused
         if(CGRectContainsPoint(botPauseLabel.boundingBox, loc)){
             [self botPaused];
@@ -248,33 +249,33 @@ CCLabelTTF * topPauseLabel;
         }
         
         //DEBUG!!!
-        //        for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
-        //            if(CGRectContainsPoint(t.boundingBox, loc)){
-        //                NSLog(@"Score Heuristic = %f", t.scoreHeuristic);
-        //            }
-        //        }
-        //
+//        for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
+//            if(CGRectContainsPoint(t.boundingBox, loc)){
+//                NSLog(@"Score Heuristic = %f", t.scoreHeuristic);
+//            }
+//        }
+//        
         //DEBUG!!!
-        //        if(CGRectContainsPoint(botScoreLabel.boundingBox, loc)){
-        //            [[Score getInstance] printWhitePath];
-        //        }
-        //        if(CGRectContainsPoint(topScoreLabel.boundingBox, loc)){
-        //            [[Score getInstance] printBlackPath];
-        //        }
+//        if(CGRectContainsPoint(botScoreLabel.boundingBox, loc)){
+//            [[Score getInstance] printWhitePath];
+//        }
+//        if(CGRectContainsPoint(topScoreLabel.boundingBox, loc)){
+//            [[Score getInstance] printBlackPath];
+//        }
         
     }
 }
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    for(UITouch * touch in touches){
+    for(UITouch * touch in touches){        
         Touch* t = [touchDict objectForKey:touch];
         Tile* tile = [t getTile];
-        
+
         // If Invalid location
         if(! [[TileManager getInstance] moveTile:tile toLoc:([self convertTouchToNodeSpace:touch])]){
             tile.position = t.getStartPoint;
         }
-        
+
         [touchDict removeObjectForKey:touch];
     }
     [self checkGameOver];
@@ -289,5 +290,6 @@ CCLabelTTF * topPauseLabel;
         tile.position = loc;
     }
 }
+
 
 @end

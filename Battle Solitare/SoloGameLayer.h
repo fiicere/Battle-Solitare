@@ -1,25 +1,18 @@
 //
-//  HelloWorldLayer.h
+//  DuoGameLayer.h
 //  Battle Solitare
 //
-//  Created by Kevin Yue on 12/31/12.
-//  Copyright Kevin Yue 2012. All rights reserved.
+//  Created by Kevin Yue on 5/14/14.
+//  Copyright 2014 Kevin Yue. All rights reserved.
 //
 
-
 #import <GameKit/GameKit.h>
-
-// When you import this file, you import all the cocos2d classes
+#import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BackgroundLayer.h"
 #import "BackgroundWithRects.h"
-#import "Tile.h"
 
-// HelloWorldLayer
-@interface SoloGameLayer : BackgroundWithRects <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
-{
+@interface SoloGameLayer : BackgroundWithRects <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>{
+    
 }
-
-
 
 @end

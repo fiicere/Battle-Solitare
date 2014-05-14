@@ -12,7 +12,7 @@
 #import "Grid.h"
 #import "Deck.h"
 #import "Score.h"
-#import "SoloGameLayer.h"
+#import "DuoGameLayer.h"
 
 TileManager* instance;
 NSMutableArray* placedTiles;
