@@ -53,6 +53,8 @@ const CGFloat numOffset = 0.3;
     _value = val;
     _backgroundColor = col;
     
+    _scoreHeuristic = 0;
+    
     
     //Scale it to the grid
     [self scaleCard];

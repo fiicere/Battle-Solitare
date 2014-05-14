@@ -32,7 +32,7 @@ BOOL rightSideUp;
     // Game Mode Labels
     CCLabelTTF * resume = [CCLabelTTF labelWithString:@"Resume" fontName:@"TrajanPro-Regular" fontSize:32];
     CCLabelTTF * newGame = [CCLabelTTF labelWithString:@"Start New Game" fontName:@"TrajanPro-Regular" fontSize:32];
-    CCLabelTTF * mainMenu = [CCLabelTTF labelWithString:@"Main Menu" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * mainMenu = [CCLabelTTF labelWithString:@"Quit to Menu" fontName:@"TrajanPro-Regular" fontSize:32];
     
     // Label Colors
     resume.color = ccWHITE;

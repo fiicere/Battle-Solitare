@@ -208,7 +208,7 @@
 		46B8719D169260E100B1CACB /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 46B8719C169260E100B1CACB /* vec4.c */; };
 		46B871A2169260E100B1CACB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A1169260E100B1CACB /* main.m */; };
 		46B871A5169260E100B1CACB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A4169260E100B1CACB /* AppDelegate.m */; };
-		46B871A8169260E200B1CACB /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A7169260E200B1CACB /* GameLayer.m */; };
+		46B871A8169260E200B1CACB /* SoloGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871A7169260E200B1CACB /* SoloGameLayer.m */; };
 		46B871AB169260E200B1CACB /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871AA169260E200B1CACB /* IntroScene.m */; };
 		46B871B31872024400B1CACB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B21872024400B1CACB /* Tile.m */; };
 		46B871B61872025600B1CACB /* TileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B51872025600B1CACB /* TileManager.m */; };
@@ -577,8 +577,8 @@
 		46B871A1169260E100B1CACB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46B871A3169260E100B1CACB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46B871A4169260E100B1CACB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		46B871A6169260E100B1CACB /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
-		46B871A7169260E200B1CACB /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		46B871A6169260E100B1CACB /* SoloGameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoloGameLayer.h; sourceTree = "<group>"; };
+		46B871A7169260E200B1CACB /* SoloGameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoloGameLayer.m; sourceTree = "<group>"; };
 		46B871A9169260E200B1CACB /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		46B871AA169260E200B1CACB /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		46B871B11872024400B1CACB /* Tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tile.h; sourceTree = "<group>"; };
@@ -1159,8 +1159,8 @@
 				466004EE18F5C936008553AC /* BackgroundLayer.m */,
 				46FE80A4191D9E14003AEE55 /* BackgroundWithRects.h */,
 				46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */,
-				46B871A6169260E100B1CACB /* GameLayer.h */,
-				46B871A7169260E200B1CACB /* GameLayer.m */,
+				46B871A6169260E100B1CACB /* SoloGameLayer.h */,
+				46B871A7169260E200B1CACB /* SoloGameLayer.m */,
 				46412A11191418CE00E1902B /* PauseLayer.h */,
 				46412A12191418CE00E1902B /* PauseLayer.m */,
 				46412A17191AF83B00E1902B /* ScoreLayer.h */,
@@ -1423,7 +1423,7 @@
 				46B8719D169260E100B1CACB /* vec4.c in Sources */,
 				46B871A2169260E100B1CACB /* main.m in Sources */,
 				46B871A5169260E100B1CACB /* AppDelegate.m in Sources */,
-				46B871A8169260E200B1CACB /* GameLayer.m in Sources */,
+				46B871A8169260E200B1CACB /* SoloGameLayer.m in Sources */,
 				46B871AB169260E200B1CACB /* IntroScene.m in Sources */,
 				46B871B31872024400B1CACB /* Tile.m in Sources */,
 				46B871B61872025600B1CACB /* TileManager.m in Sources */,

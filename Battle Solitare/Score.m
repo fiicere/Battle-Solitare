@@ -42,11 +42,10 @@ NSArray *whiteTiles;
         else{
             startColor = startTile.backgroundColor;
         }
+        
+        startTile.scoreHeuristic = 0;
         [a addObject:startTile];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.sqID]];
+        [self extendAllDirections:a ofColor:startColor];
     }
 
 }
@@ -67,12 +66,12 @@ NSArray *whiteTiles;
            ![startTile.backgroundColor isEqualToString:startColor]){
             continue;
         }
+        
+        // Set startTile maxpath = 0
+        startTile.scoreHeuristic = 0;
 
         [a addObject:startTile];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getRight:startTile.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getLeft:startTile.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getAbove:startTile.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:a] ofColor:startColor toTile:[[TileManager getInstance] getBelow:startTile.sqID]];
+        [self extendAllDirections:a ofColor:startColor];
     }
 }
 
@@ -94,6 +93,7 @@ NSArray *whiteTiles;
         [tiles addObject:t];
         color = t.backgroundColor;
         
+        // Check if longest path
         if([color isEqualToString:@"b"]){
             if(tiles.count > blackTiles.count){
                 blackTiles = [[NSArray alloc] initWithArray:tiles];
@@ -104,16 +104,20 @@ NSArray *whiteTiles;
                 whiteTiles = [[NSArray alloc] initWithArray:tiles];
             }
         }
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
+        
+        // Check heuristic
+        Tile * first = tiles.firstObject;
+        first.scoreHeuristic = MAX(first.scoreHeuristic, tiles.count);
+        
+        // Extend Path
+        [self extendAllDirections:tiles ofColor:color];
     }
     // Otherwise if the background color of the new card matches, or if the new card is wild
     else if(t.backgroundColor == color || [t.backgroundColor isEqualToString:@"wild"]){
         //Extend the path with the current tile
         [tiles addObject:t];
         
+        // Check if longest path
         if([color isEqualToString:@"b"]){
             if(tiles.count > blackTiles.count){
                 blackTiles = [[NSArray alloc] initWithArray:tiles];
@@ -124,11 +128,22 @@ NSArray *whiteTiles;
                 whiteTiles = [[NSArray alloc] initWithArray:tiles];
             }
         }
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
-        [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
+        
+        // Check heuristic
+        Tile * first = tiles.firstObject;
+        first.scoreHeuristic = MAX(first.scoreHeuristic, tiles.count);
+        
+        // Extend Path
+        [self extendAllDirections:tiles ofColor:color];
     }
+}
+
+-(void)extendAllDirections:(NSArray*)tiles ofColor:(NSString*)color{
+    Tile * t = tiles.lastObject;
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
 }
 
 -(int)blackScore{

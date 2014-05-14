@@ -18,6 +18,8 @@
 @property (nonatomic, assign, readonly) NSString * backgroundColor;
 @property (nonatomic, assign, readonly) int value;
 
+@property (nonatomic, assign) float scoreHeuristic;
+
 @property (nonatomic, assign) SqID sqID;
 
 -(id) initWithSuit:(NSString *)suit Value:(int)val Color:(NSString *)col;
