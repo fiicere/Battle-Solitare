@@ -84,8 +84,8 @@ float yShrinkRate;
 -(void)wipe:(ccTime)dt{
     for (Tile*t in notDropList){
         for(ImprovedChild * child in t.children){
-            child.scaleX = child.scaleX/(1+dt*2);
-            child.scaleY = child.scaleY/(1+dt*2);
+            child.scaleX = child.scaleX/(1+dt);
+            child.scaleY = child.scaleY/(1+dt);
         }
     }
 }

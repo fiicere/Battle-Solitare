@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "Tile.h"
 
 @interface Grid : NSObject {
     
@@ -16,6 +17,7 @@
 struct SqID {
     int x;
     int y;
+    Tile * occupied;
 };
 typedef struct SqID SqID;
 

@@ -217,6 +217,7 @@
 		46FE80A6191D9E14003AEE55 /* BackgroundWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */; };
 		46FE80A91924201F003AEE55 /* SoloGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A81924201F003AEE55 /* SoloGameLayer.m */; };
 		46FE80AC192424B3003AEE55 /* SoloGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80AB192424B3003AEE55 /* SoloGameScene.m */; };
+		46FE80AF19257AB6003AEE55 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80AE19257AB6003AEE55 /* AI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -597,6 +598,8 @@
 		46FE80A81924201F003AEE55 /* SoloGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoloGameLayer.m; sourceTree = "<group>"; };
 		46FE80AA192424B3003AEE55 /* SoloGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoloGameScene.h; sourceTree = "<group>"; };
 		46FE80AB192424B3003AEE55 /* SoloGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoloGameScene.m; sourceTree = "<group>"; };
+		46FE80AD19257AB6003AEE55 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AI.h; sourceTree = "<group>"; };
+		46FE80AE19257AB6003AEE55 /* AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -737,6 +740,8 @@
 			children = (
 				4623445318DA0B26009B9CD5 /* Scenes */,
 				46F19A07190ADF5A002CF527 /* Layers */,
+				46FE80AD19257AB6003AEE55 /* AI.h */,
+				46FE80AE19257AB6003AEE55 /* AI.m */,
 				46B871A3169260E100B1CACB /* AppDelegate.h */,
 				46B871A4169260E100B1CACB /* AppDelegate.m */,
 				462343D518C69DB4009B9CD5 /* Deck.h */,
@@ -1406,6 +1411,7 @@
 				46B87143169260E100B1CACB /* CCVertex.m in Sources */,
 				46B87146169260E100B1CACB /* CGPointExtension.m in Sources */,
 				4600D2B218B92EB900C9DEFE /* Touch.m in Sources */,
+				46FE80AF19257AB6003AEE55 /* AI.m in Sources */,
 				46B87149169260E100B1CACB /* NSThread+performBlock.m in Sources */,
 				46B8714D169260E100B1CACB /* TGAlib.m in Sources */,
 				46B87150169260E100B1CACB /* TransformUtils.m in Sources */,
