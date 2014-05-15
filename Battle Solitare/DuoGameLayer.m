@@ -32,7 +32,7 @@ const int scoreOffset = 50;
 
 CCLabelTTF * botScoreLabel;
 CCLabelTTF * topScoreLabel;
-CCLabelTTF * botPauseLabel;
+CCLabelTTF * pauseLabel;
 CCLabelTTF * topPauseLabel;
 
 // HelloWorldLayer implementation
@@ -174,17 +174,17 @@ CCLabelTTF * topPauseLabel;
 
 -(void)addPauseButtons{
     topPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
-    botPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+    pauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
 
     topPauseLabel.rotation = 180;
 
     topPauseLabel.color = ccWHITE;
-    botPauseLabel.color = ccBLACK;
+    pauseLabel.color = ccBLACK;
 
-    botPauseLabel.position = ccp(scoreOffset, [[Grid getInstance] botCardLoc].y);
+    pauseLabel.position = ccp(scoreOffset, [[Grid getInstance] botCardLoc].y);
     topPauseLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] topCardLoc].y);
     
-    [self addChild:botPauseLabel];
+    [self addChild:pauseLabel];
     [self addChild:topPauseLabel];
 }
 
@@ -241,7 +241,7 @@ CCLabelTTF * topPauseLabel;
         }
 
         //Check for game paused
-        if(CGRectContainsPoint(botPauseLabel.boundingBox, loc)){
+        if(CGRectContainsPoint(pauseLabel.boundingBox, loc)){
             [self botPaused];
         }
         if(CGRectContainsPoint(topPauseLabel.boundingBox, loc)){

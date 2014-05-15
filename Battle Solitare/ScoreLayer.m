@@ -65,6 +65,7 @@ float yShrinkRate;
         }
     }
     [self unschedule:@selector(dropCard:)];
+    [self schedule:@selector(wipe:)];
     [self fireworks];
 }
 
@@ -78,6 +79,9 @@ float yShrinkRate;
             t.scaleY = t.scaleY / (1+dt*2);
         }
     }
+}
+
+-(void)wipe:(ccTime)dt{
     for (Tile*t in notDropList){
         for(ImprovedChild * child in t.children){
             child.scaleX = child.scaleX/(1+dt*2);
@@ -129,6 +133,7 @@ float yShrinkRate;
 /////////////////////////TOUCH EVENTS//////////////////////////
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self removeAllChildren];
     [[CCDirector sharedDirector] replaceScene:[MenuScene scene]];}
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{

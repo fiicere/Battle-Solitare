@@ -8,6 +8,7 @@
 
 #import "MenuScene.h"
 #import "DuoGameScene.h"
+#import "SoloGameScene.h"
 #import "BackgroundLayer.h"
 #import "TileManager.h"
 
@@ -65,10 +66,12 @@ BackgroundLayer * ml;
 }
 
 -(void)newSoloGame{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
+    [[TileManager getInstance] newGame];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[SoloGameScene scene]]];
 }
 
 -(void)newDuoGame{
+    [[TileManager getInstance] newGame];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
 }
 

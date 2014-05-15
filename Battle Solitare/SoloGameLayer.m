@@ -24,15 +24,12 @@
 
 NSMapTable * touchDict;
 
-NSString * whiteScoreText;
-NSString * blackScoreText;
+NSString * scoreText;
 
-const int soloScoreOffset = 50;
+const int soloScoreOffset = 65;
 
-CCLabelTTF * botScoreLabel;
-CCLabelTTF * topScoreLabel;
-CCLabelTTF * botPauseLabel;
-CCLabelTTF * topPauseLabel;
+CCLabelTTF * scoreLabel;
+CCLabelTTF * pauseLabel;
 
 // HelloWorldLayer implementation
 @implementation SoloGameLayer
@@ -144,47 +141,35 @@ CCLabelTTF * topPauseLabel;
 }
 
 -(void) updateScore{
-    blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
-    whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
+    scoreText = [NSString stringWithFormat:@"You = %u\nOpponent = %u",
+                      [[Score getInstance] whiteScore],
+                      [[Score getInstance] blackScore]];
     
-    [botScoreLabel setString:whiteScoreText];
-    [topScoreLabel setString:blackScoreText];
+    [scoreLabel setString:scoreText];
     
 }
 
 -(void)addScore{
-    blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
-    whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
+    scoreText = [NSString stringWithFormat:@"You = %u\nOpponent = %u",
+                 [[Score getInstance] whiteScore],
+                 [[Score getInstance] blackScore]];
     
-    botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:12];
-    topScoreLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    scoreLabel = [CCLabelTTF labelWithString:scoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    scoreLabel.color = ccBLACK;
     
-    topScoreLabel.rotation = 180;
+    scoreLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] botCardLoc].y);
     
-    topScoreLabel.color = ccWHITE;
-    botScoreLabel.color = ccBLACK;
-    
-    botScoreLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] botCardLoc].y);
-    topScoreLabel.position = ccp(soloScoreOffset, [[Grid getInstance] topCardLoc].y);
-    
-    [self addChild:topScoreLabel];
-    [self addChild:botScoreLabel];
+    [self addChild:scoreLabel];
 }
 
 -(void)addPauseButtons{
-    topPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
-    botPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+    pauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
     
-    topPauseLabel.rotation = 180;
+    pauseLabel.color = ccBLACK;
     
-    topPauseLabel.color = ccWHITE;
-    botPauseLabel.color = ccBLACK;
+    pauseLabel.position = ccp(soloScoreOffset, [[Grid getInstance] botCardLoc].y);
     
-    botPauseLabel.position = ccp(soloScoreOffset, [[Grid getInstance] botCardLoc].y);
-    topPauseLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] topCardLoc].y);
-    
-    [self addChild:botPauseLabel];
-    [self addChild:topPauseLabel];
+    [self addChild:pauseLabel];
 }
 
 -(void) botPaused{
@@ -240,11 +225,8 @@ CCLabelTTF * topPauseLabel;
         }
         
         //Check for game paused
-        if(CGRectContainsPoint(botPauseLabel.boundingBox, loc)){
+        if(CGRectContainsPoint(pauseLabel.boundingBox, loc)){
             [self botPaused];
-        }
-        if(CGRectContainsPoint(topPauseLabel.boundingBox, loc)){
-            [self topPaused];
         }
         
         //DEBUG!!!

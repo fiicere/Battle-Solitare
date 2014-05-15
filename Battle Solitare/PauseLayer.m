@@ -77,6 +77,7 @@ BOOL rightSideUp;
 
 }
 -(void)backToMenu{
+    [[TileManager getInstance] newGame];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MenuScene scene]]];
 }
 
