@@ -143,7 +143,6 @@ NSMutableArray* placedTiles;
             return t;
         }
     }
-    return sqID.
     return nil;
 }
 
