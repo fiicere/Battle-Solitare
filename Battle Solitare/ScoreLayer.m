@@ -38,7 +38,13 @@ float yShrinkRate;
     notDropList = [NSMutableArray new];
     
     [self schedule:@selector(dropCard:) interval:0.075];
-    [self schedule:@selector(shrink:)];
+    [self schedule:@selector(shrinkCards:)];
+    
+    Drawer * whitePath = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
+    Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
+    
+    [self addChild:blackPath];
+    [self addChild:whitePath];
     
     return self;
 }
@@ -65,11 +71,11 @@ float yShrinkRate;
         }
     }
     [self unschedule:@selector(dropCard:)];
-    [self schedule:@selector(wipe:)];
+    [self schedule:@selector(shrinkSuitsAndNums:)];
     [self fireworks];
 }
 
--(void)shrink:(ccTime)dt{
+-(void)shrinkCards:(ccTime)dt{
     for (Tile*t in dropList){
         if(t.scaleX <=0.000001 && t.scaleY <=0.000001){
             continue;
@@ -81,7 +87,7 @@ float yShrinkRate;
     }
 }
 
--(void)wipe:(ccTime)dt{
+-(void)shrinkSuitsAndNums:(ccTime)dt{
     for (Tile*t in notDropList){
         for(ImprovedChild * child in t.children){
             child.scaleX = child.scaleX/(1+dt*2);
@@ -90,8 +96,17 @@ float yShrinkRate;
     }
 }
 
+-(void)fadeOutPathCards:(ccTime)dt{
+    for (Tile*t in notDropList){
+        t.opacity = t.opacity / (1+dt);
+        for(ImprovedChild * child in t.children){
+            child.opacity = child.opacity/(1+dt*2);
+        }
+    }
+}
+
 -(void) fireworks{
-    
+    //TODO
 }
 
 /////////////////////////INIT METHODS//////////////////////////
@@ -107,6 +122,7 @@ float yShrinkRate;
 
 -(void) addAllCards{
     for (Tile * t in [[TileManager getInstance] getPlacedTiles]){
+        t.opacity = 150;
         [self addChild:t];
     }
 }
