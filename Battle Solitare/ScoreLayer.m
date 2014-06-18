@@ -11,7 +11,7 @@
 #import "Tile.h"
 #import "MenuScene.h"
 #import "ImprovedChild.h"
-#import "GrowingPath.h"
+#import "Drawer.h"
 #import "Score.h"
 #import "Grid.h"
 
@@ -40,13 +40,11 @@ float yShrinkRate;
     [self schedule:@selector(dropCard:) interval:0.075];
     [self schedule:@selector(shrinkCards:)];
     
-    GrowingPath * whitePath = [[GrowingPath alloc] initWithNodes:[[Score getInstance] whitePath]
-                                                        andColor:ccc4f(1.0f, 1.0f, 1.0f, 1.0f)];
-    GrowingPath * blackPath = [[GrowingPath alloc] initWithNodes:[[Score getInstance] blackPath]
-                                                        andColor:ccc4f(0.0f, 0.0f, 0.0f, 1.0f)];
+    Drawer * whitePath = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
+    Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
     
-    [self addChild:blackPath z:1];
-    [self addChild:whitePath z:2];
+    [self addChild:blackPath];
+    [self addChild:whitePath];
     
     return self;
 }
