@@ -41,11 +41,10 @@ float yShrinkRate;
     [self schedule:@selector(shrinkCards:)];
     
     Drawer * whitePath = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
-    Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
-    
-    [self addChild:blackPath];
     [self addChild:whitePath];
     
+    Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
+    [self addChild:blackPath];
     return self;
 }
 

@@ -1,18 +1,16 @@
 //
-//  Draw.h
+//  PathTiler.h
 //  Battle Solitare
 //
-//  Created by Kevin Yue on 5/8/14.
+//  Created by Kevin Yue on 6/18/14.
 //  Copyright 2014 Kevin Yue. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Drawer : CCDrawNode {
+@interface PathTiler : CCNode {
     
 }
-
--(id)initWithPath:(NSArray*)p andColorIsBlack:(BOOL)isBlack;
 
 @end

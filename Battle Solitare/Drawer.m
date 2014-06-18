@@ -8,8 +8,8 @@
 
 #import "Drawer.h"
 
-const float size = 30;
-const float speed = 2;
+const float size = 10;
+const float speed = 5;
 ccColor4F pathColor;
 
 int numPoints;
@@ -17,13 +17,6 @@ NSArray * path;
 CGPoint endPoint;
 
 @implementation Drawer
-
--(id)init{
-    self = [super init];
-    numPoints = 1;
-    pathColor = ccc4f(1.0f, 1.0f, 1.0f, 1.0f);
-    return self;
-}
 
 -(id)initWithPath:(NSArray*)p andColorIsBlack:(BOOL)isBlack{
     self = [super init];
@@ -43,51 +36,15 @@ CGPoint endPoint;
     
     NSLog(@"Drawer initialized with path of length %u and color %hhd (isblack)", p.count, isBlack);
     
+    [self schedule:@selector(updateEndpoint:)];
+    
     return self;
 }
 
+-(void)updateEndpoint:(ccTime)dt{
+    NSLog(@"(%f, %f, %f, %f) Path", pathColor.r, pathColor.g, pathColor.b, pathColor.a);
+    [self drawDot:endPoint radius:size color:pathColor];
 
--(void)visit{
-    // Call to still render everything
-    [super visit];
-    
-    // Set the appropriate color and line width
-    ccDrawColor4F(pathColor.r, pathColor.g, pathColor.b, pathColor.a);
-
-    glLineWidth(size);
-    
-    // Update endpoint
-    [self updateEndpoint];
-    
-    [self drawPath];
-}
-
--(void) drawPath{
-    [self drawPathLines];
-    [self drawPathVertices];
-}
-
--(void) drawPathLines{
-    // Draw the line through the path
-    for (int j=0; j<numPoints-1; j++){
-        ccDrawLine([[path objectAtIndex:j] position], [[path objectAtIndex:j+1] position]);
-    }
-    // Draw to the endpoint
-    ccDrawLine([[path objectAtIndex:numPoints-1] position], endPoint);
-}
-
--(void) drawPathVertices{
-    for(int j=0; j<numPoints; j++){
-        ccDrawSolidRect(ccp([[path objectAtIndex:j] position].x - size/4,
-                            [[path objectAtIndex:j] position].y - size/4),
-                        ccp([[path objectAtIndex:j] position].x + size/4,
-                            [[path objectAtIndex:j] position].y + size/4),
-                        ccc4f(0.0f, 0.0f, 0.0f, 1.0f));
-    }
-    
-}
-
--(void)updateEndpoint{
     CGPoint dest = [[path objectAtIndex:numPoints] position];
     
     float dx = dest.x - endPoint.x;
@@ -99,11 +56,15 @@ CGPoint endPoint;
     
     endPoint = ccp(newX, newY);
     
-    if(endPoint.x == dest.x && endPoint.y == dest.y && numPoints<path.count-1){
-        numPoints += 1;
+    if(endPoint.x == dest.x && endPoint.y == dest.y){
+        if(numPoints < path.count-1){
+            numPoints+=1;
+        }
+        else{
+            [self unschedule:@selector(updateEndpoint:)];
+        }
     }
 }
-
 
 
 @end
