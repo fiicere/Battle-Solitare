@@ -83,6 +83,7 @@
 		466004F318F5CF20008553AC /* black felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004F218F5CF20008553AC /* black felt.png */; };
 		466004F718FF1F57008553AC /* TrajanPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
+		4695D2DE1952357A004557F4 /* MoveHeuristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4695D2DD1952357A004557F4 /* MoveHeuristic.m */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
 		46B87003169260DF00B1CACB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87002169260DF00B1CACB /* OpenAL.framework */; };
@@ -309,6 +310,8 @@
 		466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Regular.ttf"; sourceTree = "<group>"; };
 		466004F618FF19F2008553AC /* Alexis 3D.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alexis 3D.ttf"; sourceTree = "<group>"; };
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
+		4695D2DC1952357A004557F4 /* MoveHeuristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveHeuristic.h; sourceTree = "<group>"; };
+		4695D2DD1952357A004557F4 /* MoveHeuristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveHeuristic.m; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		46B87000169260DF00B1CACB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -749,6 +752,8 @@
 				4623442818D2600F009B9CD5 /* ImprovedChild.m */,
 				462343DC18C9192C009B9CD5 /* ImprovedSprite.h */,
 				462343DD18C9192C009B9CD5 /* ImprovedSprite.m */,
+				4695D2DC1952357A004557F4 /* MoveHeuristic.h */,
+				4695D2DD1952357A004557F4 /* MoveHeuristic.m */,
 				462343DF18CA81AD009B9CD5 /* Score.h */,
 				462343E018CA81AD009B9CD5 /* Score.m */,
 				46B871B11872024400B1CACB /* Tile.h */,
@@ -1434,6 +1439,7 @@
 				46B8719D169260E100B1CACB /* vec4.c in Sources */,
 				46B871A2169260E100B1CACB /* main.m in Sources */,
 				46B871A5169260E100B1CACB /* AppDelegate.m in Sources */,
+				4695D2DE1952357A004557F4 /* MoveHeuristic.m in Sources */,
 				46B871A8169260E200B1CACB /* DuoGameLayer.m in Sources */,
 				46FE80AC192424B3003AEE55 /* SoloGameScene.m in Sources */,
 				46B871AB169260E200B1CACB /* IntroScene.m in Sources */,

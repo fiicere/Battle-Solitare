@@ -45,6 +45,9 @@ float yShrinkRate;
     
     Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
     [self addChild:blackPath];
+    
+    [self drawCrossroads];
+    
     return self;
 }
 

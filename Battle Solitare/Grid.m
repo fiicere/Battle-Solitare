@@ -42,6 +42,7 @@ const int gridDimens = 7;
     _topCardLoc = ccp(_width/2, _height - _sqHeight * 3 / 4);
 }
 
+
 -(SqID) getSquareID:(CGPoint)loc{
     SqID squareID;
     squareID.x = (int) roundf((loc.x-_sideMargin)/_sqWidth);

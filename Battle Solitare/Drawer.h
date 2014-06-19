@@ -10,9 +10,10 @@
 #import "cocos2d.h"
 
 @interface Drawer : CCDrawNode {
-    
+
 }
 
 -(id)initWithPath:(NSArray*)p andColorIsBlack:(BOOL)isBlack;
++(float)getMarkerWidth;
 
 @end

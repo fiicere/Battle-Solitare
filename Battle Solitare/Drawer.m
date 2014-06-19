@@ -7,17 +7,18 @@
 //
 
 #import "Drawer.h"
-
 const float size = 10;
 const float speed = 5;
+
+@implementation Drawer{
+
 ccColor4F pathColor;
 
 int numPoints;
 NSArray * path;
 CGPoint endPoint;
 
-@implementation Drawer
-
+}
 -(id)initWithPath:(NSArray*)p andColorIsBlack:(BOOL)isBlack{
     self = [super init];
     
@@ -64,6 +65,10 @@ CGPoint endPoint;
             [self unschedule:@selector(updateEndpoint:)];
         }
     }
+}
+
++(float)getMarkerWidth{
+    return size;
 }
 
 
