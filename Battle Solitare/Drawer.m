@@ -34,16 +34,13 @@ CGPoint endPoint;
     // Set variables
     numPoints = 1;
     endPoint = [[path firstObject] position];
-    
-    NSLog(@"Drawer initialized with path of length %u and color %hhd (isblack)", p.count, isBlack);
-    
+        
     [self schedule:@selector(updateEndpoint:)];
     
     return self;
 }
 
 -(void)updateEndpoint:(ccTime)dt{
-    NSLog(@"(%f, %f, %f, %f) Path", pathColor.r, pathColor.g, pathColor.b, pathColor.a);
     [self drawDot:endPoint radius:size color:pathColor];
 
     CGPoint dest = [[path objectAtIndex:numPoints] position];
@@ -58,6 +55,7 @@ CGPoint endPoint;
     endPoint = ccp(newX, newY);
     
     if(endPoint.x == dest.x && endPoint.y == dest.y){
+
         if(numPoints < path.count-1){
             numPoints+=1;
         }
