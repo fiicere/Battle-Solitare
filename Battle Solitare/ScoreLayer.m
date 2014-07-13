@@ -14,6 +14,7 @@
 #import "Drawer.h"
 #import "Score.h"
 #import "Grid.h"
+#import "Firework.h"
 
 @implementation ScoreLayer
 
@@ -21,6 +22,8 @@ NSMutableArray * dropList;
 NSMutableArray * notDropList;
 
 const float shrinkTime = 1;
+//const float fireworksPerSecond = .5;
+const float flashesPerSecond = 1;
 
 float xShrinkRate;
 float yShrinkRate;
@@ -30,23 +33,34 @@ float yShrinkRate;
     
     [self addAllCards];
     [self addScore];
+    [self setShrinkRates];
+    [self resetArrays];
     
-    xShrinkRate = [[Grid getInstance] sqWidth] / shrinkTime;
-    yShrinkRate = [[Grid getInstance] sqHeight] / shrinkTime;
-    
-    dropList = [NSMutableArray new];
-    notDropList = [NSMutableArray new];
     
     [self schedule:@selector(dropCard:) interval:0.075];
     [self schedule:@selector(shrinkCards:)];
     
+    [self drawPaths];
+    
+    return self;
+}
+
+-(void)setShrinkRates{
+    xShrinkRate = [[Grid getInstance] sqWidth] / shrinkTime;
+    yShrinkRate = [[Grid getInstance] sqHeight] / shrinkTime;
+}
+
+-(void)resetArrays{
+    dropList = [NSMutableArray new];
+    notDropList = [NSMutableArray new];
+}
+
+-(void)drawPaths{
     Drawer * whitePath = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
     [self addChild:whitePath];
     
     Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
     [self addChild:blackPath];
-    
-    return self;
 }
 
 -(void) dropCard:(ccTime)dt{
@@ -70,9 +84,10 @@ float yShrinkRate;
             return;
         }
     }
-    [self unschedule:@selector(dropCard:)];
     [self schedule:@selector(shrinkSuitsAndNums:)];
-    [self fireworks];
+    [self schedule:@selector(flashScoreBoxes:) interval:1/flashesPerSecond];
+    [self unschedule:@selector(dropCard:)];
+
 }
 
 -(void)shrinkCards:(ccTime)dt{
@@ -105,9 +120,35 @@ float yShrinkRate;
     }
 }
 
--(void) fireworks{
-    //TODO
+-(void) flashScoreBoxes:(ccTime)dt{
+    NSLog(@"Flashing score boxes");
+    if([[Score getInstance] whiteScore] > [[Score getInstance] blackScore]) {[self flashWhiteBox];}
+    if([[Score getInstance] whiteScore] < [[Score getInstance] blackScore]) {[self flashBlackBox];}
+    else{
+        [self flashBlackBox];
+        [self flashWhiteBox];
+    }
+
 }
+
+-(void)flashWhiteBox{
+    [self botRect].opacity = 255 - [self botRect].opacity;
+}
+-(void)flashBlackBox{
+    [self topRect].opacity = 255 - [self topRect].opacity;
+
+}
+
+//-(void) fireworks{
+//    [self schedule:@selector(runFireworks:)];
+//}
+//
+//-(void) runFireworks:(ccTime)dt{
+//    if(arc4random()%1000 < dt * fireworksPerSecond){
+//        [self addChild:[[Firework alloc] initWithRandomLocAndColor:true]];
+//    }
+//}
+
 
 /////////////////////////INIT METHODS//////////////////////////
 -(void)onEnter{

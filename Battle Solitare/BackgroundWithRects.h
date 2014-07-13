@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BackgroundLayer.h"
+#import "ImprovedSprite.h"
 
 @interface BackgroundWithRects : BackgroundLayer {
     
 }
 
 -(void)addPlayerRects;
+
+-(ImprovedSprite*)topRect;
+
+-(ImprovedSprite*)botRect;
 
 @end
