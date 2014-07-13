@@ -23,10 +23,13 @@ NSMutableArray * notDropList;
 
 const float shrinkTime = 1;
 //const float fireworksPerSecond = .5;
-const float flashesPerSecond = 1;
+const float flashesPerSecond = 2;
 
 float xShrinkRate;
 float yShrinkRate;
+
+Drawer * whiteDrawer;
+Drawer * blackDrawer;
 
 -(id) init{
     self = [super init];
@@ -39,6 +42,7 @@ float yShrinkRate;
     
     [self schedule:@selector(dropCard:) interval:0.075];
     [self schedule:@selector(shrinkCards:)];
+    [self schedule:@selector(flashScoreBoxes:) interval:1/flashesPerSecond];
     
     [self drawPaths];
     
@@ -56,11 +60,11 @@ float yShrinkRate;
 }
 
 -(void)drawPaths{
-    Drawer * whitePath = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
-    [self addChild:whitePath];
+    whiteDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
+    [self addChild:whiteDrawer];
     
-    Drawer * blackPath = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
-    [self addChild:blackPath];
+    blackDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
+    [self addChild:blackDrawer];
 }
 
 -(void) dropCard:(ccTime)dt{
@@ -85,7 +89,6 @@ float yShrinkRate;
         }
     }
     [self schedule:@selector(shrinkSuitsAndNums:)];
-    [self schedule:@selector(flashScoreBoxes:) interval:1/flashesPerSecond];
     [self unschedule:@selector(dropCard:)];
 
 }
@@ -121,9 +124,12 @@ float yShrinkRate;
 }
 
 -(void) flashScoreBoxes:(ccTime)dt{
-    NSLog(@"Flashing score boxes");
+    if(![whiteDrawer isFinishedDrawing] || ![blackDrawer isFinishedDrawing]){
+        return;
+    }
+    
     if([[Score getInstance] whiteScore] > [[Score getInstance] blackScore]) {[self flashWhiteBox];}
-    if([[Score getInstance] whiteScore] < [[Score getInstance] blackScore]) {[self flashBlackBox];}
+    else if([[Score getInstance] whiteScore] < [[Score getInstance] blackScore]) {[self flashBlackBox];}
     else{
         [self flashBlackBox];
         [self flashWhiteBox];

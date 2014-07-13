@@ -12,13 +12,17 @@ const float speed = 5;
 
 @implementation Drawer{
 
-ccColor4F pathColor;
+    ccColor4F pathColor;
+    
+    bool isFinishedDrawing;
 
-int numPoints;
-NSArray * path;
-CGPoint endPoint;
-
+    int numPoints;
+    NSArray * path;
+    CGPoint endPoint;
+    
 }
+
+
 -(id)initWithPath:(NSArray*)p andColorIsBlack:(BOOL)isBlack{
     self = [super init];
     
@@ -26,9 +30,9 @@ CGPoint endPoint;
     path = p.copy;
     
     pathColor = ccc4f(1.0f, 1.0f, 1.0f, 1.0f);
-    if(isBlack){
-        pathColor = ccc4f(0.0f, 0.0f, 0.0f, 1.0f);
-    }
+    if(isBlack){pathColor = ccc4f(0.0f, 0.0f, 0.0f, 1.0f);}
+    
+    isFinishedDrawing = false;
     
     
     // Set variables
@@ -60,6 +64,7 @@ CGPoint endPoint;
             numPoints+=1;
         }
         else{
+            isFinishedDrawing = true;
             [self unschedule:@selector(updateEndpoint:)];
         }
     }
@@ -67,6 +72,10 @@ CGPoint endPoint;
 
 +(float)getMarkerWidth{
     return size;
+}
+
+-(bool)isFinishedDrawing{
+    return isFinishedDrawing;
 }
 
 

@@ -12,11 +12,11 @@
 
 const int rectMargin = 20;
 
-@implementation BackgroundWithRects
+@implementation BackgroundWithRects{
 
 ImprovedSprite * topRect;
 ImprovedSprite * botRect;
-
+}
 -(id)init{
     self = [super init];
     [self addPlayerRects];

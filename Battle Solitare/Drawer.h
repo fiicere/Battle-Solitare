@@ -15,5 +15,6 @@
 
 -(id)initWithPath:(NSArray*)p andColorIsBlack:(BOOL)isBlack;
 +(float)getMarkerWidth;
+-(bool)isFinishedDrawing;
 
 @end
