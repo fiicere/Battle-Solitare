@@ -35,9 +35,9 @@ NSMutableArray* placedTiles;
 }
 
 -(void) newGame{
-    [self replaceTiles];
     [[Deck getInstance] resetDeck];
     [[Score getInstance] reset];
+    [self replaceTiles];
 }
 
 -(void)replaceTiles{
