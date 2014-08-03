@@ -8,12 +8,14 @@
 
 #import "PauseLayer.h"
 #import "DuoGameScene.h"
+#import "SoloGameScene.h"
 #import "MenuScene.h"
 #import "TileManager.h"
 
 @implementation PauseLayer
 
 BOOL rightSideUp;
+BOOL soloMode;
 
 -(id)init{
     self = [super init];
@@ -21,8 +23,9 @@ BOOL rightSideUp;
     return self;
 }
 
--(id)initWithOrientation:(BOOL)isRightSideUp{
+-(id)initWithOrientation:(BOOL)isRightSideUp isSoloMode:(BOOL)isSoloMode{
     rightSideUp = isRightSideUp;
+    soloMode = isSoloMode;
     return [self init];
 }
 
@@ -68,12 +71,23 @@ BOOL rightSideUp;
 }
 
 -(void)resumeGame{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
+    if(soloMode){
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[SoloGameScene scene]]];
+    }
+    else{
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
+    }
 
 }
 -(void)startNewGame{
-    [[TileManager getInstance] newGame];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
+    if(soloMode) {
+        [[TileManager getInstance] newGame];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[SoloGameScene scene]]];
+    }
+    else{
+        [[TileManager getInstance] newGame];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DuoGameScene scene]]];
+    }
 
 }
 -(void)backToMenu{

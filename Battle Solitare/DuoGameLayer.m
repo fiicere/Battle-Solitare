@@ -189,12 +189,16 @@ CCLabelTTF * topPauseLabel;
 }
 
 -(void) botPaused{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PauseScene sceneWithOrientation:true]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
+                                                                                 scene:[PauseScene sceneWithOrientation:true
+                                                                                        andIsSoloMode:false]]];
 
 }
 
 -(void) topPaused{
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PauseScene sceneWithOrientation:false]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0
+                                                                                 scene:[PauseScene sceneWithOrientation:false
+                                                                                        andIsSoloMode:false]]];
 }
 
 -(void)checkGameOver{
@@ -223,8 +227,8 @@ CCLabelTTF * topPauseLabel;
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
         
-//        SqID sqID = [[Grid getInstance] getSquareID:loc];
-//        NSLog(@"Clicked (%u, %u)", sqID.x, sqID.y);
+//        SqID * sqID = [[Grid getInstance] getSquareID:loc];
+//        NSLog(@"Clicked (%u, %u, %@)", sqID.x, sqID.y, sqID.occupied ? @"Occupied" : @"Not Occupied");
         
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];
@@ -247,22 +251,6 @@ CCLabelTTF * topPauseLabel;
         if(CGRectContainsPoint(topPauseLabel.boundingBox, loc)){
             [self topPaused];
         }
-        
-        //DEBUG!!!
-//        for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
-//            if(CGRectContainsPoint(t.boundingBox, loc)){
-//                NSLog(@"Score Heuristic = %f", t.scoreHeuristic);
-//            }
-//        }
-//        
-        //DEBUG!!!
-//        if(CGRectContainsPoint(botScoreLabel.boundingBox, loc)){
-//            [[Score getInstance] printWhitePath];
-//        }
-//        if(CGRectContainsPoint(topScoreLabel.boundingBox, loc)){
-//            [[Score getInstance] printBlackPath];
-//        }
-        
     }
 }
 

@@ -30,7 +30,9 @@
 
 -(BOOL) isOnGrid:(SqID*) loc;
 -(CGPoint) getNearestCenter:(CGPoint)loc;
--(SqID*) getSqIDX:(int)x Y:(int)y;
+-(SqID*) getSquareIDX:(int)x Y:(int)y;
+
+-(void)resetSquares;
 
 -(SqID*)right:(SqID*)point;
 -(SqID*)left:(SqID*)point;

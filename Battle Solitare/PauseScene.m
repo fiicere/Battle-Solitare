@@ -13,13 +13,13 @@
 @implementation PauseScene
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) sceneWithOrientation:(BOOL)upright
++(CCScene *) sceneWithOrientation:(BOOL)upright andIsSoloMode:(BOOL)mode
 {
 	// 'scene' is an autorelease object.
 	PauseScene *scene = [PauseScene node];
 	
 	// 'layer' is an autorelease object.
-	PauseLayer *pl = [[PauseLayer alloc] initWithOrientation:upright];
+	PauseLayer *pl = [[PauseLayer alloc] initWithOrientation:upright isSoloMode:mode];
     
 	// add layer as a child to scene
 	[scene addChild: pl z:0];

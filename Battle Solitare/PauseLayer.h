@@ -14,6 +14,6 @@
     
 }
 
--(id)initWithOrientation:(BOOL)isRightSideUp;
+-(id)initWithOrientation:(BOOL)isRightSideUp isSoloMode:(BOOL)isSoloMode;
 
 @end

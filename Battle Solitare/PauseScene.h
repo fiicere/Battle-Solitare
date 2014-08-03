@@ -13,7 +13,7 @@
     
 }
 
-+(CCScene *) sceneWithOrientation:(BOOL)upright;
++(CCScene *) sceneWithOrientation:(BOOL)upright andIsSoloMode:(BOOL)mode;
 
 
 @end
