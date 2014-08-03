@@ -12,7 +12,9 @@
 
 @property (nonatomic, assign) int x;
 @property (nonatomic, assign) int y;
+
 @property (nonatomic, assign) bool occupied;
+
 
 -(id)initWithX:(int)xCoord Y:(int)yCoord;
 

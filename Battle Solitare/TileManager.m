@@ -61,6 +61,8 @@ NSMutableArray* placedTiles;
         [[Score getInstance] improvedUpdate:_topCard];
     }
     Tile * t = [[Deck getInstance] getNextCard];
+    [self canPlaceTile:t];
+    [self canPlaceTile:_botCard];
     t.position = [[Grid getInstance] topCardLoc];
     _topCard = t;
 
@@ -73,6 +75,8 @@ NSMutableArray* placedTiles;
         [[Score getInstance] improvedUpdate:_botCard];
     }
     Tile * t = [[Deck getInstance] getNextCard];
+    [self canPlaceTile:t];
+    [self canPlaceTile:_topCard];
     t.position = [[Grid getInstance] botCardLoc];
     _botCard = t;
     return t;
@@ -82,6 +86,7 @@ NSMutableArray* placedTiles;
     Tile * t = [[Tile alloc] initWildCard];
     t.position = ccp(([Grid getInstance].width / 2), [Grid getInstance].height/2);
     t.sqID = [[Grid getInstance] getSquareID:t.position];
+    t.sqID.occupied = true;
     [placedTiles addObject:t];
     
     return t;
@@ -101,6 +106,7 @@ NSMutableArray* placedTiles;
         // Move the tile
         t.position = [[Grid getInstance] getNearestCenter:loc];
         t.sqID = [[Grid getInstance] getSquareID:t.position];
+        t.sqID.occupied = true;
         
         // Replace the tile
         if(t == _topCard){
@@ -194,6 +200,28 @@ NSMutableArray* placedTiles;
 }
 -(Tile*) getBelow:(SqID*)loc{
     return [self tileOnSquare:[[Grid getInstance] down:loc]];
+}
+
+-(BOOL) canPlaceTile:(Tile*) t{
+    NSLog(@"CanPlace on Tile with color:%@ number:%u, and suit:%@", t.backgroundColor, t.value, t.suit);
+    for (Tile* matching in placedTiles){
+        if ([t matches:matching]){
+            if(![[Grid getInstance] up:matching.sqID].occupied){
+                NSLog(@"can move to (%u, %u)", [[Grid getInstance] up:matching.sqID].x, [[Grid getInstance] up:matching.sqID].y);
+                return true;}
+            if(![[Grid getInstance] down:matching.sqID].occupied){
+                NSLog(@"can move to (%u, %u)", [[Grid getInstance] up:matching.sqID].x, [[Grid getInstance] up:matching.sqID].y);
+                return true;}
+            if(![[Grid getInstance] left:matching.sqID].occupied){
+                NSLog(@"can move to (%u, %u)", [[Grid getInstance] up:matching.sqID].x, [[Grid getInstance] up:matching.sqID].y);
+                return true;}
+            if(![[Grid getInstance] right:matching.sqID].occupied){
+                NSLog(@"can move to (%u, %u)", [[Grid getInstance] up:matching.sqID].x, [[Grid getInstance] up:matching.sqID].y);
+                return true;}
+        }
+    }
+    NSLog(@"COULD NOT BE PLACED!!!!");
+    return false;
 }
 
 -(void) printCard:(Tile*)t{

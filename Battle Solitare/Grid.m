@@ -13,7 +13,7 @@
 
 static Grid *instance;
 const int gridDimens = 7;
-NSMutableArray * allSqIDs;
+NSArray * allSqIDs;
 
 +(Grid *)getInstance{
     if(instance == nil){
@@ -44,17 +44,17 @@ NSMutableArray * allSqIDs;
 }
 
 -(void) setupSqIDs{
-    allSqIDs = [NSMutableArray new];
+    NSMutableArray * newSqIDs = [NSMutableArray new];
     for(int i=0; i<gridDimens; i++){
         for(int j=0; j<gridDimens; j++){
-            [allSqIDs addObject:[[SqID alloc] initWithX:i Y:j]];
+            [newSqIDs addObject:[[SqID alloc] initWithX:i Y:j]];
         }
     }
-    
+    allSqIDs = newSqIDs;
 }
 
 -(SqID*) getSquareID:(CGPoint)loc{
-    return [self getSqIDX: (int) roundf((loc.x-_sideMargin)/_sqWidth)
+    return [self getSqIDX:(int) roundf((loc.x-_sideMargin)/_sqWidth)
                         Y:(int) roundf((loc.y-_verticalMargin)/_sqHeight)];
 
 }
@@ -62,10 +62,13 @@ NSMutableArray * allSqIDs;
 -(SqID*) getSqIDX:(int)x Y:(int)y{
     for(SqID * sqID in allSqIDs){
         if(sqID.x == x && sqID.y == y){
+            NSLog(@"Old SqID (%u,%u, %d)", x, y, (int) sqID.occupied);
             return sqID;
         }
     }
     SqID * newSqID = [[SqID alloc] initWithX:x Y:y];
+    newSqID.occupied = true;
+    NSLog(@"New SqID (%u,%u, %d)", x, y, (int) newSqID.occupied);
     return newSqID;
 }
 
@@ -108,6 +111,9 @@ NSMutableArray * allSqIDs;
     return false;
 }
 
+-(NSArray*)getAllSqIDs{
+    return allSqIDs;
+}
 
 
 @end

@@ -30,6 +30,7 @@
 
 -(BOOL) isOnGrid:(SqID*) loc;
 -(CGPoint) getNearestCenter:(CGPoint)loc;
+-(SqID*) getSqIDX:(int)x Y:(int)y;
 
 -(SqID*)right:(SqID*)point;
 -(SqID*)left:(SqID*)point;
@@ -37,5 +38,7 @@
 -(SqID*)down:(SqID*)point;
 
 -(BOOL) thisID:(SqID*)a equalsThisID:(SqID*)b;
+
+-(NSArray*)getAllSqIDs;
 
 @end

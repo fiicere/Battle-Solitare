@@ -14,6 +14,7 @@
     self = [super init];
     _x = xCoord;
     _y = yCoord;
+    _occupied = false;
     return self;
 }
 
