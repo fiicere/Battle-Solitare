@@ -41,9 +41,7 @@ NSMutableArray* placedTiles;
 }
 
 -(void)replaceTiles{
-    for(Tile * t in placedTiles){
-        [t release];
-    }
+    for(Tile * t in placedTiles) {[t release];}
     [_topCard release];
     [_botCard release];
     _topCard = nil;
@@ -81,7 +79,7 @@ NSMutableArray* placedTiles;
 -(Tile *)newCenterTile{
     Tile * t = [[Tile alloc] initWildCard];
     t.position = ccp(([Grid getInstance].width / 2), [Grid getInstance].height/2);
-    t.sqID = [[Grid getInstance] getSquareID:t.position];
+    [[[Grid getInstance] getSquareID:t.position] fillSquareWithTile:t];
     [placedTiles addObject:t];
     
     return t;
@@ -91,6 +89,10 @@ NSMutableArray* placedTiles;
     return placedTiles.copy;
 }
 
+-(BOOL)canBePlayed:(Tile*)t{
+    //TODO
+    return false;
+}
 
 // Tries to move a tile to a location, returns false if invalid move
 -(BOOL)moveTile:(Tile *)t toLoc:(CGPoint)loc{

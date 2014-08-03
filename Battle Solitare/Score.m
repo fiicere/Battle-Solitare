@@ -140,10 +140,10 @@ NSArray *whiteTiles;
 
 -(void)extendAllDirections:(NSArray*)tiles ofColor:(NSString*)color{
     Tile * t = tiles.lastObject;
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:[[Grid getInstance] getSquareID:t.position]]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:[[Grid getInstance] getSquareID:t.position]]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:[[Grid getInstance] getSquareID:t.position]]];
+    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:[[Grid getInstance] getSquareID:t.position]]];
 }
 
 -(int)blackScore{

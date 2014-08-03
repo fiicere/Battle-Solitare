@@ -8,7 +8,6 @@
 
 #import "Tile.h"
 #import "CCSprite.h"
-#import "Grid.h"
 #import "ImprovedChild.h"
 #import "ImprovedSprite.h"
 
@@ -161,14 +160,5 @@ const CGFloat numOffset = 0.3;
     return false;
 }
 
-///////////////////////////DEBUG//////////////////////////////////
--(void) printCard{
-    if([_suit isEqualToString:@"wild"]){
-        NSLog(@"Wild Card at (%u, %u)", _sqID.x, _sqID.y);
-    }
-    else{
-        NSLog(@"%@%u%@ at (%u, %u)", _backgroundColor, _value, _suit, _sqID.x, _sqID.y);
-    }
-}
 
 @end
