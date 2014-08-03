@@ -60,11 +60,21 @@ Drawer * blackDrawer;
 }
 
 -(void)drawPaths{
-    whiteDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
-    [self addChild:whiteDrawer];
-    
-    blackDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
-    [self addChild:blackDrawer];
+    if([[Score getInstance] blackScore] > [[Score getInstance] whiteScore]){
+        whiteDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
+        [self addChild:whiteDrawer];
+        
+        blackDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
+        [self addChild:blackDrawer];
+    }
+    else{
+        blackDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] blackPath] andColorIsBlack:true];
+        [self addChild:blackDrawer];
+        
+        whiteDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
+        [self addChild:whiteDrawer];
+    }
+
 }
 
 -(void) dropCard:(ccTime)dt{
