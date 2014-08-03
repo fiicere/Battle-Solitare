@@ -13,7 +13,7 @@
 
 static Grid *instance;
 const int gridDimens = 7;
-
+NSMutableArray * allSqIDs;
 
 +(Grid *)getInstance{
     if(instance == nil){
@@ -25,6 +25,7 @@ const int gridDimens = 7;
 -(id)init{
     self = [super init];
     [self setupVariables];
+    [self setupSqIDs];
     return self;
 }
 
@@ -42,15 +43,33 @@ const int gridDimens = 7;
     _topCardLoc = ccp(_width/2, _height - _sqHeight * 3 / 4);
 }
 
-
--(SqID) getSquareID:(CGPoint)loc{
-    SqID squareID;
-    squareID.x = (int) roundf((loc.x-_sideMargin)/_sqWidth);
-    squareID.y = (int) roundf((loc.y-_verticalMargin)/_sqHeight);
-    return squareID;
+-(void) setupSqIDs{
+    allSqIDs = [NSMutableArray new];
+    for(int i=0; i<gridDimens; i++){
+        for(int j=0; j<gridDimens; j++){
+            [allSqIDs addObject:[[SqID alloc] initWithX:i Y:j]];
+        }
+    }
+    
 }
 
--(CGPoint) getCenter:(SqID)squareID{
+-(SqID*) getSquareID:(CGPoint)loc{
+    return [self getSqIDX: (int) roundf((loc.x-_sideMargin)/_sqWidth)
+                        Y:(int) roundf((loc.y-_verticalMargin)/_sqHeight)];
+
+}
+
+-(SqID*) getSqIDX:(int)x Y:(int)y{
+    for(SqID * sqID in allSqIDs){
+        if(sqID.x == x && sqID.y == y){
+            return sqID;
+        }
+    }
+    SqID * newSqID = [[SqID alloc] initWithX:x Y:y];
+    return newSqID;
+}
+
+-(CGPoint) getCenter:(SqID*)squareID{
     CGPoint loc;
     loc.x = squareID.x * _sqWidth + _sideMargin;
     loc.y = squareID.y * _sqHeight + _verticalMargin;
@@ -66,44 +85,29 @@ const int gridDimens = 7;
 }
 
 //NOTE: Point not necessarily on grid
--(SqID)right:(SqID)point{
-    SqID new;
-    new.x = point.x+1;
-    new.y = point.y;
-    return new;
-}
--(SqID)left:(SqID)point{
-    SqID new;
-    new.x = point.x-1;
-    new.y = point.y;
-    return new;
-}
--(SqID)up:(SqID)point{
-    SqID new;
-    new.x = point.x;
-    new.y = point.y+1;
-    return new;
-}
--(SqID)down:(SqID)point{
-    SqID new;
-    new.x = point.x;
-    new.y = point.y-1;
-    return new;
-}
+-(SqID*)right:(SqID*)point{return [self getSqIDX:point.x+1 Y:point.y];}
 
--(BOOL) isOnGrid:(SqID)sqID{
+-(SqID*)left:(SqID*)point{return [self getSqIDX:point.x-1 Y:point.y];}
+
+-(SqID*)up:(SqID*)point{return [self getSqIDX:point.x Y:point.y+1];}
+
+-(SqID*)down:(SqID*)point{return [self getSqIDX:point.x Y:point.y-1];}
+
+
+-(BOOL) isOnGrid:(SqID*)sqID{
     if (sqID.x >= gridDimens || sqID.x < 0 || sqID.y >= gridDimens || sqID.y < 0) {
         return false;
     }
     return true;
 }
 
--(BOOL) thisID:(SqID)a equalsThisID:(SqID)b{
+-(BOOL) thisID:(SqID*)a equalsThisID:(SqID*)b{
     if(a.x == b.x && a.y == b.y){
         return true;
     }
     return false;
 }
+
 
 
 @end

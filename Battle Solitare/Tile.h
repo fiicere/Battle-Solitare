@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign) float scoreHeuristic;
 
-@property (nonatomic, assign) SqID sqID;
+@property (nonatomic, assign) SqID* sqID;
 
 -(id) initWithSuit:(NSString *)suit Value:(int)val Color:(NSString *)col;
 -(id) initWildCard;

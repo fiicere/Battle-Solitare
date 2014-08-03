@@ -8,16 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SqID.h"
 
 @interface Grid : NSObject {
     
 }
-
-struct SqID {
-    int x;
-    int y;
-};
-typedef struct SqID SqID;
 
 +(Grid *)getInstance;
 
@@ -31,18 +26,16 @@ typedef struct SqID SqID;
 @property (nonatomic, assign) CGPoint topCardLoc;
 @property (nonatomic, assign) CGPoint botCardLoc;
 
--(SqID) getSquareID:(CGPoint)loc;
--(CGPoint) getCenter:(SqID)squareID;
+-(SqID*) getSquareID:(CGPoint)loc;
+
+-(BOOL) isOnGrid:(SqID*) loc;
 -(CGPoint) getNearestCenter:(CGPoint)loc;
 
--(BOOL) isOnGrid:(SqID) loc;
+-(SqID*)right:(SqID*)point;
+-(SqID*)left:(SqID*)point;
+-(SqID*)up:(SqID*)point;
+-(SqID*)down:(SqID*)point;
 
-
--(SqID)right:(SqID)point;
--(SqID)left:(SqID)point;
--(SqID)up:(SqID)point;
--(SqID)down:(SqID)point;
-
--(BOOL) thisID:(SqID)a equalsThisID:(SqID)b;
+-(BOOL) thisID:(SqID*)a equalsThisID:(SqID*)b;
 
 @end

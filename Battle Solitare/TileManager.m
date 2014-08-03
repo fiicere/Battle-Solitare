@@ -120,7 +120,7 @@ NSMutableArray* placedTiles;
 
 // Checks move validity
 -(BOOL) isValidTile:(Tile *) t Loc:(CGPoint)loc{
-    SqID locID = [[Grid getInstance] getSquareID:loc];
+    SqID * locID = [[Grid getInstance] getSquareID:loc];
     
     if(! [[Grid getInstance] isOnGrid:locID]){
         return false;
@@ -137,7 +137,7 @@ NSMutableArray* placedTiles;
 
 // Returns the tile at a sqID, or nil if there is none
 // CAN RETURN NULL!!!!
--(Tile *) tileOnSquare:(SqID) sqID{
+-(Tile *) tileOnSquare:(SqID*) sqID{
     for(Tile * t in placedTiles){
         if([[Grid getInstance] thisID:sqID equalsThisID:t.sqID]){
             return t;
@@ -148,7 +148,7 @@ NSMutableArray* placedTiles;
 
 //Note: Only works if given a grid location
 -(BOOL) hasMatchingTile:(Tile *)t{
-    SqID sqID = [[Grid getInstance] getSquareID:t.position];
+    SqID * sqID = [[Grid getInstance] getSquareID:t.position];
     
     Tile * adj = [self getRight:sqID];
     if(adj != nil){
@@ -181,18 +181,18 @@ NSMutableArray* placedTiles;
     return false;
 }
 
--(Tile*) getRight:(SqID)loc{
+-(Tile*) getRight:(SqID*)loc{
     return [self tileOnSquare:[[Grid getInstance] right:loc]];
     
 }
--(Tile*) getLeft:(SqID)loc{
+-(Tile*) getLeft:(SqID*)loc{
     return [self tileOnSquare:[[Grid getInstance] left:loc]];
 }
--(Tile*) getAbove:(SqID)loc{
+-(Tile*) getAbove:(SqID*)loc{
     return [self tileOnSquare:[[Grid getInstance] up:loc]];
 
 }
--(Tile*) getBelow:(SqID)loc{
+-(Tile*) getBelow:(SqID*)loc{
     return [self tileOnSquare:[[Grid getInstance] down:loc]];
 }
 
