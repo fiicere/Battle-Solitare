@@ -2,43 +2,46 @@
 //  SqID.m
 //  Battle Solitare
 //
-//  Created by Kevin Yue on 8/2/14.
+//  Created by Kevin Yue on 4/21/14.
 //  Copyright (c) 2014 Kevin Yue. All rights reserved.
 //
 
 #import "SqID.h"
-#import "Tile.h"
 
 @implementation SqID
 
-int myXCoord;
-int myYCoord;
-
-Tile * tileOnSqID;
-
--(id)initWithX:(int)xCoord Y:(int)yCoord{
+-(id)init:(CGPoint)point{
     self = [super init];
     
-    myXCoord = xCoord;
-    myYCoord = yCoord;
+    _x = (int) (point.x + 0.5);
+    _y = (int) (point.y + 0.5);
+ 
+    return self;
+}
+
+-(id)initX:(int)x Y:(int)y{
+    self = [super init];
+    _x = x;
+    _y = y;
     
     return self;
 }
 
--(int)x {return myXCoord;}
-
--(int)y {return myYCoord;}
-
--(BOOL) isOccupied{
-    return tileOnSqID != nil;
+-(SqID *) right{
+    SqID * new = [[SqID alloc] initX:_x+1 Y:_y];
+    return new;
 }
-
--(Tile *) tileOnSquare{
-    return tileOnSqID;
+-(SqID *) left{
+    SqID * new = [[SqID alloc] initX:_x-1 Y:_y];
+    return new;
 }
-
--(void) fillSquareWithTile:(Tile*)t{
-    tileOnSqID = t;
+-(SqID *) up{
+    SqID * new = [[SqID alloc] initX:_x Y:_y+1];
+    return new;
+}
+-(SqID *) down{
+    SqID * new = [[SqID alloc] initX:_x Y:_y-1];
+    return new;
 }
 
 @end

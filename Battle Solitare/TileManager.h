@@ -21,10 +21,10 @@
 
 -(NSMutableArray*) getPlacedTiles;
 
--(Tile*) getRight:(SqID*)loc;
--(Tile*) getLeft:(SqID*)loc;
--(Tile*) getAbove:(SqID*)loc;
--(Tile*) getBelow:(SqID*)loc;
+-(Tile*) getRight:(SqID)loc;
+-(Tile*) getLeft:(SqID)loc;
+-(Tile*) getAbove:(SqID)loc;
+-(Tile*) getBelow:(SqID)loc;
 
 -(void) printCard:(Tile*)t;
 

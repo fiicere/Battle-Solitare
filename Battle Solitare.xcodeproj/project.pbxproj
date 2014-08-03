@@ -216,7 +216,6 @@
 		46B871B31872024400B1CACB /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B21872024400B1CACB /* Tile.m */; };
 		46B871B61872025600B1CACB /* TileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B51872025600B1CACB /* TileManager.m */; };
 		46B871B91872026100B1CACB /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B81872026100B1CACB /* Grid.m */; };
-		46E28178198DB3AE003911B3 /* SqID.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E28177198DB3AE003911B3 /* SqID.m */; };
 		46FE80A0191C3AFE003AEE55 /* Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE809F191C3AFE003AEE55 /* Drawer.m */; };
 		46FE80A6191D9E14003AEE55 /* BackgroundWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */; };
 		46FE80A91924201F003AEE55 /* SoloGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A81924201F003AEE55 /* SoloGameLayer.m */; };
@@ -599,8 +598,6 @@
 		46B871B51872025600B1CACB /* TileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileManager.m; sourceTree = "<group>"; };
 		46B871B71872026100B1CACB /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
 		46B871B81872026100B1CACB /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
-		46E28176198DB3AE003911B3 /* SqID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqID.h; sourceTree = "<group>"; };
-		46E28177198DB3AE003911B3 /* SqID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqID.m; sourceTree = "<group>"; };
 		46FE809E191C3AFE003AEE55 /* Drawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawer.h; sourceTree = "<group>"; };
 		46FE809F191C3AFE003AEE55 /* Drawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawer.m; sourceTree = "<group>"; };
 		46FE80A4191D9E14003AEE55 /* BackgroundWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundWithRects.h; sourceTree = "<group>"; };
@@ -769,8 +766,6 @@
 				462343E018CA81AD009B9CD5 /* Score.m */,
 				4695D2E219732E30004557F4 /* Spark.h */,
 				4695D2E319732E30004557F4 /* Spark.m */,
-				46E28176198DB3AE003911B3 /* SqID.h */,
-				46E28177198DB3AE003911B3 /* SqID.m */,
 				46B871B11872024400B1CACB /* Tile.h */,
 				46B871B21872024400B1CACB /* Tile.m */,
 				46B871B41872025600B1CACB /* TileManager.h */,
@@ -1439,7 +1434,6 @@
 				46B8716B169260E100B1CACB /* SimpleAudioEngine.m in Sources */,
 				4623445918DA18FE009B9CD5 /* ScoreScreen.m in Sources */,
 				46B87181169260E100B1CACB /* aabb.c in Sources */,
-				46E28178198DB3AE003911B3 /* SqID.m in Sources */,
 				46B87187169260E100B1CACB /* mat4stack.c in Sources */,
 				46B87189169260E100B1CACB /* matrix.c in Sources */,
 				46B8718B169260E100B1CACB /* mat3.c in Sources */,

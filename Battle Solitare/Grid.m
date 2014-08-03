@@ -43,13 +43,14 @@ const int gridDimens = 7;
 }
 
 
--(SqID*) getSquareID:(CGPoint)loc{
-    SqID * squareID = [[SqID alloc] initWithX:(int) roundf((loc.x-_sideMargin)/_sqWidth)
-                                            Y:(int) roundf((loc.y-_verticalMargin)/_sqHeight)];
+-(SqID) getSquareID:(CGPoint)loc{
+    SqID squareID;
+    squareID.x = (int) roundf((loc.x-_sideMargin)/_sqWidth);
+    squareID.y = (int) roundf((loc.y-_verticalMargin)/_sqHeight);
     return squareID;
 }
 
--(CGPoint) getCenter:(SqID *)squareID{
+-(CGPoint) getCenter:(SqID)squareID{
     CGPoint loc;
     loc.x = squareID.x * _sqWidth + _sideMargin;
     loc.y = squareID.y * _sqHeight + _verticalMargin;
@@ -65,34 +66,44 @@ const int gridDimens = 7;
 }
 
 //NOTE: Point not necessarily on grid
--(SqID*)right:(SqID*)point{
-    return [[SqID alloc] initWithX:point.x+1 Y:point.y];
+-(SqID)right:(SqID)point{
+    SqID new;
+    new.x = point.x+1;
+    new.y = point.y;
+    return new;
 }
--(SqID*)left:(SqID*)point{
-    return [[SqID alloc] initWithX:point.x-1 Y:point.y];
+-(SqID)left:(SqID)point{
+    SqID new;
+    new.x = point.x-1;
+    new.y = point.y;
+    return new;
+}
+-(SqID)up:(SqID)point{
+    SqID new;
+    new.x = point.x;
+    new.y = point.y+1;
+    return new;
+}
+-(SqID)down:(SqID)point{
+    SqID new;
+    new.x = point.x;
+    new.y = point.y-1;
+    return new;
 }
 
-    
--(SqID*)up:(SqID*)point{
-    return [[SqID alloc] initWithX:point.x Y:point.y+1];
-}
-
--(SqID*)down:(SqID*)point{
-    return [[SqID alloc] initWithX:point.x Y:point.y-1];
-}
-
--(BOOL) isOnGrid:(SqID*)sqID{
+-(BOOL) isOnGrid:(SqID)sqID{
     if (sqID.x >= gridDimens || sqID.x < 0 || sqID.y >= gridDimens || sqID.y < 0) {
         return false;
     }
     return true;
 }
 
--(BOOL) thisID:(SqID*)a equalsThisID:(SqID*)b{
+-(BOOL) thisID:(SqID)a equalsThisID:(SqID)b{
     if(a.x == b.x && a.y == b.y){
         return true;
     }
     return false;
 }
+
 
 @end

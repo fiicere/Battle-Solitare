@@ -2,23 +2,20 @@
 //  SqID.h
 //  Battle Solitare
 //
-//  Created by Kevin Yue on 8/2/14.
+//  Created by Kevin Yue on 4/21/14.
 //  Copyright (c) 2014 Kevin Yue. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Tile.h"
 
 @interface SqID : NSObject
 
--(id)initWithX:(int)xCoord Y:(int)yCoord;
+@property (nonatomic, assign) int x;
+@property (nonatomic, assign) int y;
 
--(int) x;
--(int) y;
 
--(BOOL) isOccupied;
+-(id)init:(CGPoint)point;
+-(id)initX:(int)x Y:(int)y;
 
--(Tile *) tileOnSquare;
 
--(void) fillSquareWithTile:(Tile*)t;
 @end
