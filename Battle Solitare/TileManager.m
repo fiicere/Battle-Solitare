@@ -12,7 +12,6 @@
 #import "Grid.h"
 #import "Deck.h"
 #import "Score.h"
-#import "DuoGameLayer.h"
 
 TileManager* instance;
 NSMutableArray* placedTiles;
@@ -51,9 +50,9 @@ NSMutableArray* placedTiles;
     _botCard = nil;
     placedTiles = [[NSMutableArray alloc] init];
 
+    [self newCenterTile];
     [self newBotTile];
     [self newTopTile];
-    [self newCenterTile];
     }
 
 -(Tile *)newTopTile{
@@ -61,9 +60,14 @@ NSMutableArray* placedTiles;
         [placedTiles addObject:_topCard];
         [[Score getInstance] improvedUpdate:_topCard];
     }
+    
     Tile * t = [[Deck getInstance] getNextCard];
-    [self canPlaceTile:t];
-    [self canPlaceTile:_botCard];
+    
+    if (![self canPlaceTile:t]){
+        [self returnTileToDeck:t];
+        return [self newBotTile];
+    }
+    
     t.position = [[Grid getInstance] topCardLoc];
     _topCard = t;
 
@@ -75,9 +79,14 @@ NSMutableArray* placedTiles;
         [placedTiles addObject:_botCard];
         [[Score getInstance] improvedUpdate:_botCard];
     }
+    
     Tile * t = [[Deck getInstance] getNextCard];
-    [self canPlaceTile:t];
-    [self canPlaceTile:_topCard];
+    
+    if (![self canPlaceTile:t]){
+        [self returnTileToDeck:t];
+        return [self newBotTile];
+    }
+    
     t.position = [[Grid getInstance] botCardLoc];
     _botCard = t;
     return t;
@@ -205,7 +214,21 @@ NSMutableArray* placedTiles;
             if(![[Grid getInstance] right:matching.sqID].occupied){return true;}
         }
     }
+    if (t == _topCard){
+        [[Deck getInstance] replaceCard:t];
+        _topCard = nil;
+        [self newTopTile];
+    }
+    if (t == _botCard){
+        [[Deck getInstance] replaceCard:t];
+        _botCard = nil;
+        [self newBotTile];
+    }
     return false;
+}
+
+-(void)returnTileToDeck:(Tile*)t{
+    [[Deck getInstance] replaceCard:t];
 }
 
 -(void) printCard:(Tile*)t{

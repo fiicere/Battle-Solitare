@@ -15,6 +15,9 @@
 
 @property (nonatomic, assign) bool occupied;
 
+@property (nonatomic, assign) float squareHeuristic;
+
+
 
 -(id)initWithX:(int)xCoord Y:(int)yCoord;
 

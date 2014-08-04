@@ -75,13 +75,19 @@ NSArray * allColors;
 
 //Returns a random card in the deck
 -(Tile *) getNextCard{
-    if([cardsInDeck count] == 0){
-        return [[Tile alloc] initWildCard];
-    }
-    int r =(arc4random() % [cardsInDeck count]);
-    Tile * t = [cardsInDeck objectAtIndex:r];
-    [cardsInDeck removeObjectAtIndex:r];
+    if([cardsInDeck count] == 0){return [[Tile alloc] initWildCard];}
+    
+    Tile * t = [cardsInDeck objectAtIndex:(arc4random() % [cardsInDeck count])];
+    [cardsInDeck removeObject:t];
+    
+    if([cardsInDeck count] == 0){[cardsInDeck addObject:[[Tile alloc] initWildCard]];}
+    
     return t;
+}
+
+-(void) replaceCard:(Tile*) t{
+    [cardsInDeck addObject:t];
+    NSLog(@"Replaced Tile (%@, %u, %@)", t.backgroundColor, t.value, t.suit);
 }
 
 

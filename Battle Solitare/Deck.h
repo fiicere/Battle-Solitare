@@ -14,5 +14,6 @@
 -(Tile *) getNextCard;
 +(Deck *) getInstance;
 -(void)resetDeck;
+-(void) replaceCard:(Tile*) t;
 
 @end
