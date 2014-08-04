@@ -210,8 +210,7 @@ CCLabelTTF * pauseLabel;
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
         
-        SqID * sqID = [[Grid getInstance] getSquareID:loc];
-        NSLog(@"Clicked (%u, %u, %@)", sqID.x, sqID.y, sqID.occupied ? @"Occupied" : @"Not Occupied");
+        [self printScoreHueuristic:loc];
         
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];
@@ -258,6 +257,20 @@ CCLabelTTF * pauseLabel;
         Tile* tile = [t getTile];
         
         tile.position = loc;
+    }
+}
+
+//////////////////////////DEBUG CODE!!!!!!///////////////////
+-(void)printSquare:(CGPoint)location{
+    SqID * sqID = [[Grid getInstance] getSquareID:location];
+    NSLog(@"Clicked (%u, %u, %@)", sqID.x, sqID.y, sqID.occupied ? @"Occupied" : @"Not Occupied");
+}
+
+-(void)printScoreHueuristic:(CGPoint)loc{
+    for (Tile* t in [[TileManager getInstance] getPlacedTiles]){
+        if (CGRectContainsPoint(t.boundingBox, loc)){
+            NSLog(@"Card: %@%u%@ has heuristicValue: %f", t.backgroundColor, t.value, t.suit, t.scoreHeuristic);
+        }
     }
 }
 
