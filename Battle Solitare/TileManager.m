@@ -131,6 +131,8 @@ NSMutableArray* placedTiles;
         
         return true;
     }
+    NSLog(@"ILLEGAL MOVE: Could Not Move %@%u%@ to (%u,%u)", t.backgroundColor, t.value, t.suit,
+          [[Grid getInstance] getSquareID:loc].x, [[Grid getInstance] getSquareID:loc].y);
     return false;
 }
 
@@ -139,7 +141,7 @@ NSMutableArray* placedTiles;
     
     if([[Grid getInstance] getSquareID:loc].occupied){return false;}
     
-    if(! [self hasMatchingTile:t]){return false;}
+    if(! [self hasMatchingTile:t AtLoc:loc]){return false;}
     
     return true;
 }
@@ -156,8 +158,8 @@ NSMutableArray* placedTiles;
 }
 
 //Note: Only works if given a grid location
--(BOOL) hasMatchingTile:(Tile *)t{
-    SqID * sqID = [[Grid getInstance] getSquareID:t.position];
+-(BOOL) hasMatchingTile:(Tile *)t AtLoc:(CGPoint)location{
+    SqID * sqID = [[Grid getInstance] getSquareID:location];
     
     Tile * adj = [self getRight:sqID];
     if(adj != nil){
@@ -243,7 +245,7 @@ NSMutableArray* placedTiles;
 
 -(void)resetAllSqIDValues{
     for (SqID* sqID in [[Grid getInstance] getAllSqIDs]){
-        sqID.squareHeuristic = 0;
+        sqID.squareHeuristic = -FLT_MAX;
     }
 }
 

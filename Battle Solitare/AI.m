@@ -22,40 +22,48 @@ float bestSquareValue;
 -(id)init{
     self = [super init];
     [self schedule:@selector(chooseMove:) interval:moveRate];
-    currentTile = [[TileManager getInstance] topCard];
     return self;
 }
 
 
 -(void)chooseMove:(ccTime) dt{
-    [self resetHeuristic];
     
-    if([currentTile.backgroundColor  isEqual: @"b"]) {[self scoreMyTile];}
-    if([currentTile.backgroundColor  isEqual: @"w"]) {[self scoreOpponentTile];}
+    [self resetHeuristic];
+    if([currentTile.backgroundColor isEqual:@"b"]) {[self scoreMyTile];}
+    else if([currentTile.backgroundColor isEqual:@"w"]) {[self scoreOpponentTile];}
     else {[self scoreWildCard];}
+    
+    [[TileManager getInstance] moveTile:currentTile toLoc:[[Grid getInstance] getCenter:bestSquare]];
 
 }
 
 -(void)resetHeuristic{
     bestSquare = nil;
-    bestSquareValue = 0;
+    bestSquareValue = FLT_MIN;
     [[TileManager getInstance] resetAllSqIDValues];
+    currentTile = [[TileManager getInstance] topCard];
 }
 
 -(void)scoreMyTile{
     for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
-        if([currentTile matches:t]){
-            [self incrementAdjacentSquares:t];
-        }
+        if([currentTile matches:t]){[self incrementAdjacentSquares:t];}
     }
+    [self findHighestScoringSquare];
 }
 
 -(void)scoreOpponentTile{
-    
+    for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
+        if([currentTile matches:t]) {[self decrementAdjacentSquares:t];}
+    }
+    [self findHighestScoringSquare];
 }
 
 -(void)scoreWildCard{
-    
+    for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
+        if([t.backgroundColor isEqualToString:@"b"]) {[self incrementAdjacentSquares:t];}
+        if([t.backgroundColor isEqualToString:@"w"]) {[self incrementAdjacentSquares:t];}
+    }
+    [self findHighestScoringSquare];
 }
 
 -(void)decrementAdjacentSquares:(Tile*) t{
@@ -75,16 +83,29 @@ float bestSquareValue;
 }
 
 -(void)addValue:(float)val unlessSqOccupied:(SqID*)sqID{
-    if(!sqID.occupied) {sqID.squareHeuristic += val;}
+    if(!sqID.occupied) {
+        if(sqID.squareHeuristic == -FLT_MAX) {sqID.squareHeuristic = 0;}
+        sqID.squareHeuristic += val;
+    }
 }
 
--(SqID*)findHighestScoringSquare{
+-(void)findHighestScoringSquare{
+    bestSquareValue = -FLT_MAX;
     for(SqID*sqid in [[TileManager getInstance] getAllSqIDs]){
         if (sqid.squareHeuristic > bestSquareValue){
             bestSquare = sqid;
             bestSquareValue = sqid.squareHeuristic;
         }
     }
-    return bestSquare;
+}
+
+-(void)findLowestScoringSquare{
+    bestSquareValue = FLT_MAX;
+    for(SqID*sqid in [[TileManager getInstance] getAllSqIDs]){
+        if (sqid.squareHeuristic < bestSquareValue){
+            bestSquare = sqid;
+            bestSquareValue = sqid.squareHeuristic;
+        }
+    }
 }
 @end

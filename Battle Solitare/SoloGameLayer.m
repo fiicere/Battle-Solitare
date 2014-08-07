@@ -19,6 +19,7 @@
 #import "TileManager.h"
 #import "ImprovedSprite.h"
 #import "Score.h"
+#import "AI.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -30,6 +31,8 @@ const int soloScoreOffset = 65;
 
 CCLabelTTF * scoreLabel;
 CCLabelTTF * pauseLabel;
+
+AI* blackOpponent;
 
 // HelloWorldLayer implementation
 @implementation SoloGameLayer
@@ -47,6 +50,7 @@ CCLabelTTF * pauseLabel;
         [self addPauseButtons];
         [self addScore];
         [self addPlayedCards];
+        [self addAI];
         
         // Reset Touches
         touchDict = [NSMapTable new];
@@ -116,6 +120,11 @@ CCLabelTTF * pauseLabel;
         }
         [self addChild:t];
     }
+}
+
+-(void)addAI{
+    blackOpponent = [[AI alloc] init];
+    [self addChild:blackOpponent];
 }
 
 -(void) removeAllCards{
