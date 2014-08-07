@@ -62,7 +62,7 @@ float bestSquareValue;
 -(void)scoreWildCard{
     for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
         if([t.backgroundColor isEqualToString:@"b"]) {[self incrementAdjacentSquares:t];}
-        if([t.backgroundColor isEqualToString:@"w"]) {[self incrementAdjacentSquares:t];}
+        if([t.backgroundColor isEqualToString:@"w"]) {[self decrementAdjacentSquares:t];}
         if([t.backgroundColor isEqualToString:@"wild"]) {[self validateAdjacentSquares:t];}
 
     }

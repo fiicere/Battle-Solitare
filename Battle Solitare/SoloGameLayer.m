@@ -56,6 +56,7 @@ AI* blackOpponent;
         touchDict = [NSMapTable new];
         
         [self schedule:@selector(updateView:) interval:0.1];
+        [self schedule:@selector(checkGameOver:)];
         
         // to enable touch detection
         [self setIsTouchEnabled:YES];
@@ -193,7 +194,7 @@ AI* blackOpponent;
                                                                                  scene:[PauseScene sceneWithOrientation:false andIsSoloMode:true]]];
 }
 
--(void)checkGameOver{
+-(void)checkGameOver:(ccTime) dt{
     if([[TileManager getInstance] getPlacedTiles].count >= 49){
         [self gameOver];
     }
