@@ -270,8 +270,11 @@ CCLabelTTF * pauseLabel;
     for (Tile* t in [[TileManager getInstance] getPlacedTiles]){
         if (CGRectContainsPoint(t.boundingBox, loc)){
             NSLog(@"Card: %@%u%@ has heuristicValue: %f", t.backgroundColor, t.value, t.suit, t.scoreHeuristic);
+            return;
         }
     }
+    SqID*sqID = [[Grid getInstance] getSquareID:loc];
+    NSLog(@"Square: (%u,%u) hasValue: %f", sqID.x, sqID.y, sqID.squareHeuristic);
 }
 
 @end

@@ -235,4 +235,16 @@ NSMutableArray* placedTiles;
     NSLog(@"Card = %@%u%@", t.backgroundColor, t.value, t.suit);
 }
 
+////////////////AI METHODS///////////////
+
+-(NSArray*)getAllSqIDs{
+    return [[Grid getInstance] getAllSqIDs];
+}
+
+-(void)resetAllSqIDValues{
+    for (SqID* sqID in [[Grid getInstance] getAllSqIDs]){
+        sqID.squareHeuristic = 0;
+    }
+}
+
 @end

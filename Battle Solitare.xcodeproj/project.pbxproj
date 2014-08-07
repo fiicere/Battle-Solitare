@@ -83,7 +83,6 @@
 		466004F318F5CF20008553AC /* black felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004F218F5CF20008553AC /* black felt.png */; };
 		466004F718FF1F57008553AC /* TrajanPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
-		4695D2DE1952357A004557F4 /* MoveHeuristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4695D2DD1952357A004557F4 /* MoveHeuristic.m */; };
 		4695D2E419732E30004557F4 /* Spark.m in Sources */ = {isa = PBXBuildFile; fileRef = 4695D2E319732E30004557F4 /* Spark.m */; };
 		4695D2E7197332C7004557F4 /* Firework.m in Sources */ = {isa = PBXBuildFile; fileRef = 4695D2E6197332C7004557F4 /* Firework.m */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
@@ -217,6 +216,7 @@
 		46B871B61872025600B1CACB /* TileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B51872025600B1CACB /* TileManager.m */; };
 		46B871B91872026100B1CACB /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B871B81872026100B1CACB /* Grid.m */; };
 		46E2817B198EDE32003911B3 /* SqID.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E2817A198EDE32003911B3 /* SqID.m */; };
+		46E2817E1992F4D0003911B3 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E2817D1992F4D0003911B3 /* AI.m */; };
 		46FE80A0191C3AFE003AEE55 /* Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE809F191C3AFE003AEE55 /* Drawer.m */; };
 		46FE80A6191D9E14003AEE55 /* BackgroundWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A5191D9E14003AEE55 /* BackgroundWithRects.m */; };
 		46FE80A91924201F003AEE55 /* SoloGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FE80A81924201F003AEE55 /* SoloGameLayer.m */; };
@@ -313,8 +313,6 @@
 		466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Regular.ttf"; sourceTree = "<group>"; };
 		466004F618FF19F2008553AC /* Alexis 3D.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alexis 3D.ttf"; sourceTree = "<group>"; };
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
-		4695D2DC1952357A004557F4 /* MoveHeuristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveHeuristic.h; sourceTree = "<group>"; };
-		4695D2DD1952357A004557F4 /* MoveHeuristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveHeuristic.m; sourceTree = "<group>"; };
 		4695D2E219732E30004557F4 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
 		4695D2E319732E30004557F4 /* Spark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spark.m; sourceTree = "<group>"; };
 		4695D2E5197332C7004557F4 /* Firework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firework.h; sourceTree = "<group>"; };
@@ -601,6 +599,8 @@
 		46B871B81872026100B1CACB /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		46E28179198EDE32003911B3 /* SqID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqID.h; sourceTree = "<group>"; };
 		46E2817A198EDE32003911B3 /* SqID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqID.m; sourceTree = "<group>"; };
+		46E2817C1992F4D0003911B3 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AI.h; sourceTree = "<group>"; };
+		46E2817D1992F4D0003911B3 /* AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AI.m; sourceTree = "<group>"; };
 		46FE809E191C3AFE003AEE55 /* Drawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawer.h; sourceTree = "<group>"; };
 		46FE809F191C3AFE003AEE55 /* Drawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawer.m; sourceTree = "<group>"; };
 		46FE80A4191D9E14003AEE55 /* BackgroundWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundWithRects.h; sourceTree = "<group>"; };
@@ -751,6 +751,8 @@
 				46F19A07190ADF5A002CF527 /* Layers */,
 				46B871A3169260E100B1CACB /* AppDelegate.h */,
 				46B871A4169260E100B1CACB /* AppDelegate.m */,
+				46E2817C1992F4D0003911B3 /* AI.h */,
+				46E2817D1992F4D0003911B3 /* AI.m */,
 				462343D518C69DB4009B9CD5 /* Deck.h */,
 				462343D618C69DB4009B9CD5 /* Deck.m */,
 				46FE809E191C3AFE003AEE55 /* Drawer.h */,
@@ -763,8 +765,6 @@
 				4623442818D2600F009B9CD5 /* ImprovedChild.m */,
 				462343DC18C9192C009B9CD5 /* ImprovedSprite.h */,
 				462343DD18C9192C009B9CD5 /* ImprovedSprite.m */,
-				4695D2DC1952357A004557F4 /* MoveHeuristic.h */,
-				4695D2DD1952357A004557F4 /* MoveHeuristic.m */,
 				462343DF18CA81AD009B9CD5 /* Score.h */,
 				462343E018CA81AD009B9CD5 /* Score.m */,
 				4695D2E219732E30004557F4 /* Spark.h */,
@@ -1346,6 +1346,7 @@
 				46B87056169260DF00B1CACB /* CCAnimation.m in Sources */,
 				46B87059169260DF00B1CACB /* CCAnimationCache.m in Sources */,
 				46B8705C169260DF00B1CACB /* CCAtlasNode.m in Sources */,
+				46E2817E1992F4D0003911B3 /* AI.m in Sources */,
 				46B8705F169260DF00B1CACB /* CCCamera.m in Sources */,
 				46B87062169260DF00B1CACB /* CCClippingNode.m in Sources */,
 				46B87066169260DF00B1CACB /* CCConfiguration.m in Sources */,
@@ -1457,7 +1458,6 @@
 				46B8719D169260E100B1CACB /* vec4.c in Sources */,
 				46B871A2169260E100B1CACB /* main.m in Sources */,
 				46B871A5169260E100B1CACB /* AppDelegate.m in Sources */,
-				4695D2DE1952357A004557F4 /* MoveHeuristic.m in Sources */,
 				46B871A8169260E200B1CACB /* DuoGameLayer.m in Sources */,
 				46FE80AC192424B3003AEE55 /* SoloGameScene.m in Sources */,
 				46B871AB169260E200B1CACB /* IntroScene.m in Sources */,

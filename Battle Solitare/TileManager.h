@@ -30,4 +30,10 @@
 
 -(void) newGame;
 
+
+//AI Methods
+-(NSArray*)getAllSqIDs;
+
+-(void)resetAllSqIDValues;
+
 @end
