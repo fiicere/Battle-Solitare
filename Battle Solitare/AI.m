@@ -27,6 +27,7 @@ float bestSquareValue;
 
 
 -(void)chooseMove:(ccTime) dt{
+    if([TileManager getInstance].getPlacedTiles.count >= 49){return;}
     
     [self resetHeuristic];
     if([currentTile.backgroundColor isEqual:@"b"]) {[self scoreMyTile];}
@@ -62,6 +63,8 @@ float bestSquareValue;
     for(Tile* t in [[TileManager getInstance] getPlacedTiles]){
         if([t.backgroundColor isEqualToString:@"b"]) {[self incrementAdjacentSquares:t];}
         if([t.backgroundColor isEqualToString:@"w"]) {[self incrementAdjacentSquares:t];}
+        if([t.backgroundColor isEqualToString:@"wild"]) {[self validateAdjacentSquares:t];}
+
     }
     [self findHighestScoringSquare];
 }
@@ -79,6 +82,14 @@ float bestSquareValue;
     [self addValue:t.scoreHeuristic unlessSqOccupied:[[Grid getInstance] down:t.sqID]];
     [self addValue:t.scoreHeuristic unlessSqOccupied:[[Grid getInstance] left:t.sqID]];
     [self addValue:t.scoreHeuristic unlessSqOccupied:[[Grid getInstance] right:t.sqID]];
+    
+}
+
+-(void)validateAdjacentSquares:(Tile*) t{
+    [self addValue:0 unlessSqOccupied:[[Grid getInstance] up:t.sqID]];
+    [self addValue:0 unlessSqOccupied:[[Grid getInstance] down:t.sqID]];
+    [self addValue:0 unlessSqOccupied:[[Grid getInstance] left:t.sqID]];
+    [self addValue:0 unlessSqOccupied:[[Grid getInstance] right:t.sqID]];
     
 }
 
