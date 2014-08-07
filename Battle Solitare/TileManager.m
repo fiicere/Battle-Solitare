@@ -208,14 +208,10 @@ NSMutableArray* placedTiles;
 }
 
 -(BOOL) canPlaceTile:(Tile*) t{
-    for (Tile* matching in placedTiles){
-        if ([t matches:matching]){
-            if(![[Grid getInstance] up:matching.sqID].occupied){return true;}
-            if(![[Grid getInstance] down:matching.sqID].occupied){return true;}
-            if(![[Grid getInstance] left:matching.sqID].occupied){return true;}
-            if(![[Grid getInstance] right:matching.sqID].occupied){return true;}
-        }
+    for (SqID* sqID in [[Grid getInstance] getAllSqIDs]){
+        if([self isValidMoveTile:t ToLoc:[[Grid getInstance] getCenter:sqID]]){return true;}
     }
+    if([t.suit isEqualToString:@"wild"]){return true;}
     if (t == _topCard){
         [[Deck getInstance] replaceCard:t];
         _topCard = nil;
