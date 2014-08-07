@@ -202,6 +202,8 @@ AI* blackOpponent;
 
 -(void)gameOver{
     [self removeAllCards];
+    [self unschedule:@selector(checkGameOver:)];
+    [self unschedule:@selector(updateView:)];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[ScoreScreen scene]]];
 }
 
@@ -257,7 +259,6 @@ AI* blackOpponent;
         
         [touchDict removeObjectForKey:touch];
     }
-    [self checkGameOver];
 }
 
 -(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{

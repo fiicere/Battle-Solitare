@@ -27,7 +27,10 @@ float bestSquareValue;
 
 
 -(void)chooseMove:(ccTime) dt{
-    if([TileManager getInstance].getPlacedTiles.count >= 49){return;}
+    if([TileManager getInstance].getPlacedTiles.count >= 49){
+        [self unschedule:@selector(chooseMove:)];
+        return;}
+//    NSLog(@"Card Count = %u", [TileManager getInstance].getPlacedTiles.count);
     
     [self resetHeuristic];
     if([currentTile.backgroundColor isEqual:@"b"]) {[self scoreMyTile];}

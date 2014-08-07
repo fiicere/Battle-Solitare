@@ -34,6 +34,8 @@ Drawer * blackDrawer;
 -(id) init{
     self = [super init];
     
+    NSLog(@"CREATING SCORE LAYER");
+
     [self addAllCards];
     [self addScore];
     [self setShrinkRates];
@@ -74,6 +76,8 @@ Drawer * blackDrawer;
         whiteDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
         [self addChild:whiteDrawer];
     }
+    NSLog(@"DRAWERS ADDED");
+
 
 }
 
@@ -182,6 +186,7 @@ Drawer * blackDrawer;
         t.opacity = 150;
         [self addChild:t];
     }
+    NSLog(@"ALL CARDS ADDED");
 }
 
 -(void) addScore{
@@ -201,6 +206,8 @@ Drawer * blackDrawer;
     
     [self addChild:topScoreLabel];
     [self addChild:botScoreLabel];
+    NSLog(@"SCORE LABELS ADDED");
+
 }
 
 /////////////////////////TOUCH EVENTS//////////////////////////
