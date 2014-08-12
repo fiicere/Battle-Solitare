@@ -16,6 +16,7 @@
 static Score * instance;
 NSArray *blackTiles;
 NSArray *whiteTiles;
+NSMutableArray * floodTiles;
 
 
 +(Score *) getInstance{
@@ -31,120 +32,64 @@ NSArray *whiteTiles;
     return self;
 }
 
-
--(void) updateScores{
-    for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
-        NSMutableArray * a = [NSMutableArray new];
-        NSString *startColor;
-        if([startTile.backgroundColor isEqualToString:@"wild"]){
-            startColor = @"none";
-        }
-        else{
-            startColor = startTile.backgroundColor;
-        }
-        
-        startTile.scoreHeuristic = 0;
-        [a addObject:startTile];
-        [self extendAllDirections:a ofColor:startColor];
-    }
-
+-(void)updateForPlayedTile:(Tile*)t{
+    [self floodTile:t];
+    [self findBestPath];
 }
 
--(void) improvedUpdate:(Tile*)t{
-    NSString *startColor;
-    if([t.backgroundColor isEqualToString:@"wild"]){
-        return [self updateScores];
-    }
-    else{
-        startColor = t.backgroundColor;
-    }
+-(void)floodTile:(Tile*)t{
+    floodTiles = [NSMutableArray new];
+    [self addTileToFloodTilesRecurse:t];
+}
 
-    for(Tile* startTile in [[TileManager getInstance] getPlacedTiles]){
-        NSMutableArray * a = [NSMutableArray new];
-        
-        if(![startTile.backgroundColor isEqualToString:@"wild"] &&
-           ![startTile.backgroundColor isEqualToString:startColor]){
-            continue;
+-(void)addTileToFloodTilesRecurse:(Tile*)t{
+    if(![floodTiles containsObject:t]){
+        [floodTiles addObject:t];
+        for(Tile* adjMatching in [[TileManager getInstance] getMatchingAdjTiles:t]) {
+            [self addTileToFloodTilesRecurse:adjMatching];
         }
-        
-        // Set startTile maxpath = 0
-        startTile.scoreHeuristic = 0;
-
-        [a addObject:startTile];
-        [self extendAllDirections:a ofColor:startColor];
     }
 }
 
--(void) extendChain:(NSMutableArray*)tiles ofColor:(NSString*)color toTile:(Tile* )t{
-    
-    //No duplicate tiles
-    for(Tile* tile in tiles){
-        if (tile == t){
-            return;
-        }
-    }
-    // No empty squares
-    if(t == nil){
-        return;
-    }
-    // If the path currently does not belong to either color, and you get a colored tile
-    else if([color isEqualToString:@"none"] && ![t.backgroundColor isEqualToString:@"wild"]){
-        // Extend the path with the color of the colored tile
-        [tiles addObject:t];
-        color = t.backgroundColor;
-        
-        // Check if longest path
-        if([color isEqualToString:@"b"]){
-            if(tiles.count > blackTiles.count){
-                blackTiles = [[NSArray alloc] initWithArray:tiles];
-            }
-        }
-        if([color isEqualToString:@"w"]){
-            if(tiles.count > whiteTiles.count){
-                whiteTiles = [[NSArray alloc] initWithArray:tiles];
-            }
-        }
-        
-        // Check heuristic
-        Tile * first = tiles.firstObject;
-        first.scoreHeuristic = MAX(first.scoreHeuristic, tiles.count);
-        
-        // Extend Path
-        [self extendAllDirections:tiles ofColor:color];
-    }
-    // Otherwise if the background color of the new card matches, or if the new card is wild
-    else if(t.backgroundColor == color || [t.backgroundColor isEqualToString:@"wild"]){
-        //Extend the path with the current tile
-        [tiles addObject:t];
-        
-        // Check if longest path
-        if([color isEqualToString:@"b"]){
-            if(tiles.count > blackTiles.count){
-                blackTiles = [[NSArray alloc] initWithArray:tiles];
-            }
-        }
-        if([color isEqualToString:@"w"]){
-            if(tiles.count > whiteTiles.count){
-                whiteTiles = [[NSArray alloc] initWithArray:tiles];
-            }
-        }
-        
-        // Check heuristic
-        Tile * first = tiles.firstObject;
-        first.scoreHeuristic = MAX(first.scoreHeuristic, tiles.count);
-        
-        // Extend Path
-        [self extendAllDirections:tiles ofColor:color];
+-(void)findBestPath{
+    for (Tile* startTile in floodTiles) {[self dfs:startTile];}
+}
+
+-(void)dfs:(Tile*)t{
+    if ([t.backgroundColor isEqualToString:@"b"]) {[self dfsRecurse:[NSMutableArray new] toTile:t withColor:@"b"];}
+    if ([t.backgroundColor isEqualToString:@"w"]) {[self dfsRecurse:[NSMutableArray new] toTile:t withColor:@"w"];}
+    if ([t.backgroundColor isEqualToString:@"wild"]) {
+        [self dfsRecurse:[NSMutableArray new] toTile:t withColor:@"b"];
+        [self dfsRecurse:[NSMutableArray new] toTile:t withColor:@"w"];
     }
 }
 
--(void)extendAllDirections:(NSArray*)tiles ofColor:(NSString*)color{
-    Tile * t = tiles.lastObject;
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getRight:t.sqID]];
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getLeft:t.sqID]];
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getAbove:t.sqID]];
-    [self extendChain:[NSMutableArray arrayWithArray:tiles] ofColor:color toTile:[[TileManager getInstance] getBelow:t.sqID]];
+-(void)dfsRecurse:(NSMutableArray*)path toTile:(Tile*) t withColor:(NSString*)color{
+    [self replaceBestPath:path Color:color];
+    [self updateSquareHeuristic:path];
+    if([t matchesBackgroundColor:color] && ![path containsObject:t]) {
+        [path addObject:t];
+        for(Tile* nextTile in [[TileManager getInstance] getAdjTiles:t]){
+            [self dfsRecurse:[NSMutableArray arrayWithArray:path] toTile:nextTile withColor:color];
+        }
+    }
 }
+
+-(void)replaceBestPath:(NSMutableArray*)path Color:(NSString*)color{
+    if([color isEqualToString:@"b"]){
+        if(path.count > blackTiles.count) {blackTiles = [[NSArray alloc] initWithArray:path];}
+    }
+    else if([color isEqualToString:@"w"]){
+        if(path.count > whiteTiles.count) {whiteTiles = [[NSArray alloc] initWithArray:path];}
+    }
+    else{NSLog(@"ERROR: %@ is not a valid color for a scoring path", color);}
+}
+
+-(void)updateSquareHeuristic:(NSArray*)path{
+    Tile * startTile = path.firstObject;
+    startTile.scoreHeuristic = max(startTile.scoreHeuristic, path.count);
+}
+
 
 -(int)blackScore{
     return (int) blackTiles.count;

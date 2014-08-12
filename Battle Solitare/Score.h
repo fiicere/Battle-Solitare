@@ -13,8 +13,7 @@
 @interface Score : NSObject
 
 +(Score *) getInstance;
--(void) updateScores;
--(void) improvedUpdate:(Tile*)t;
+-(void)updateForPlayedTile:(Tile*)t;
 
 -(int)blackScore;
 -(int)whiteScore;

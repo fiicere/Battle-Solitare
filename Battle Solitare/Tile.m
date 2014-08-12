@@ -161,6 +161,16 @@ const CGFloat numOffset = 0.3;
     return false;
 }
 
+-(bool) matchesBackgroundColor:(NSString *)color{
+    if([self.backgroundColor isEqualToString:color]){
+        return true;
+    }
+    if([self.backgroundColor isEqualToString:@"wild"]){
+        return true;
+    }
+    return false;
+}
+
 ///////////////////////////DEBUG//////////////////////////////////
 -(void) printCard{
     if([_suit isEqualToString:@"wild"]){

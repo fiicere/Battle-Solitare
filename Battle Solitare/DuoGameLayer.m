@@ -227,7 +227,7 @@ CCLabelTTF * topPauseLabel;
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
         
-//        [self printSquare:loc];
+        [self printScoreHueuristic:loc];
         
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];

@@ -26,6 +26,7 @@
 -(id) initWildCard;
 
 -(BOOL) matches:(Tile*)t;
+-(bool) matchesBackgroundColor:(NSString *)color;
 
 -(void) printCard;
 @end

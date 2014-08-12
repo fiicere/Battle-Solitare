@@ -58,7 +58,7 @@ NSMutableArray* placedTiles;
 -(Tile *)newTopTile{
     if(_topCard != nil){
         [placedTiles addObject:_topCard];
-        [[Score getInstance] improvedUpdate:_topCard];
+        [[Score getInstance] updateForPlayedTile:_topCard];
     }
     
     Tile * t = [[Deck getInstance] getNextCard];
@@ -77,7 +77,7 @@ NSMutableArray* placedTiles;
 -(Tile *)newBotTile{
     if(_botCard != nil){
         [placedTiles addObject:_botCard];
-        [[Score getInstance] improvedUpdate:_botCard];
+        [[Score getInstance] updateForPlayedTile:_botCard];
     }
     
     Tile * t = [[Deck getInstance] getNextCard];
@@ -131,8 +131,6 @@ NSMutableArray* placedTiles;
         
         return true;
     }
-    NSLog(@"ILLEGAL MOVE: Could Not Move %@%u%@ to (%u,%u)", t.backgroundColor, t.value, t.suit,
-          [[Grid getInstance] getSquareID:loc].x, [[Grid getInstance] getSquareID:loc].y);
     return false;
 }
 
@@ -205,6 +203,27 @@ NSMutableArray* placedTiles;
 }
 -(Tile*) getBelow:(SqID*)loc{
     return [self tileOnSquare:[[Grid getInstance] down:loc]];
+}
+
+-(NSArray*)getAdjTiles:(Tile*)t{
+    NSMutableArray * adjTiles = [NSMutableArray new];
+    
+    if([self getRight:t.sqID] != nil) {[adjTiles addObject:[self getRight:t.sqID]];}
+    if([self getLeft:t.sqID] != nil) {[adjTiles addObject:[self getLeft:t.sqID]];}
+    if([self getAbove:t.sqID] != nil) {[adjTiles addObject:[self getAbove:t.sqID]];}
+    if([self getBelow:t.sqID] != nil) {[adjTiles addObject:[self getBelow:t.sqID]];}
+    
+    return adjTiles;
+}
+
+-(NSArray*)getMatchingAdjTiles:(Tile*)t{
+    NSMutableArray * matchingAdjTiles = [NSMutableArray new];
+    
+    for(Tile* adjTile in [self getAdjTiles:t]){
+        if([t matches:adjTile]) {[matchingAdjTiles addObject:adjTile];}
+    }
+
+    return matchingAdjTiles;
 }
 
 -(BOOL) canPlaceTile:(Tile*) t{
