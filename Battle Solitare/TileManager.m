@@ -57,16 +57,10 @@ NSMutableArray* placedTiles;
 
 -(Tile *)newTopTile{
     if(_topCard != nil){
-        [placedTiles addObject:_topCard];
-        [[Score getInstance] updateForPlayedTile:_topCard];
+        [self placeTile:_topCard];
     }
     
-    Tile * t = [[Deck getInstance] getNextCard];
-    
-    if (![self canPlaceTile:t]){
-        [self returnTileToDeck:t];
-        return [self newBotTile];
-    }
+    Tile * t = [self getNewValidCard];
     
     t.position = [[Grid getInstance] topCardLoc];
     _topCard = t;
@@ -76,16 +70,10 @@ NSMutableArray* placedTiles;
 
 -(Tile *)newBotTile{
     if(_botCard != nil){
-        [placedTiles addObject:_botCard];
-        [[Score getInstance] updateForPlayedTile:_botCard];
+        [self placeTile:_botCard];
     }
     
-    Tile * t = [[Deck getInstance] getNextCard];
-    
-    if (![self canPlaceTile:t]){
-        [self returnTileToDeck:t];
-        return [self newBotTile];
-    }
+    Tile * t = [self getNewValidCard];
     
     t.position = [[Grid getInstance] botCardLoc];
     _botCard = t;
@@ -106,6 +94,22 @@ NSMutableArray* placedTiles;
     return placedTiles.copy;
 }
 
+-(void)placeTile:(Tile*)t{
+    if([placedTiles containsObject:t]) {NSLog(@"ERROR: attempting to place %@%u%@ twice", t.backgroundColor, t.value, t.suit);}
+    [placedTiles addObject:t];
+    [[Score getInstance] updateForPlayedTile:t];
+}
+
+-(Tile*)getNewValidCard{
+    Tile * t = [[Deck getInstance] getNextCard];
+    
+    if (![self canPlaceTile:t]){
+        [self returnTileToDeck:t];
+        return [self getNewValidCard];
+    }
+    
+    return t;
+}
 
 // Tries to move a tile to a location, returns false if invalid move
 -(BOOL)moveTile:(Tile *)t toLoc:(CGPoint)loc{
