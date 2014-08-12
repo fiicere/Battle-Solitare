@@ -162,12 +162,9 @@ const CGFloat numOffset = 0.3;
 }
 
 -(bool) matchesBackgroundColor:(NSString *)color{
-    if([self.backgroundColor isEqualToString:color]){
-        return true;
-    }
-    if([self.backgroundColor isEqualToString:@"wild"]){
-        return true;
-    }
+    if([self.backgroundColor isEqualToString:color]){return true;}
+    if([self.backgroundColor isEqualToString:@"wild"]) {return true;}
+    if([color isEqualToString:@"wild"]) {return true;}
     return false;
 }
 

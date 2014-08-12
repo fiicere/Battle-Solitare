@@ -27,7 +27,6 @@
 -(Tile*) getBelow:(SqID*)loc;
 
 -(NSArray*)getAdjTiles:(Tile*)t;
--(NSArray*)getMatchingAdjTiles:(Tile*)t;
 
 -(void) printCard:(Tile*)t;
 

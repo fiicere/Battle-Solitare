@@ -10,6 +10,10 @@
 #import "Tile.h"
 
 NSMutableArray* cardsInDeck;
+
+NSMutableArray* blackCards;
+NSMutableArray* whiteCards;
+
 static Deck * instance;
 
 const int numWilds = 8;

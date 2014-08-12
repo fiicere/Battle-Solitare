@@ -216,16 +216,6 @@ NSMutableArray* placedTiles;
     return adjTiles;
 }
 
--(NSArray*)getMatchingAdjTiles:(Tile*)t{
-    NSMutableArray * matchingAdjTiles = [NSMutableArray new];
-    
-    for(Tile* adjTile in [self getAdjTiles:t]){
-        if([t matches:adjTile]) {[matchingAdjTiles addObject:adjTile];}
-    }
-
-    return matchingAdjTiles;
-}
-
 -(BOOL) canPlaceTile:(Tile*) t{
     for (SqID* sqID in [[Grid getInstance] getAllSqIDs]){
         if([self isValidMoveTile:t ToLoc:[[Grid getInstance] getCenter:sqID]]){return true;}

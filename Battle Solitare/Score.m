@@ -39,14 +39,17 @@ NSMutableArray * floodTiles;
 
 -(void)floodTile:(Tile*)t{
     floodTiles = [NSMutableArray new];
-    [self addTileToFloodTilesRecurse:t];
+    [floodTiles addObject:t];
+    for (Tile*adj in [[TileManager getInstance] getAdjTiles:t]){
+        [self addTileToFloodTilesRecurse:adj];
+    };
 }
 
 -(void)addTileToFloodTilesRecurse:(Tile*)t{
-    if(![floodTiles containsObject:t]){
+    if(![floodTiles containsObject:t] && [floodTiles.firstObject matchesBackgroundColor:t.backgroundColor]){
         [floodTiles addObject:t];
-        for(Tile* adjMatching in [[TileManager getInstance] getMatchingAdjTiles:t]) {
-            [self addTileToFloodTilesRecurse:adjMatching];
+        for(Tile* adj in [[TileManager getInstance] getAdjTiles:t]) {
+            [self addTileToFloodTilesRecurse:adj];
         }
     }
 }
