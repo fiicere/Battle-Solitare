@@ -41,6 +41,7 @@ NSArray *farthestBlackTile;
 }
 
 -(void)farUpdateForPlayedTile:(Tile*)t{
+    NSLog(@"FAR UPDATE FOR TILE %@%u%@", t.backgroundColor, t.value, t.suit);
     [self dfs:t];
     [self findBestPathFromDFS];
 }
@@ -71,14 +72,14 @@ NSArray *farthestBlackTile;
 
 -(void)findBestPathFromDFS{
     if(farthestWhiteTile.count > 0) {
-        for(Tile * t in [[TileManager getInstance] getAdjTiles:farthestWhiteTile.lastObject]){
-            [self dfsRecurse:[self reverseArray:farthestWhiteTile] toTile:t withColor:@"w"];
-        }
+        Tile * farthestWhite = farthestWhiteTile.lastObject;
+        NSLog(@"Farthest White Tile is %@%u%@", farthestWhite.backgroundColor, farthestWhite.value, farthestWhite.suit);
+        [self dfs:farthestWhite];
     }
     if(farthestBlackTile.count > 0) {
-        for(Tile * t in [[TileManager getInstance] getAdjTiles:farthestBlackTile.lastObject]){
-            [self dfsRecurse:[self reverseArray:farthestBlackTile] toTile:t withColor:@"b"];
-        }
+        Tile * farthestBlack = farthestBlackTile.lastObject;
+        NSLog(@"Farthest Black Tile is %@%u%@", farthestBlack.backgroundColor, farthestBlack.value, farthestBlack.suit);
+        [self dfs:farthestBlack];
     }
     [self updateBestPaths];
 }
@@ -96,13 +97,11 @@ NSArray *farthestBlackTile;
 -(void)dfsRecurse:(NSMutableArray*)path toTile:(Tile*) t withColor:(NSString*)color{
     if([t matchesBackgroundColor:color] && ![path containsObject:t]) {
         [path addObject:t];
+        [self replaceFarthestTile:path Color:color];
+        [self updateSquareHeuristic:path];
         for(Tile* nextTile in [[TileManager getInstance] getAdjTiles:t]){
             [self dfsRecurse:[NSMutableArray arrayWithArray:path] toTile:nextTile withColor:color];
         }
-    }
-    else{
-        [self replaceFarthestTile:path Color:color];
-        [self updateSquareHeuristic:path];
     }
 }
 

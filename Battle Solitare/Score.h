@@ -14,6 +14,7 @@
 
 +(Score *) getInstance;
 -(void)floodUpdateForPlayedTile:(Tile*)t;
+-(void)farUpdateForPlayedTile:(Tile*)t;
 
 -(int)blackScore;
 -(int)whiteScore;
