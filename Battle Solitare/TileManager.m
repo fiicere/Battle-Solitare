@@ -97,7 +97,7 @@ NSMutableArray* placedTiles;
 -(void)placeTile:(Tile*)t{
     if([placedTiles containsObject:t]) {NSLog(@"ERROR: attempting to place %@%u%@ twice", t.backgroundColor, t.value, t.suit);}
     [placedTiles addObject:t];
-    [[Score getInstance] updateForPlayedTile:t];
+    [[Score getInstance] floodUpdateForPlayedTile:t];
 }
 
 -(Tile*)getNewValidCard{

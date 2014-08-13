@@ -14,9 +14,12 @@
 @implementation Score
 
 static Score * instance;
-NSArray *blackTiles;
-NSArray *whiteTiles;
+NSArray *bestBlackPath;
+NSArray *bestWhitePath;
 NSMutableArray * floodTiles;
+
+NSArray *farthestWhiteTile;
+NSArray *farthestBlackTile;
 
 
 +(Score *) getInstance{
@@ -32,9 +35,14 @@ NSMutableArray * floodTiles;
     return self;
 }
 
--(void)updateForPlayedTile:(Tile*)t{
+-(void)floodUpdateForPlayedTile:(Tile*)t{
     [self floodTile:t];
-    [self findBestPath];
+    [self findBestPathFromFlood];
+}
+
+-(void)farUpdateForPlayedTile:(Tile*)t{
+    [self dfs:t];
+    [self findBestPathFromDFS];
 }
 
 -(void)floodTile:(Tile*)t{
@@ -54,11 +62,29 @@ NSMutableArray * floodTiles;
     }
 }
 
--(void)findBestPath{
-    for (Tile* startTile in floodTiles) {[self dfs:startTile];}
+-(void)findBestPathFromFlood{
+    for (Tile* startTile in floodTiles) {
+        [self dfs:startTile];
+        [self updateBestPaths];
+    }
+}
+
+-(void)findBestPathFromDFS{
+    if(farthestWhiteTile.count > 0) {
+        for(Tile * t in [[TileManager getInstance] getAdjTiles:farthestWhiteTile.lastObject]){
+            [self dfsRecurse:[self reverseArray:farthestWhiteTile] toTile:t withColor:@"w"];
+        }
+    }
+    if(farthestBlackTile.count > 0) {
+        for(Tile * t in [[TileManager getInstance] getAdjTiles:farthestBlackTile.lastObject]){
+            [self dfsRecurse:[self reverseArray:farthestBlackTile] toTile:t withColor:@"b"];
+        }
+    }
+    [self updateBestPaths];
 }
 
 -(void)dfs:(Tile*)t{
+    [self resetDFSArrays];
     if ([t.backgroundColor isEqualToString:@"b"]) {[self dfsRecurse:[NSMutableArray new] toTile:t withColor:@"b"];}
     if ([t.backgroundColor isEqualToString:@"w"]) {[self dfsRecurse:[NSMutableArray new] toTile:t withColor:@"w"];}
     if ([t.backgroundColor isEqualToString:@"wild"]) {
@@ -75,17 +101,27 @@ NSMutableArray * floodTiles;
         }
     }
     else{
-        [self replaceBestPath:path Color:color];
+        [self replaceFarthestTile:path Color:color];
         [self updateSquareHeuristic:path];
     }
 }
 
--(void)replaceBestPath:(NSMutableArray*)path Color:(NSString*)color{
+-(void)resetDFSArrays{
+    farthestBlackTile = [NSArray new];
+    farthestWhiteTile = [NSArray new];
+}
+
+-(void)updateBestPaths{
+    if(farthestBlackTile.count > bestBlackPath.count) {bestBlackPath = [[NSArray alloc] initWithArray:farthestBlackTile];}
+    if(farthestWhiteTile.count > bestWhitePath.count) {bestWhitePath = [[NSArray alloc] initWithArray:farthestWhiteTile];}
+}
+
+-(void)replaceFarthestTile:(NSMutableArray*)path Color:(NSString*)color{
     if([color isEqualToString:@"b"]){
-        if(path.count > blackTiles.count) {blackTiles = [[NSArray alloc] initWithArray:path];}
+        if(path.count > farthestBlackTile.count) {farthestBlackTile = [[NSArray alloc] initWithArray:path];}
     }
     else if([color isEqualToString:@"w"]){
-        if(path.count > whiteTiles.count) {whiteTiles = [[NSArray alloc] initWithArray:path];}
+        if(path.count > farthestWhiteTile.count) {farthestWhiteTile = [[NSArray alloc] initWithArray:path];}
     }
     else{NSLog(@"ERROR: %@ is not a valid color for a scoring path", color);}
 }
@@ -95,33 +131,40 @@ NSMutableArray * floodTiles;
     startTile.scoreHeuristic = max(startTile.scoreHeuristic, path.count);
 }
 
+-(NSMutableArray*)reverseArray:(NSArray*)arrayToReverse{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[arrayToReverse count]];
+    NSEnumerator *enumerator = [arrayToReverse reverseObjectEnumerator];
+    for (id element in enumerator) {[array addObject:element];}
+    return array;
+}
+
 
 -(int)blackScore{
-    return (int) blackTiles.count;
+    return (int) bestBlackPath.count;
 }
 -(int)whiteScore{
-    return (int) whiteTiles.count;
+    return (int) bestWhitePath.count;
 }
 -(NSArray *)blackPath{
-    return [NSMutableArray arrayWithArray:blackTiles];
+    return [NSMutableArray arrayWithArray:bestBlackPath];
 }
 -(NSArray *)whitePath{
-    return [NSMutableArray arrayWithArray:whiteTiles];
+    return [NSMutableArray arrayWithArray:bestWhitePath];
 }
 -(void) printWhitePath{
-    for(Tile* t in whiteTiles){
+    for(Tile* t in bestWhitePath){
         [t printCard];
     }
 }
 -(void) printBlackPath{
-    for(Tile* t in blackTiles){
+    for(Tile* t in bestBlackPath){
         [t printCard];
     }
 }
 
 -(void)reset{
-    blackTiles = [NSArray new];
-    whiteTiles = [NSArray new];
+    bestBlackPath = [NSArray new];
+    bestWhitePath = [NSArray new];
 }
 
 @end
