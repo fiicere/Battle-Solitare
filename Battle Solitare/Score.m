@@ -71,17 +71,22 @@ NSArray *farthestBlackTile;
 }
 
 -(void)findBestPathFromDFS{
-    if(farthestWhiteTile.count > 0) {
-        Tile * farthestWhite = farthestWhiteTile.lastObject;
-        NSLog(@"Farthest White Tile is %@%u%@", farthestWhite.backgroundColor, farthestWhite.value, farthestWhite.suit);
+    Tile * farthestWhite = farthestWhiteTile.lastObject;
+    Tile * farthestBlack = farthestBlackTile.lastObject;
+    
+    if(farthestBlack == farthestWhite){
         [self dfs:farthestWhite];
+        [self updateBestPaths];
+        return;
     }
-    if(farthestBlackTile.count > 0) {
-        Tile * farthestBlack = farthestBlackTile.lastObject;
-        NSLog(@"Farthest Black Tile is %@%u%@", farthestBlack.backgroundColor, farthestBlack.value, farthestBlack.suit);
+    if(farthestWhite != nil) {
+        [self dfs:farthestWhite];
+        [self updateBestPaths];
+    }
+    if(farthestBlack != nil) {
         [self dfs:farthestBlack];
+        [self updateBestPaths];
     }
-    [self updateBestPaths];
 }
 
 -(void)dfs:(Tile*)t{
@@ -97,7 +102,7 @@ NSArray *farthestBlackTile;
 -(void)dfsRecurse:(NSMutableArray*)path toTile:(Tile*) t withColor:(NSString*)color{
     if([t matchesBackgroundColor:color] && ![path containsObject:t]) {
         [path addObject:t];
-        [self replaceFarthestTile:path Color:color];
+        [self updateFarthestTile:path Color:color];
         [self updateSquareHeuristic:path];
         for(Tile* nextTile in [[TileManager getInstance] getAdjTiles:t]){
             [self dfsRecurse:[NSMutableArray arrayWithArray:path] toTile:nextTile withColor:color];
@@ -115,7 +120,7 @@ NSArray *farthestBlackTile;
     if(farthestWhiteTile.count > bestWhitePath.count) {bestWhitePath = [[NSArray alloc] initWithArray:farthestWhiteTile];}
 }
 
--(void)replaceFarthestTile:(NSMutableArray*)path Color:(NSString*)color{
+-(void)updateFarthestTile:(NSMutableArray*)path Color:(NSString*)color{
     if([color isEqualToString:@"b"]){
         if(path.count > farthestBlackTile.count) {farthestBlackTile = [[NSArray alloc] initWithArray:path];}
     }
