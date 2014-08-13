@@ -223,16 +223,11 @@ AI* blackOpponent;
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
-                
-        // Check to see if player clicked the top card
-        Tile * tile = [[TileManager getInstance] topCard];
-        if (CGRectContainsPoint(tile.boundingBox, loc)){
-            Touch * t = [[Touch alloc] touchedTile:tile atLoc:tile.position];
-            [touchDict setObject:t forKey:touch];
-        }
+        
+        [self printScoreHueuristic:loc];
         
         // Check to see if player clicked the bot card
-        tile = [[TileManager getInstance] botCard];
+        Tile * tile = [[TileManager getInstance] botCard];
         if (CGRectContainsPoint(tile.boundingBox, loc)){
             Touch * t = [[Touch alloc] touchedTile:tile atLoc:tile.position];
             [touchDict setObject:t forKey:touch];
