@@ -128,6 +128,8 @@ NSArray *farthestBlackTile;
 -(void)updateSquareHeuristic:(NSArray*)path{
     Tile * startTile = path.firstObject;
     startTile.scoreHeuristic = max(startTile.scoreHeuristic, path.count);
+    Tile * endTile = path.lastObject;
+    endTile.scoreHeuristic = max(endTile.scoreHeuristic, path.count);
 }
 
 -(NSMutableArray*)reverseArray:(NSArray*)arrayToReverse{
