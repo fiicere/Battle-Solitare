@@ -14,6 +14,5 @@
 -(id)touchedTile:(Tile *)t atLoc:(CGPoint)loc;
 -(Tile*) getTile;
 -(CGPoint) getStartPoint;
--(float)getStartTime;
 
 @end

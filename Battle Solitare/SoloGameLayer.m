@@ -20,8 +20,6 @@
 #import "ImprovedSprite.h"
 #import "Score.h"
 #import "AI.h"
-#import "Clock.h"
-#import "PlayerStats.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -57,7 +55,8 @@ AI* blackOpponent;
         // Reset Touches
         touchDict = [NSMapTable new];
         
-        [self schedule:@selector(updateAll:)];
+        [self schedule:@selector(updateView:) interval:0.1];
+        [self schedule:@selector(checkGameOver:)];
         
         // to enable touch detection
         [self setIsTouchEnabled:YES];
@@ -105,15 +104,6 @@ AI* blackOpponent;
 
 
 ///////////////////////////UPDATES///////////////////////
-
--(void)updateAll:(ccTime)dt{
-    [self updateView:dt];
-    [self checkGameOver];
-}
-
--(void)updateClock:(ccTime)dt{
-    [[Clock getInstance] incrementClock:dt];
-}
 
 -(void)updateView:(ccTime)dt{
     [self updateScore];
@@ -204,7 +194,7 @@ AI* blackOpponent;
                                                                                  scene:[PauseScene sceneWithOrientation:false andIsSoloMode:true]]];
 }
 
--(void)checkGameOver{
+-(void)checkGameOver:(ccTime) dt{
     if([[TileManager getInstance] getPlacedTiles].count >= 49){
         [self gameOver];
     }
@@ -214,18 +204,9 @@ AI* blackOpponent;
     [self removeAllCards];
     [self unschedule:@selector(checkGameOver:)];
     [self unschedule:@selector(updateView:)];
-    [self recordWinLoss];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[ScoreScreen scene]]];
 }
 
--(void)recordWinLoss{
-    if([[Score getInstance] blackScore] > [[Score getInstance] whiteScore]){
-        [[PlayerStats getInstance] justLostGame];
-    }
-    if([[Score getInstance] blackScore] < [[Score getInstance] whiteScore]){
-        [[PlayerStats getInstance] justWonGame];
-    }
-}
 ////////////////////////////////TOUCH HANDLING////////////////////////////////
 
 
@@ -238,7 +219,6 @@ AI* blackOpponent;
 }
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"here 1");
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
         
@@ -251,8 +231,6 @@ AI* blackOpponent;
             [touchDict setObject:t forKey:touch];
         }
         
-        NSLog(@"here 2");
-        
         // Check to see if player clicked the bot card
         tile = [[TileManager getInstance] botCard];
         if (CGRectContainsPoint(tile.boundingBox, loc)){
@@ -260,14 +238,13 @@ AI* blackOpponent;
             [touchDict setObject:t forKey:touch];
         }
         
-        NSLog(@"here 3");
-        
         //Check for game paused
         if(CGRectContainsPoint(pauseLabel.boundingBox, loc)){
             [self botPaused];
         }
+
+        
     }
-    NSLog(@"HERE");
 }
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -278,7 +255,6 @@ AI* blackOpponent;
         // If Invalid location
         if(! [[TileManager getInstance] moveTile:tile toLoc:([self convertTouchToNodeSpace:touch])]){
             tile.position = t.getStartPoint;
-            [[PlayerStats getInstance] madeMoveAtSpeed:[[Clock getInstance] getTime] - [t getStartTime]];
         }
         
         [touchDict removeObjectForKey:touch];

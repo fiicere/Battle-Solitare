@@ -84,8 +84,7 @@
 		466004F718FF1F57008553AC /* TrajanPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
 		4695D2E419732E30004557F4 /* Spark.m in Sources */ = {isa = PBXBuildFile; fileRef = 4695D2E319732E30004557F4 /* Spark.m */; };
-		46ABDFD0199BD1B70047B2A8 /* PlayerStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 46ABDFCF199BD1B70047B2A8 /* PlayerStats.m */; };
-		46ABDFD3199BDBAD0047B2A8 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 46ABDFD2199BDBAD0047B2A8 /* Clock.m */; };
+		4695D2E7197332C7004557F4 /* Firework.m in Sources */ = {isa = PBXBuildFile; fileRef = 4695D2E6197332C7004557F4 /* Firework.m */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
 		46B87003169260DF00B1CACB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87002169260DF00B1CACB /* OpenAL.framework */; };
@@ -316,10 +315,8 @@
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
 		4695D2E219732E30004557F4 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
 		4695D2E319732E30004557F4 /* Spark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spark.m; sourceTree = "<group>"; };
-		46ABDFCE199BD1B70047B2A8 /* PlayerStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerStats.h; sourceTree = "<group>"; };
-		46ABDFCF199BD1B70047B2A8 /* PlayerStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerStats.m; sourceTree = "<group>"; };
-		46ABDFD1199BDBAD0047B2A8 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
-		46ABDFD2199BDBAD0047B2A8 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
+		4695D2E5197332C7004557F4 /* Firework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firework.h; sourceTree = "<group>"; };
+		4695D2E6197332C7004557F4 /* Firework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Firework.m; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		46B87000169260DF00B1CACB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -756,20 +753,18 @@
 				46B871A4169260E100B1CACB /* AppDelegate.m */,
 				46E2817C1992F4D0003911B3 /* AI.h */,
 				46E2817D1992F4D0003911B3 /* AI.m */,
-				46ABDFD1199BDBAD0047B2A8 /* Clock.h */,
-				46ABDFD2199BDBAD0047B2A8 /* Clock.m */,
 				462343D518C69DB4009B9CD5 /* Deck.h */,
 				462343D618C69DB4009B9CD5 /* Deck.m */,
 				46FE809E191C3AFE003AEE55 /* Drawer.h */,
 				46FE809F191C3AFE003AEE55 /* Drawer.m */,
+				4695D2E5197332C7004557F4 /* Firework.h */,
+				4695D2E6197332C7004557F4 /* Firework.m */,
 				46B871B71872026100B1CACB /* Grid.h */,
 				46B871B81872026100B1CACB /* Grid.m */,
 				4623442718D2600F009B9CD5 /* ImprovedChild.h */,
 				4623442818D2600F009B9CD5 /* ImprovedChild.m */,
 				462343DC18C9192C009B9CD5 /* ImprovedSprite.h */,
 				462343DD18C9192C009B9CD5 /* ImprovedSprite.m */,
-				46ABDFCE199BD1B70047B2A8 /* PlayerStats.h */,
-				46ABDFCF199BD1B70047B2A8 /* PlayerStats.m */,
 				462343DF18CA81AD009B9CD5 /* Score.h */,
 				462343E018CA81AD009B9CD5 /* Score.m */,
 				4695D2E219732E30004557F4 /* Spark.h */,
@@ -1404,6 +1399,7 @@
 				46B870E9169260E000B1CACB /* CCTextureAtlas.m in Sources */,
 				46B870EC169260E000B1CACB /* CCTextureCache.m in Sources */,
 				46B870EF169260E000B1CACB /* CCTexturePVR.m in Sources */,
+				4695D2E7197332C7004557F4 /* Firework.m in Sources */,
 				46FE80A0191C3AFE003AEE55 /* Drawer.m in Sources */,
 				46B870F2169260E000B1CACB /* CCTileMapAtlas.m in Sources */,
 				46B870F5169260E000B1CACB /* CCTMXLayer.m in Sources */,
@@ -1441,7 +1437,6 @@
 				46B8714D169260E100B1CACB /* TGAlib.m in Sources */,
 				46B87150169260E100B1CACB /* TransformUtils.m in Sources */,
 				46B87155169260E100B1CACB /* ZipUtils.m in Sources */,
-				46ABDFD3199BDBAD0047B2A8 /* Clock.m in Sources */,
 				46B8715A169260E100B1CACB /* CDAudioManager.m in Sources */,
 				46B8715E169260E100B1CACB /* CDOpenALSupport.m in Sources */,
 				46B87161169260E100B1CACB /* CDXMacOSXSupport.m in Sources */,
@@ -1455,7 +1450,6 @@
 				46B87189169260E100B1CACB /* matrix.c in Sources */,
 				46B8718B169260E100B1CACB /* mat3.c in Sources */,
 				46B8718D169260E100B1CACB /* mat4.c in Sources */,
-				46ABDFD0199BD1B70047B2A8 /* PlayerStats.m in Sources */,
 				46B8718F169260E100B1CACB /* neon_matrix_impl.c in Sources */,
 				46B87191169260E100B1CACB /* plane.c in Sources */,
 				46B87193169260E100B1CACB /* quaternion.c in Sources */,
