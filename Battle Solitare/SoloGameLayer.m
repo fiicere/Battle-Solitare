@@ -27,6 +27,8 @@ NSMapTable * touchDict;
 
 NSString * scoreText;
 
+NSDate * timeOfLastMove;
+
 const int soloScoreOffset = 65;
 
 CCLabelTTF * scoreLabel;
@@ -221,9 +223,7 @@ AI* blackOpponent;
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch * touch in touches){
         CGPoint loc = [self convertTouchToNodeSpace:touch];
-        
-        [self printScoreHueuristic:loc];
-        
+                
         // Check to see if player clicked the top card
         Tile * tile = [[TileManager getInstance] topCard];
         if (CGRectContainsPoint(tile.boundingBox, loc)){
@@ -257,6 +257,8 @@ AI* blackOpponent;
             tile.position = t.getStartPoint;
         }
         
+        [self recordMove];
+        
         [touchDict removeObjectForKey:touch];
     }
 }
@@ -271,6 +273,14 @@ AI* blackOpponent;
     }
 }
 
+-(void)recordMove{
+    if(timeOfLastMove == nil) {timeOfLastMove = [[NSDate date] retain];}
+    else {
+        NSTimeInterval timetomove = [timeOfLastMove timeIntervalSinceNow];
+        NSLog(@"Time to move = %f", fabsf(timetomove));
+        timeOfLastMove = [[NSDate date] retain];
+    }
+}
 //////////////////////////DEBUG CODE!!!!!!///////////////////
 -(void)printSquare:(CGPoint)location{
     SqID * sqID = [[Grid getInstance] getSquareID:location];

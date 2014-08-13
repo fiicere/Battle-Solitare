@@ -12,7 +12,7 @@
 @implementation Touch
 
 Tile *tile;
-CGPoint start;
+CGPoint startLoc;
 
 -(id)init{
     if (self = [super init]){
@@ -25,7 +25,7 @@ CGPoint start;
     if (self = [super init]){
         
     }
-    start = loc;
+    startLoc = loc;
     tile = t;
     return self;
 }
@@ -35,8 +35,9 @@ CGPoint start;
 }
 
 -(CGPoint) getStartPoint{
-    return start;
+    return startLoc;
 }
+
 
 
 @end
