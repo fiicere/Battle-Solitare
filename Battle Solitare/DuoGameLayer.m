@@ -35,6 +35,9 @@ CCLabelTTF * topScoreLabel;
 CCLabelTTF * pauseLabel;
 CCLabelTTF * topPauseLabel;
 
+UITouch * topTouch;
+UITouch * botTouch;
+
 // HelloWorldLayer implementation
 @implementation DuoGameLayer
 
@@ -219,63 +222,48 @@ CCLabelTTF * topPauseLabel;
 // TODO: Figure out what calls this...
 -(void) registerWithTouchDispatcher
 {
-    //	[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-    [[CCTouchDispatcher sharedDispatcher] addStandardDelegate:self priority:0];
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
 }
 
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    for (UITouch * touch in touches){
-        CGPoint loc = [self convertTouchToNodeSpace:touch];
-        
-        [self printScoreHueuristic:loc];
-        
-        // Check to see if player clicked the top card
-        Tile * tile = [[TileManager getInstance] topCard];
-        if (CGRectContainsPoint(tile.boundingBox, loc)){
-            Touch * t = [[Touch alloc] touchedTile:tile atLoc:tile.position];
-            [touchDict setObject:t forKey:touch];
-        }
-        
-        // Check to see if player clicked the bot card
-        tile = [[TileManager getInstance] botCard];
-        if (CGRectContainsPoint(tile.boundingBox, loc)){
-            Touch * t = [[Touch alloc] touchedTile:tile atLoc:tile.position];
-            [touchDict setObject:t forKey:touch];
-        }
 
-        //Check for game paused
-        if(CGRectContainsPoint(pauseLabel.boundingBox, loc)){
-            [self botPaused];
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint loc = [self convertTouchToNodeSpace:touch];
+    [self printScoreHueuristic:loc];
+    // Check to see if player clicked the top card
+    if (CGRectContainsPoint([[TileManager getInstance] topCard].boundingBox, loc)){topTouch = touch;}
+    
+    // Check to see if player clicked the top card
+    if (CGRectContainsPoint([[TileManager getInstance] botCard].boundingBox, loc)){botTouch = touch;}
+    
+    //Check for game paused
+    if(CGRectContainsPoint(pauseLabel.boundingBox, loc)){[self botPaused];}
+    if(CGRectContainsPoint(topPauseLabel.boundingBox, loc)){[self topPaused];}
+
+    return YES;
+}
+
+- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    if(touch == topTouch) {[[[TileManager getInstance] topCard] setPosition:[self convertTouchToNodeSpace:touch]];}
+    if(touch == botTouch) {[[[TileManager getInstance] botCard] setPosition:[self convertTouchToNodeSpace:touch]];}
+}
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    if(touch == topTouch){
+        if(! [[TileManager getInstance] moveTile:[[TileManager getInstance] topCard]
+                                           toLoc:([self convertTouchToNodeSpace:touch])]){
+            [[[TileManager getInstance] topCard] setPosition:[[Grid getInstance] topCardLoc]];
         }
-        if(CGRectContainsPoint(topPauseLabel.boundingBox, loc)){
-            [self topPaused];
-        }
+        topTouch = nil;
     }
-}
-
--(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    for(UITouch * touch in touches){        
-        Touch* t = [touchDict objectForKey:touch];
-        Tile* tile = [t getTile];
-
-        // If Invalid location
-        if(! [[TileManager getInstance] moveTile:tile toLoc:([self convertTouchToNodeSpace:touch])]){
-            tile.position = t.getStartPoint;
+    
+    if(touch == botTouch){
+        if(! [[TileManager getInstance] moveTile:[[TileManager getInstance] botCard]
+                                           toLoc:([self convertTouchToNodeSpace:touch])]){
+            [[[TileManager getInstance] botCard] setPosition:[[Grid getInstance] botCardLoc]];
         }
-
-        [touchDict removeObjectForKey:touch];
+        botTouch = nil;
     }
     [self checkGameOver];
-}
-
--(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    for(UITouch * touch in touches){
-        CGPoint loc = [self convertTouchToNodeSpace:touch];
-        Touch* t = [touchDict objectForKey:touch];
-        Tile* tile = [t getTile];
-        
-        tile.position = loc;
-    }
 }
 
 //////////////////////////DEBUG CODE!!!!!!///////////////////
