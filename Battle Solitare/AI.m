@@ -11,7 +11,7 @@
 #import "Grid.h"
 #import "Tile.h"
 
-const float moveRate = 1;
+const float moveRate = 2;
 const float moveDuration = 0.3;
 Tile * currentTile;
 SqID* bestSquare;

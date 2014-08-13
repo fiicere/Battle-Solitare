@@ -8,11 +8,13 @@
 
 #import "Touch.h"
 #import "Tile.h"
+#import "Clock.h"
 
 @implementation Touch
 
 Tile *tile;
-CGPoint start;
+CGPoint startLoc;
+float startTime;
 
 -(id)init{
     if (self = [super init]){
@@ -22,11 +24,15 @@ CGPoint start;
 }
 
 -(id)touchedTile:(Tile *)t atLoc:(CGPoint)loc{
-    if (self = [super init]){
-        
-    }
-    start = loc;
+    if (self = [super init]){}
+    NSLog(@"TOUCHED TILE");
+    startLoc = loc;
     tile = t;
+    NSLog(@"WTF");
+    [Clock getInstance];
+    NSLog(@"WTFx2");    
+    startTime = [[Clock getInstance] getTime];
+    NSLog(@"FINISHED CREATING TOUCHED TILE");
     return self;
 }
 
@@ -35,8 +41,11 @@ CGPoint start;
 }
 
 -(CGPoint) getStartPoint{
-    return start;
+    return startLoc;
 }
 
+-(float)getStartTime{
+    return startTime;
+}
 
 @end
