@@ -91,7 +91,7 @@ NSArray * allColors;
 
 -(void) replaceCard:(Tile*) t{
     [cardsInDeck addObject:t];
-    NSLog(@"Replaced Tile (%@, %u, %@)", t.backgroundColor, t.value, t.suit);
+//    NSLog(@"Replaced Tile (%@, %u, %@)", t.backgroundColor, t.value, t.suit);
 }
 
 

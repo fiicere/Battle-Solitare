@@ -14,7 +14,6 @@
 #import "Drawer.h"
 #import "Score.h"
 #import "Grid.h"
-#import "Firework.h"
 
 @implementation ScoreLayer
 

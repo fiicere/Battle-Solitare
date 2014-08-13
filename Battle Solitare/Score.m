@@ -41,7 +41,6 @@ NSArray *farthestBlackTile;
 }
 
 -(void)farUpdateForPlayedTile:(Tile*)t{
-    NSLog(@"FAR UPDATE FOR TILE %@%u%@", t.backgroundColor, t.value, t.suit);
     [self dfs:t];
     [self findBestPathFromDFS];
 }
