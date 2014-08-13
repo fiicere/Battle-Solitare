@@ -68,13 +68,15 @@ NSMutableArray * floodTiles;
 }
 
 -(void)dfsRecurse:(NSMutableArray*)path toTile:(Tile*) t withColor:(NSString*)color{
-    [self replaceBestPath:path Color:color];
-    [self updateSquareHeuristic:path];
     if([t matchesBackgroundColor:color] && ![path containsObject:t]) {
         [path addObject:t];
         for(Tile* nextTile in [[TileManager getInstance] getAdjTiles:t]){
             [self dfsRecurse:[NSMutableArray arrayWithArray:path] toTile:nextTile withColor:color];
         }
+    }
+    else{
+        [self replaceBestPath:path Color:color];
+        [self updateSquareHeuristic:path];
     }
 }
 

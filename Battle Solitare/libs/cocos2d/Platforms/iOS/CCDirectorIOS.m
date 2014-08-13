@@ -431,9 +431,9 @@ GLToClipTransform(kmMat4 *transformOut)
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	BOOL ret =YES;
-	if( [_delegate respondsToSelector:_cmd] )
-		ret = (BOOL) [_delegate shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+//	BOOL ret =YES;
+//	if( [_delegate respondsToSelector:_cmd] )
+//		ret = (BOOL) [_delegate shouldAutorotateToInterfaceOrientation:interfaceOrientation];
 
     //I CHANGED THIS!!!!!
 	return NO;
