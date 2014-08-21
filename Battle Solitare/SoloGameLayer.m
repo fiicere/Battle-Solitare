@@ -21,6 +21,8 @@
 #import "Score.h"
 #import "AI.h"
 
+#import "Font.h"
+
 #pragma mark - HelloWorldLayer
 
 NSMapTable * touchDict;
@@ -47,11 +49,17 @@ AI* blackOpponent;
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
         
+        NSLog(@"solo game init game");
+
         // Add all layer objects
         [self addPlayerRects];
+        NSLog(@"player rects added ");
         [self addPauseButtons];
+        NSLog(@"pause buttons added");
         [self addScore];
+        NSLog(@"score  added");
         [self addPlayedCards];
+        NSLog(@"ai added");
         [self addAI];
         
         // Reset Touches
@@ -166,7 +174,9 @@ AI* blackOpponent;
                  [[Score getInstance] whiteScore],
                  [[Score getInstance] blackScore]];
     
-    scoreLabel = [CCLabelTTF labelWithString:scoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    scoreLabel = [CCLabelTTF labelWithString:scoreText
+                                    fontName:[[Font getInstance] font]
+                                    fontSize:[[Font getInstance] hudFontSize]];
     scoreLabel.color = ccBLACK;
     
     scoreLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] botCardLoc].y);
@@ -175,7 +185,9 @@ AI* blackOpponent;
 }
 
 -(void)addPauseButtons{
-    pauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+    pauseLabel = [CCLabelTTF labelWithString:@"Pause"
+                                    fontName:[[Font getInstance] font]
+                                    fontSize:[[Font getInstance] hudFontSize]];
     
     pauseLabel.color = ccBLACK;
     

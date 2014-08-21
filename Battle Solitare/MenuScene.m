@@ -11,6 +11,7 @@
 #import "SoloGameScene.h"
 #import "BackgroundLayer.h"
 #import "TileManager.h"
+#import "Font.h"
 
 BackgroundLayer * ml;
 
@@ -37,11 +38,21 @@ BackgroundLayer * ml;
     CCMenu *menu = [CCMenu menuWithItems:nil];
     
     // Game Mode Labels
-    CCLabelTTF * startSoloGame = [CCLabelTTF labelWithString:@"Solo Game" fontName:@"TrajanPro-Regular" fontSize:32];
-    CCLabelTTF * startDuoGame = [CCLabelTTF labelWithString:@"Multiplayer Game" fontName:@"TrajanPro-Regular" fontSize:32];
-
-    CCLabelTTF * instructions = [CCLabelTTF labelWithString:@"How to Play" fontName:@"TrajanPro-Regular" fontSize:32];
-    CCLabelTTF * options = [CCLabelTTF labelWithString:@"Options" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * startSoloGame = [CCLabelTTF labelWithString:@"Solo Game"
+                                                    fontName:[[Font getInstance] font]
+                                                    fontSize:[[Font getInstance] menuFontSize]];
+    
+    CCLabelTTF * startDuoGame = [CCLabelTTF labelWithString:@"Multiplayer Game"
+                                                   fontName:[[Font getInstance] font]
+                                                   fontSize:[[Font getInstance] menuFontSize]];
+    
+    CCLabelTTF * instructions = [CCLabelTTF labelWithString:@"How to Play"
+                                                   fontName:[[Font getInstance] font]
+                                                   fontSize:[[Font getInstance] menuFontSize]];
+    
+    CCLabelTTF * options = [CCLabelTTF labelWithString:@"Options"
+                                              fontName:[[Font getInstance] font]
+                                              fontSize:[[Font getInstance] menuFontSize]];
     
     startSoloGame.color = ccWHITE;
     instructions.color = ccWHITE;
@@ -66,6 +77,7 @@ BackgroundLayer * ml;
 }
 
 -(void)newSoloGame{
+    NSLog(@"new solo game");
     [[TileManager getInstance] newGame];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[SoloGameScene scene]]];
 }
