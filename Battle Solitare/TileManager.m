@@ -19,17 +19,13 @@ NSMutableArray* placedTiles;
 @implementation TileManager
 
 +(TileManager *)getInstance{
-    NSLog(@"Tilemanager getinstance");
     if(instance == nil){
-        NSLog(@"Tilemanager new instance");
         instance = [[self alloc] init];
     }
     return instance;
 }
 
 -(id)init{
-    NSLog(@"Tilemanager init");
-
     if(self = [super init]){
         
     }
@@ -38,7 +34,6 @@ NSMutableArray* placedTiles;
 }
 
 -(void) newGame{
-    NSLog(@"new game");
     [[Deck getInstance] resetDeck];
     [[Score getInstance] reset];
     [[Grid getInstance] resetSquares];

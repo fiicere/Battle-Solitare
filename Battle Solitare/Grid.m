@@ -37,8 +37,6 @@ NSArray * allSqIDs;
     _width = [CCDirector sharedDirector].winSize.width;
     _height = [CCDirector sharedDirector].winSize.height;
     
-    NSLog(@"Device Dimenions: %fx%f", _width, _height);
-    
     _sqWidth = _width / (gridDimens + 1);
     _sideMargin = _sqWidth;
     
