@@ -15,6 +15,8 @@
 #import "Score.h"
 #import "Grid.h"
 
+#import "Font.h"
+
 @implementation ScoreLayer
 
 NSMutableArray * dropList;
@@ -192,8 +194,12 @@ Drawer * blackDrawer;
     NSString * blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     NSString * whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    CCLabelTTF * botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:18];
-    CCLabelTTF * topScoreLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:18];
+    CCLabelTTF * botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText
+                                                    fontName:[[Font getInstance] font]
+                                                    fontSize:[[Font getInstance] hudFontSize]];
+    CCLabelTTF * topScoreLabel = [CCLabelTTF labelWithString:blackScoreText
+                                                    fontName:[[Font getInstance] font]
+                                                    fontSize:[[Font getInstance] hudFontSize]];
     
     topScoreLabel.rotation = 180;
     

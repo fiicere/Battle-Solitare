@@ -21,14 +21,14 @@
 #import "ImprovedSprite.h"
 #import "Score.h"
 
+#import "Font.h"
+
 #pragma mark - HelloWorldLayer
 
 NSMapTable * touchDict;
 
 NSString * whiteScoreText;
 NSString * blackScoreText;
-
-const int scoreOffset = 50;
 
 CCLabelTTF * botScoreLabel;
 CCLabelTTF * topScoreLabel;
@@ -160,32 +160,44 @@ UITouch * botTouch;
     blackScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] blackScore]];
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
-    botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText fontName:@"TrajanPro-Regular" fontSize:12];
-    topScoreLabel = [CCLabelTTF labelWithString:blackScoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText
+                                       fontName:[[Font getInstance] font]
+                                       fontSize:[[Font getInstance] hudFontSize]];
+    topScoreLabel = [CCLabelTTF labelWithString:blackScoreText
+                                       fontName:[[Font getInstance] font]
+                                       fontSize:[[Font getInstance] hudFontSize]];
     
     topScoreLabel.rotation = 180;
     
     topScoreLabel.color = ccWHITE;
     botScoreLabel.color = ccBLACK;
     
-    botScoreLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] botCardLoc].y);
-    topScoreLabel.position = ccp(scoreOffset, [[Grid getInstance] topCardLoc].y);
+    botScoreLabel.position = ccp([[Grid getInstance] width] - [[Font getInstance] textOffset],
+                                 [[Grid getInstance] botCardLoc].y);
+    topScoreLabel.position = ccp([[Font getInstance] textOffset],
+                                 [[Grid getInstance] topCardLoc].y);
     
     [self addChild:topScoreLabel];
     [self addChild:botScoreLabel];
 }
 
 -(void)addPauseButtons{
-    topPauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
-    pauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+    topPauseLabel = [CCLabelTTF labelWithString:@"Pause"
+                                       fontName:[[Font getInstance] font]
+                                       fontSize:[[Font getInstance] hudFontSize]];
+    pauseLabel = [CCLabelTTF labelWithString:@"Pause"
+                                    fontName:[[Font getInstance] font]
+                                    fontSize:[[Font getInstance] hudFontSize]];
 
     topPauseLabel.rotation = 180;
 
     topPauseLabel.color = ccWHITE;
     pauseLabel.color = ccBLACK;
 
-    pauseLabel.position = ccp(scoreOffset, [[Grid getInstance] botCardLoc].y);
-    topPauseLabel.position = ccp([[Grid getInstance] width] - scoreOffset, [[Grid getInstance] topCardLoc].y);
+    pauseLabel.position = ccp([[Font getInstance] textOffset],
+                              [[Grid getInstance] botCardLoc].y);
+    topPauseLabel.position = ccp([[Grid getInstance] width] - [[Font getInstance] textOffset],
+                                 [[Grid getInstance] topCardLoc].y);
     
     [self addChild:pauseLabel];
     [self addChild:topPauseLabel];

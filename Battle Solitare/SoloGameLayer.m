@@ -21,6 +21,8 @@
 #import "Score.h"
 #import "AI.h"
 
+#import "Font.h"
+
 #pragma mark - HelloWorldLayer
 
 NSMapTable * touchDict;
@@ -28,8 +30,6 @@ NSMapTable * touchDict;
 NSString * scoreText;
 
 NSDate * timeOfLastMove;
-
-const int soloScoreOffset = 65;
 
 CCLabelTTF * scoreLabel;
 CCLabelTTF * pauseLabel;
@@ -166,20 +166,26 @@ AI* blackOpponent;
                  [[Score getInstance] whiteScore],
                  [[Score getInstance] blackScore]];
     
-    scoreLabel = [CCLabelTTF labelWithString:scoreText fontName:@"TrajanPro-Regular" fontSize:12];
+    scoreLabel = [CCLabelTTF labelWithString:scoreText
+                                    fontName:[[Font getInstance] font]
+                                    fontSize:[[Font getInstance] hudFontSize]];
     scoreLabel.color = ccBLACK;
     
-    scoreLabel.position = ccp([[Grid getInstance] width] - soloScoreOffset, [[Grid getInstance] botCardLoc].y);
+    scoreLabel.position = ccp([[Grid getInstance] width] - [[Font getInstance] textOffset],
+                              [[Grid getInstance] botCardLoc].y);
     
     [self addChild:scoreLabel];
 }
 
 -(void)addPauseButtons{
-    pauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"TrajanPro-Regular" fontSize:12];
+    pauseLabel = [CCLabelTTF labelWithString:@"Pause"
+                                    fontName:[[Font getInstance] font]
+                                    fontSize:[[Font getInstance] hudFontSize]];
     
     pauseLabel.color = ccBLACK;
     
-    pauseLabel.position = ccp(soloScoreOffset, [[Grid getInstance] botCardLoc].y);
+    pauseLabel.position = ccp([[Font getInstance] textOffset],
+                              [[Grid getInstance] botCardLoc].y);
     
     [self addChild:pauseLabel];
 }

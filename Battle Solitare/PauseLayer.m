@@ -12,6 +12,8 @@
 #import "MenuScene.h"
 #import "TileManager.h"
 
+#import "Font.h"
+
 @implementation PauseLayer
 
 BOOL rightSideUp;
@@ -33,9 +35,15 @@ BOOL soloMode;
     CCMenu *menu = [CCMenu menuWithItems:nil];
     
     // Game Mode Labels
-    CCLabelTTF * resume = [CCLabelTTF labelWithString:@"Resume" fontName:@"TrajanPro-Regular" fontSize:32];
-    CCLabelTTF * newGame = [CCLabelTTF labelWithString:@"Start New Game" fontName:@"TrajanPro-Regular" fontSize:32];
-    CCLabelTTF * mainMenu = [CCLabelTTF labelWithString:@"Quit to Menu" fontName:@"TrajanPro-Regular" fontSize:32];
+    CCLabelTTF * resume = [CCLabelTTF labelWithString:@"Resume"
+                                             fontName:[[Font getInstance] font]
+                                             fontSize:[[Font getInstance] menuFontSize]];
+    CCLabelTTF * newGame = [CCLabelTTF labelWithString:@"Start New Game"
+                                              fontName:[[Font getInstance] font]
+                                              fontSize:[[Font getInstance] menuFontSize]];
+    CCLabelTTF * mainMenu = [CCLabelTTF labelWithString:@"Quit to Menu"
+                                               fontName:[[Font getInstance] font]
+                                               fontSize:[[Font getInstance] menuFontSize]];
     
     // Label Colors
     resume.color = ccWHITE;

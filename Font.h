@@ -13,6 +13,7 @@
 
 @property (nonatomic, assign) int menuFontSize;
 @property (nonatomic, assign) int hudFontSize;
+@property (nonatomic, assign) int textOffset;
 @property (nonatomic, assign) NSString * font;
 
 +(Font*)getInstance;
