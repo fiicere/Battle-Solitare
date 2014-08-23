@@ -196,10 +196,10 @@ Drawer * blackDrawer;
     
     CCLabelTTF * botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText
                                                     fontName:[[Font getInstance] font]
-                                                    fontSize:[[Font getInstance] hudFontSize]];
+                                                    fontSize:[[Font getInstance] menuFontSize]];
     CCLabelTTF * topScoreLabel = [CCLabelTTF labelWithString:blackScoreText
                                                     fontName:[[Font getInstance] font]
-                                                    fontSize:[[Font getInstance] hudFontSize]];
+                                                    fontSize:[[Font getInstance] menuFontSize]];
     
     topScoreLabel.rotation = 180;
     

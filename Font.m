@@ -10,8 +10,8 @@
 #import "cocos2d.h"
 
 static Font* instance;
-const float menuFontScale = 15;
-const float hudFontScale = 40;
+const float menuFontScale = 12;
+const float hudFontScale = 30;
 const float scoreOffsetScale = 6;
 NSString * const defaultFont = @"TrajanPro-Regular";
 
