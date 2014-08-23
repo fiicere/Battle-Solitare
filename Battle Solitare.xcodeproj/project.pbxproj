@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4600D2B218B92EB900C9DEFE /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4600D2B118B92EB900C9DEFE /* Touch.m */; };
 		460EFFE919A6696700400941 /* Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFE819A6696700400941 /* Font.m */; };
+		460EFFEC19A81AB400400941 /* TutorialScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEB19A81AB400400941 /* TutorialScene.m */; };
+		460EFFEF19A81B5700400941 /* TutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEE19A81B5700400941 /* TutorialLayer.m */; };
 		462343AD18C52904009B9CD5 /* b2c.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438518C52903009B9CD5 /* b2c.tif */; };
 		462343AE18C52904009B9CD5 /* b2d.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438618C52903009B9CD5 /* b2d.tif */; };
 		462343AF18C52904009B9CD5 /* b2h.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438718C52903009B9CD5 /* b2h.tif */; };
@@ -227,6 +229,10 @@
 		4600D2B118B92EB900C9DEFE /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Touch.m; sourceTree = "<group>"; };
 		460EFFE719A6696700400941 /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Font.h; path = ../Font.h; sourceTree = "<group>"; };
 		460EFFE819A6696700400941 /* Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Font.m; path = ../Font.m; sourceTree = "<group>"; };
+		460EFFEA19A81AB400400941 /* TutorialScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialScene.h; sourceTree = "<group>"; };
+		460EFFEB19A81AB400400941 /* TutorialScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialScene.m; sourceTree = "<group>"; };
+		460EFFED19A81B5700400941 /* TutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialLayer.h; sourceTree = "<group>"; };
+		460EFFEE19A81B5700400941 /* TutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialLayer.m; sourceTree = "<group>"; };
 		4623438518C52903009B9CD5 /* b2c.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2c.tif; sourceTree = "<group>"; };
 		4623438618C52903009B9CD5 /* b2d.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2d.tif; sourceTree = "<group>"; };
 		4623438718C52903009B9CD5 /* b2h.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2h.tif; sourceTree = "<group>"; };
@@ -694,6 +700,8 @@
 				46412A1519141EBC00E1902B /* PauseScene.m */,
 				4623445718DA18FE009B9CD5 /* ScoreScreen.h */,
 				4623445818DA18FE009B9CD5 /* ScoreScreen.m */,
+				460EFFEA19A81AB400400941 /* TutorialScene.h */,
+				460EFFEB19A81AB400400941 /* TutorialScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1190,6 +1198,8 @@
 				46412A12191418CE00E1902B /* PauseLayer.m */,
 				46412A17191AF83B00E1902B /* ScoreLayer.h */,
 				46412A18191AF83B00E1902B /* ScoreLayer.m */,
+				460EFFED19A81B5700400941 /* TutorialLayer.h */,
+				460EFFEE19A81B5700400941 /* TutorialLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1364,6 +1374,7 @@
 				460EFFE919A6696700400941 /* Font.m in Sources */,
 				46B87087169260E000B1CACB /* CCLabelAtlas.m in Sources */,
 				46B8708A169260E000B1CACB /* CCLabelBMFont.m in Sources */,
+				460EFFEF19A81B5700400941 /* TutorialLayer.m in Sources */,
 				46B8708D169260E000B1CACB /* CCLabelTTF.m in Sources */,
 				46B87090169260E000B1CACB /* CCLayer.m in Sources */,
 				46B87094169260E000B1CACB /* CCMenu.m in Sources */,
@@ -1380,6 +1391,7 @@
 				46B870B2169260E000B1CACB /* CCPhysicsDebugNode.m in Sources */,
 				46B870B5169260E000B1CACB /* CCPhysicsSprite.mm in Sources */,
 				46B870B8169260E000B1CACB /* CCProgressTimer.m in Sources */,
+				460EFFEC19A81AB400400941 /* TutorialScene.m in Sources */,
 				46B870BC169260E000B1CACB /* CCRenderTexture.m in Sources */,
 				46B870BF169260E000B1CACB /* CCScene.m in Sources */,
 				46B870C2169260E000B1CACB /* CCScheduler.m in Sources */,

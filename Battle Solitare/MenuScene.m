@@ -9,9 +9,12 @@
 #import "MenuScene.h"
 #import "DuoGameScene.h"
 #import "SoloGameScene.h"
+#import "TutorialScene.h"
+
 #import "BackgroundLayer.h"
 #import "TileManager.h"
 #import "Font.h"
+
 
 BackgroundLayer * ml;
 
@@ -84,7 +87,8 @@ BackgroundLayer * ml;
 }
 
 -(void)insPage{
-    
+    [[TileManager getInstance] newGame];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[TutorialScene scene]]];
 }
 
 -(void)opPage{
