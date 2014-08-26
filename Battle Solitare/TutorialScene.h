@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 #import "cocos2d.h"
 
-@interface TutorialScene : CCScene {
+@interface TutorialScene : CCScene <CCTouchDelegate> {
     
 }
 

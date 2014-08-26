@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Font : NSObject
+@interface FontsAndSpacings : NSObject
 
 
 @property (nonatomic, assign) int menuFontSize;
 @property (nonatomic, assign) int hudFontSize;
 @property (nonatomic, assign) int textOffset;
 @property (nonatomic, assign) NSString * font;
+@property (nonatomic, assign) int border;
 
-+(Font*)getInstance;
++(FontsAndSpacings*)getInstance;
 
 @end

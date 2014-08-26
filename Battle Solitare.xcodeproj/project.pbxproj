@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4600D2B218B92EB900C9DEFE /* Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4600D2B118B92EB900C9DEFE /* Touch.m */; };
-		460EFFE919A6696700400941 /* Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFE819A6696700400941 /* Font.m */; };
+		460EFFE919A6696700400941 /* FontsAndSpacings.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFE819A6696700400941 /* FontsAndSpacings.m */; };
 		460EFFEC19A81AB400400941 /* TutorialScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEB19A81AB400400941 /* TutorialScene.m */; };
-		460EFFEF19A81B5700400941 /* TutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEE19A81B5700400941 /* TutorialLayer.m */; };
+		460EFFEF19A81B5700400941 /* FlipThroughLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEE19A81B5700400941 /* FlipThroughLayer.m */; };
 		462343AD18C52904009B9CD5 /* b2c.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438518C52903009B9CD5 /* b2c.tif */; };
 		462343AE18C52904009B9CD5 /* b2d.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438618C52903009B9CD5 /* b2d.tif */; };
 		462343AF18C52904009B9CD5 /* b2h.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438718C52903009B9CD5 /* b2h.tif */; };
@@ -227,12 +227,12 @@
 /* Begin PBXFileReference section */
 		4600D2B018B92EB900C9DEFE /* Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Touch.h; sourceTree = "<group>"; };
 		4600D2B118B92EB900C9DEFE /* Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Touch.m; sourceTree = "<group>"; };
-		460EFFE719A6696700400941 /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Font.h; path = ../Font.h; sourceTree = "<group>"; };
-		460EFFE819A6696700400941 /* Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Font.m; path = ../Font.m; sourceTree = "<group>"; };
+		460EFFE719A6696700400941 /* FontsAndSpacings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontsAndSpacings.h; path = ../FontsAndSpacings.h; sourceTree = "<group>"; };
+		460EFFE819A6696700400941 /* FontsAndSpacings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontsAndSpacings.m; path = ../FontsAndSpacings.m; sourceTree = "<group>"; };
 		460EFFEA19A81AB400400941 /* TutorialScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialScene.h; sourceTree = "<group>"; };
 		460EFFEB19A81AB400400941 /* TutorialScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialScene.m; sourceTree = "<group>"; };
-		460EFFED19A81B5700400941 /* TutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialLayer.h; sourceTree = "<group>"; };
-		460EFFEE19A81B5700400941 /* TutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialLayer.m; sourceTree = "<group>"; };
+		460EFFED19A81B5700400941 /* FlipThroughLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipThroughLayer.h; sourceTree = "<group>"; };
+		460EFFEE19A81B5700400941 /* FlipThroughLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipThroughLayer.m; sourceTree = "<group>"; };
 		4623438518C52903009B9CD5 /* b2c.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2c.tif; sourceTree = "<group>"; };
 		4623438618C52903009B9CD5 /* b2d.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2d.tif; sourceTree = "<group>"; };
 		4623438718C52903009B9CD5 /* b2h.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2h.tif; sourceTree = "<group>"; };
@@ -762,8 +762,8 @@
 				462343D618C69DB4009B9CD5 /* Deck.m */,
 				46FE809E191C3AFE003AEE55 /* Drawer.h */,
 				46FE809F191C3AFE003AEE55 /* Drawer.m */,
-				460EFFE719A6696700400941 /* Font.h */,
-				460EFFE819A6696700400941 /* Font.m */,
+				460EFFE719A6696700400941 /* FontsAndSpacings.h */,
+				460EFFE819A6696700400941 /* FontsAndSpacings.m */,
 				46B871B71872026100B1CACB /* Grid.h */,
 				46B871B81872026100B1CACB /* Grid.m */,
 				4623442718D2600F009B9CD5 /* ImprovedChild.h */,
@@ -1198,8 +1198,8 @@
 				46412A12191418CE00E1902B /* PauseLayer.m */,
 				46412A17191AF83B00E1902B /* ScoreLayer.h */,
 				46412A18191AF83B00E1902B /* ScoreLayer.m */,
-				460EFFED19A81B5700400941 /* TutorialLayer.h */,
-				460EFFEE19A81B5700400941 /* TutorialLayer.m */,
+				460EFFED19A81B5700400941 /* FlipThroughLayer.h */,
+				460EFFEE19A81B5700400941 /* FlipThroughLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1371,10 +1371,10 @@
 				46B8707E169260E000B1CACB /* ccGLStateCache.m in Sources */,
 				46B87081169260E000B1CACB /* CCGrabber.m in Sources */,
 				46B87084169260E000B1CACB /* CCGrid.m in Sources */,
-				460EFFE919A6696700400941 /* Font.m in Sources */,
+				460EFFE919A6696700400941 /* FontsAndSpacings.m in Sources */,
 				46B87087169260E000B1CACB /* CCLabelAtlas.m in Sources */,
 				46B8708A169260E000B1CACB /* CCLabelBMFont.m in Sources */,
-				460EFFEF19A81B5700400941 /* TutorialLayer.m in Sources */,
+				460EFFEF19A81B5700400941 /* FlipThroughLayer.m in Sources */,
 				46B8708D169260E000B1CACB /* CCLabelTTF.m in Sources */,
 				46B87090169260E000B1CACB /* CCLayer.m in Sources */,
 				46B87094169260E000B1CACB /* CCMenu.m in Sources */,

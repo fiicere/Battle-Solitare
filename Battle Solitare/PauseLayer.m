@@ -12,7 +12,7 @@
 #import "MenuScene.h"
 #import "TileManager.h"
 
-#import "Font.h"
+#import "FontsAndSpacings.h"
 
 @implementation PauseLayer
 
@@ -36,14 +36,14 @@ BOOL soloMode;
     
     // Game Mode Labels
     CCLabelTTF * resume = [CCLabelTTF labelWithString:@"Resume"
-                                             fontName:[[Font getInstance] font]
-                                             fontSize:[[Font getInstance] menuFontSize]];
+                                             fontName:[[FontsAndSpacings getInstance] font]
+                                             fontSize:[[FontsAndSpacings getInstance] menuFontSize]];
     CCLabelTTF * newGame = [CCLabelTTF labelWithString:@"Start New Game"
-                                              fontName:[[Font getInstance] font]
-                                              fontSize:[[Font getInstance] menuFontSize]];
+                                              fontName:[[FontsAndSpacings getInstance] font]
+                                              fontSize:[[FontsAndSpacings getInstance] menuFontSize]];
     CCLabelTTF * mainMenu = [CCLabelTTF labelWithString:@"Quit to Menu"
-                                               fontName:[[Font getInstance] font]
-                                               fontSize:[[Font getInstance] menuFontSize]];
+                                               fontName:[[FontsAndSpacings getInstance] font]
+                                               fontSize:[[FontsAndSpacings getInstance] menuFontSize]];
     
     // Label Colors
     resume.color = ccWHITE;

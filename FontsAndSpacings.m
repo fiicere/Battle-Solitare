@@ -6,17 +6,19 @@
 //  Copyright (c) 2014 Kevin Yue. All rights reserved.
 //
 
-#import "Font.h"
+#import "FontsAndSpacings.h"
 #import "cocos2d.h"
 
-static Font* instance;
+static FontsAndSpacings* instance;
 const float menuFontScale = 12;
 const float hudFontScale = 30;
 const float scoreOffsetScale = 6;
+const float borderRatio = 4;
+
 NSString * const defaultFont = @"TrajanPro-Regular";
 
-@implementation Font
-+(Font*)getInstance{
+@implementation FontsAndSpacings
++(FontsAndSpacings*)getInstance{
     if(instance == nil) {instance = [[self alloc] init];}
     return instance;
 }
@@ -33,6 +35,9 @@ NSString * const defaultFont = @"TrajanPro-Regular";
     _menuFontSize = (int) ([CCDirector sharedDirector].winSize.width/ menuFontScale);
     _hudFontSize = (int) ([CCDirector sharedDirector].winSize.width / hudFontScale);
     _textOffset = (int) ([CCDirector sharedDirector].winSize.width / scoreOffsetScale);
+    
+    _border = ([CCDirector sharedDirector].winSize.width / borderRatio);
+
     _font = defaultFont;
 }
 

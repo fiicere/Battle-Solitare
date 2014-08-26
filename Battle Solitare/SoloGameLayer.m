@@ -21,7 +21,7 @@
 #import "Score.h"
 #import "AI.h"
 
-#import "Font.h"
+#import "FontsAndSpacings.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -167,11 +167,11 @@ AI* blackOpponent;
                  [[Score getInstance] blackScore]];
     
     scoreLabel = [CCLabelTTF labelWithString:scoreText
-                                    fontName:[[Font getInstance] font]
-                                    fontSize:[[Font getInstance] hudFontSize]];
+                                    fontName:[[FontsAndSpacings getInstance] font]
+                                    fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
     scoreLabel.color = ccBLACK;
     
-    scoreLabel.position = ccp([[Grid getInstance] width] - [[Font getInstance] textOffset],
+    scoreLabel.position = ccp([[Grid getInstance] width] - [[FontsAndSpacings getInstance] textOffset],
                               [[Grid getInstance] botCardLoc].y);
     
     [self addChild:scoreLabel];
@@ -179,12 +179,12 @@ AI* blackOpponent;
 
 -(void)addPauseButtons{
     pauseLabel = [CCLabelTTF labelWithString:@"Pause"
-                                    fontName:[[Font getInstance] font]
-                                    fontSize:[[Font getInstance] hudFontSize]];
+                                    fontName:[[FontsAndSpacings getInstance] font]
+                                    fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
     
     pauseLabel.color = ccBLACK;
     
-    pauseLabel.position = ccp([[Font getInstance] textOffset],
+    pauseLabel.position = ccp([[FontsAndSpacings getInstance] textOffset],
                               [[Grid getInstance] botCardLoc].y);
     
     [self addChild:pauseLabel];

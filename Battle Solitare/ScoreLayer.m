@@ -15,7 +15,7 @@
 #import "Score.h"
 #import "Grid.h"
 
-#import "Font.h"
+#import "FontsAndSpacings.h"
 
 @implementation ScoreLayer
 
@@ -35,8 +35,6 @@ Drawer * blackDrawer;
 -(id) init{
     self = [super init];
     
-    NSLog(@"CREATING SCORE LAYER");
-
     [self addAllCards];
     [self addScore];
     [self setShrinkRates];
@@ -77,9 +75,6 @@ Drawer * blackDrawer;
         whiteDrawer = [[Drawer alloc] initWithPath:[[Score getInstance] whitePath] andColorIsBlack:false];
         [self addChild:whiteDrawer];
     }
-    NSLog(@"DRAWERS ADDED");
-
-
 }
 
 -(void) dropCard:(ccTime)dt{
@@ -187,7 +182,6 @@ Drawer * blackDrawer;
         t.opacity = 150;
         [self addChild:t];
     }
-    NSLog(@"ALL CARDS ADDED");
 }
 
 -(void) addScore{
@@ -195,11 +189,11 @@ Drawer * blackDrawer;
     NSString * whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
     CCLabelTTF * botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText
-                                                    fontName:[[Font getInstance] font]
-                                                    fontSize:[[Font getInstance] menuFontSize]];
+                                                    fontName:[[FontsAndSpacings getInstance] font]
+                                                    fontSize:[[FontsAndSpacings getInstance] menuFontSize]];
     CCLabelTTF * topScoreLabel = [CCLabelTTF labelWithString:blackScoreText
-                                                    fontName:[[Font getInstance] font]
-                                                    fontSize:[[Font getInstance] menuFontSize]];
+                                                    fontName:[[FontsAndSpacings getInstance] font]
+                                                    fontSize:[[FontsAndSpacings getInstance] menuFontSize]];
     
     topScoreLabel.rotation = 180;
     
@@ -211,8 +205,6 @@ Drawer * blackDrawer;
     
     [self addChild:topScoreLabel];
     [self addChild:botScoreLabel];
-    NSLog(@"SCORE LABELS ADDED");
-
 }
 
 /////////////////////////TOUCH EVENTS//////////////////////////

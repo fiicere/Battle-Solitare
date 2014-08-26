@@ -6,18 +6,18 @@
 //  Copyright 2014 Kevin Yue. All rights reserved.
 //
 
+#import "cocos2d.h"
 #import "TutorialScene.h"
-#import "TutorialLayer.h"
+#import "FlipThroughLayer.h"
+#import "Grid.h"
 
 @implementation TutorialScene
 
-
 +(CCScene *) scene{
     // 'scene' is an autorelease object.
-	TutorialScene *scene = [TutorialScene node];
-	
-	// add layer as a child to scene
-	[scene addChild: [TutorialLayer node]];
+	TutorialScene *scene = [[TutorialScene alloc] init];
+    
+    [scene addChild:[[FlipThroughLayer alloc] init]];
     
 	// return the scene
 	return scene;

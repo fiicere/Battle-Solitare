@@ -21,11 +21,9 @@
 #import "ImprovedSprite.h"
 #import "Score.h"
 
-#import "Font.h"
+#import "FontsAndSpacings.h"
 
 #pragma mark - HelloWorldLayer
-
-NSMapTable * touchDict;
 
 NSString * whiteScoreText;
 NSString * blackScoreText;
@@ -55,9 +53,6 @@ UITouch * botTouch;
         [self addScore];
         [self addPlayedCards];
         
-        // Reset Touches
-        touchDict = [NSMapTable new];
-
         [self schedule:@selector(updateView:) interval:0.1];
         
         // to enable touch detection
@@ -91,19 +86,6 @@ UITouch * botTouch;
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
-
-////////////////////////////////MY CODE////////////////////////////////
-
-//-(void) testGrid{
-//    CGSize size = [[CCDirector sharedDirector] winSize];
-//    while([[TileManager getInstance] getPlacedTiles].count < 50){
-//        Tile * card = [[TileManager getInstance] newBotTile];
-//        card.position = ccp((arc4random() % (int)size.width), (arc4random() % (int)size.height));
-//
-//        [self addChild: card];
-//    }
-//}
-
 
 ///////////////////////////UPDATES///////////////////////
 
@@ -161,20 +143,20 @@ UITouch * botTouch;
     whiteScoreText = [NSString stringWithFormat:@"Score = %u", [[Score getInstance] whiteScore]];
     
     botScoreLabel = [CCLabelTTF labelWithString:whiteScoreText
-                                       fontName:[[Font getInstance] font]
-                                       fontSize:[[Font getInstance] hudFontSize]];
+                                       fontName:[[FontsAndSpacings getInstance] font]
+                                       fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
     topScoreLabel = [CCLabelTTF labelWithString:blackScoreText
-                                       fontName:[[Font getInstance] font]
-                                       fontSize:[[Font getInstance] hudFontSize]];
+                                       fontName:[[FontsAndSpacings getInstance] font]
+                                       fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
     
     topScoreLabel.rotation = 180;
     
     topScoreLabel.color = ccWHITE;
     botScoreLabel.color = ccBLACK;
     
-    botScoreLabel.position = ccp([[Grid getInstance] width] - [[Font getInstance] textOffset],
+    botScoreLabel.position = ccp([[Grid getInstance] width] - [[FontsAndSpacings getInstance] textOffset],
                                  [[Grid getInstance] botCardLoc].y);
-    topScoreLabel.position = ccp([[Font getInstance] textOffset],
+    topScoreLabel.position = ccp([[FontsAndSpacings getInstance] textOffset],
                                  [[Grid getInstance] topCardLoc].y);
     
     [self addChild:topScoreLabel];
@@ -183,20 +165,20 @@ UITouch * botTouch;
 
 -(void)addPauseButtons{
     topPauseLabel = [CCLabelTTF labelWithString:@"Pause"
-                                       fontName:[[Font getInstance] font]
-                                       fontSize:[[Font getInstance] hudFontSize]];
+                                       fontName:[[FontsAndSpacings getInstance] font]
+                                       fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
     pauseLabel = [CCLabelTTF labelWithString:@"Pause"
-                                    fontName:[[Font getInstance] font]
-                                    fontSize:[[Font getInstance] hudFontSize]];
+                                    fontName:[[FontsAndSpacings getInstance] font]
+                                    fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
 
     topPauseLabel.rotation = 180;
 
     topPauseLabel.color = ccWHITE;
     pauseLabel.color = ccBLACK;
 
-    pauseLabel.position = ccp([[Font getInstance] textOffset],
+    pauseLabel.position = ccp([[FontsAndSpacings getInstance] textOffset],
                               [[Grid getInstance] botCardLoc].y);
-    topPauseLabel.position = ccp([[Grid getInstance] width] - [[Font getInstance] textOffset],
+    topPauseLabel.position = ccp([[Grid getInstance] width] - [[FontsAndSpacings getInstance] textOffset],
                                  [[Grid getInstance] topCardLoc].y);
     
     [self addChild:pauseLabel];
