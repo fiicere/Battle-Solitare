@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 #import "TutorialScene.h"
-#import "FlipThroughLayer.h"
+#import "TutorialLayer.h"
 #import "Grid.h"
 
 @implementation TutorialScene
@@ -17,8 +17,8 @@
     // 'scene' is an autorelease object.
 	TutorialScene *scene = [[TutorialScene alloc] init];
     
-    [scene addChild:[[FlipThroughLayer alloc] init]];
-    
+    [scene addChild:[[TutorialLayer alloc] init]];
+        
 	// return the scene
 	return scene;
 }

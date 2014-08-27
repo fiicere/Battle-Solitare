@@ -24,16 +24,21 @@ CGFloat xOffset;
 
 -(id)init{
     self = [super init];
-    [self addDebugChild];
+//    [self addDebugChild];
     [self setupPositionVariables];
+    [self setupTouchVariables];
     [self schedule:@selector(updatePosition:)];
     [self setIsTouchEnabled:YES];
     return self;
 }
 
 -(void)setupPositionVariables{
-    myPosition = self.position;
+    myPosition = ccp(0,0);
     xOffset = 0;
+}
+
+-(void)setupTouchVariables{
+    myTouch = nil;
 }
 
 -(void)addDebugChild{
@@ -53,12 +58,10 @@ CGFloat xOffset;
 }
 
 -(void)shiftLayerRight{
-    NSLog(@"Shift Layer Right");
     myPosition.x += [[Grid getInstance] width];
     xOffset -= [[Grid getInstance] width];
 }
 -(void)shiftLayerLeft{
-    NSLog(@"Shift Layer Left");
     myPosition.x -= [[Grid getInstance] width];
     xOffset += [[Grid getInstance] width];
 }

@@ -11,6 +11,7 @@
 		460EFFE919A6696700400941 /* FontsAndSpacings.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFE819A6696700400941 /* FontsAndSpacings.m */; };
 		460EFFEC19A81AB400400941 /* TutorialScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEB19A81AB400400941 /* TutorialScene.m */; };
 		460EFFEF19A81B5700400941 /* FlipThroughLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFEE19A81B5700400941 /* FlipThroughLayer.m */; };
+		460EFFF219AD903000400941 /* TutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EFFF119AD903000400941 /* TutorialLayer.m */; };
 		462343AD18C52904009B9CD5 /* b2c.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438518C52903009B9CD5 /* b2c.tif */; };
 		462343AE18C52904009B9CD5 /* b2d.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438618C52903009B9CD5 /* b2d.tif */; };
 		462343AF18C52904009B9CD5 /* b2h.tif in Resources */ = {isa = PBXBuildFile; fileRef = 4623438718C52903009B9CD5 /* b2h.tif */; };
@@ -233,6 +234,8 @@
 		460EFFEB19A81AB400400941 /* TutorialScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialScene.m; sourceTree = "<group>"; };
 		460EFFED19A81B5700400941 /* FlipThroughLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipThroughLayer.h; sourceTree = "<group>"; };
 		460EFFEE19A81B5700400941 /* FlipThroughLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipThroughLayer.m; sourceTree = "<group>"; };
+		460EFFF019AD903000400941 /* TutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialLayer.h; sourceTree = "<group>"; };
+		460EFFF119AD903000400941 /* TutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialLayer.m; sourceTree = "<group>"; };
 		4623438518C52903009B9CD5 /* b2c.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2c.tif; sourceTree = "<group>"; };
 		4623438618C52903009B9CD5 /* b2d.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2d.tif; sourceTree = "<group>"; };
 		4623438718C52903009B9CD5 /* b2h.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = b2h.tif; sourceTree = "<group>"; };
@@ -1200,6 +1203,8 @@
 				46412A18191AF83B00E1902B /* ScoreLayer.m */,
 				460EFFED19A81B5700400941 /* FlipThroughLayer.h */,
 				460EFFEE19A81B5700400941 /* FlipThroughLayer.m */,
+				460EFFF019AD903000400941 /* TutorialLayer.h */,
+				460EFFF119AD903000400941 /* TutorialLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1359,6 +1364,7 @@
 				46E2817E1992F4D0003911B3 /* AI.m in Sources */,
 				46B8705F169260DF00B1CACB /* CCCamera.m in Sources */,
 				46B87062169260DF00B1CACB /* CCClippingNode.m in Sources */,
+				460EFFF219AD903000400941 /* TutorialLayer.m in Sources */,
 				46B87066169260DF00B1CACB /* CCConfiguration.m in Sources */,
 				46B87069169260DF00B1CACB /* ccDeprecated.m in Sources */,
 				46B8706C169260DF00B1CACB /* CCDirector.m in Sources */,
