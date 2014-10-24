@@ -15,7 +15,9 @@
 @property (nonatomic, assign) int hudFontSize;
 @property (nonatomic, assign) int textOffset;
 @property (nonatomic, assign) NSString * font;
-@property (nonatomic, assign) int border;
+@property (nonatomic, assign) float border;
+@property (nonatomic, assign) float playerRectSize;
+
 
 +(FontsAndSpacings*)getInstance;
 

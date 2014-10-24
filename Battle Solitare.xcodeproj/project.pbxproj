@@ -92,7 +92,8 @@
 		469B54C119F9CF7500C7391A /* CardTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C019F9CF7500C7391A /* CardTutorialLayer.m */; };
 		469B54C519F9D0C700C7391A /* GameTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C419F9D0C700C7391A /* GameTutorialLayer.m */; };
 		469B54C819F9D10E00C7391A /* ScoringTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */; };
-		469B54CB19F9D18500C7391A /* TitleWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54CA19F9D18500C7391A /* TitleWithRects.m */; };
+		469B54CB19F9D18500C7391A /* TextWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54CA19F9D18500C7391A /* TextWithRects.m */; };
+		469B54CE19FA269300C7391A /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54CD19FA269300C7391A /* TextBox.m */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
 		46B87003169260DF00B1CACB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87002169260DF00B1CACB /* OpenAL.framework */; };
@@ -337,8 +338,10 @@
 		469B54C419F9D0C700C7391A /* GameTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialLayer.m; sourceTree = "<group>"; };
 		469B54C619F9D10E00C7391A /* ScoringTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoringTutorialLayer.h; sourceTree = "<group>"; };
 		469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoringTutorialLayer.m; sourceTree = "<group>"; };
-		469B54C919F9D18500C7391A /* TitleWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleWithRects.h; sourceTree = "<group>"; };
-		469B54CA19F9D18500C7391A /* TitleWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleWithRects.m; sourceTree = "<group>"; };
+		469B54C919F9D18500C7391A /* TextWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextWithRects.h; sourceTree = "<group>"; };
+		469B54CA19F9D18500C7391A /* TextWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextWithRects.m; sourceTree = "<group>"; };
+		469B54CC19FA269300C7391A /* TextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBox.h; sourceTree = "<group>"; };
+		469B54CD19FA269300C7391A /* TextBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBox.m; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		46B87000169260DF00B1CACB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -745,8 +748,8 @@
 				460EFFEE19A81B5700400941 /* FlipThroughLayer.m */,
 				469B54C619F9D10E00C7391A /* ScoringTutorialLayer.h */,
 				469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */,
-				469B54C919F9D18500C7391A /* TitleWithRects.h */,
-				469B54CA19F9D18500C7391A /* TitleWithRects.m */,
+				469B54C919F9D18500C7391A /* TextWithRects.h */,
+				469B54CA19F9D18500C7391A /* TextWithRects.m */,
 				460EFFF019AD903000400941 /* TutorialLayer.h */,
 				460EFFF119AD903000400941 /* TutorialLayer.m */,
 			);
@@ -812,6 +815,8 @@
 				462343E018CA81AD009B9CD5 /* Score.m */,
 				46E28179198EDE32003911B3 /* SqID.h */,
 				46E2817A198EDE32003911B3 /* SqID.m */,
+				469B54CC19FA269300C7391A /* TextBox.h */,
+				469B54CD19FA269300C7391A /* TextBox.m */,
 				46B871B11872024400B1CACB /* Tile.h */,
 				46B871B21872024400B1CACB /* Tile.m */,
 				46B871B41872025600B1CACB /* TileManager.h */,
@@ -1402,7 +1407,7 @@
 				46B87062169260DF00B1CACB /* CCClippingNode.m in Sources */,
 				460EFFF219AD903000400941 /* TutorialLayer.m in Sources */,
 				46B87066169260DF00B1CACB /* CCConfiguration.m in Sources */,
-				469B54CB19F9D18500C7391A /* TitleWithRects.m in Sources */,
+				469B54CB19F9D18500C7391A /* TextWithRects.m in Sources */,
 				46B87069169260DF00B1CACB /* ccDeprecated.m in Sources */,
 				46B8706C169260DF00B1CACB /* CCDirector.m in Sources */,
 				46B8706F169260DF00B1CACB /* CCDrawingPrimitives.m in Sources */,
@@ -1510,6 +1515,7 @@
 				46B87197169260E100B1CACB /* utility.c in Sources */,
 				4623445C18E48197009B9CD5 /* MenuScene.m in Sources */,
 				46B87199169260E100B1CACB /* vec2.c in Sources */,
+				469B54CE19FA269300C7391A /* TextBox.m in Sources */,
 				462343E118CA81AD009B9CD5 /* Score.m in Sources */,
 				46B8719B169260E100B1CACB /* vec3.c in Sources */,
 				46B8719D169260E100B1CACB /* vec4.c in Sources */,

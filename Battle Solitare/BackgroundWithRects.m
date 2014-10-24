@@ -8,9 +8,10 @@
 
 #import "BackgroundWithRects.h"
 #import "ImprovedSprite.h"
+#import "FontsAndSpacings.h"
 #import "Grid.h"
 
-const int rectMargin = 20;
+float rectMargin = 20;
 
 @implementation BackgroundWithRects{
 
@@ -19,6 +20,7 @@ ImprovedSprite * botRect;
 }
 -(id)init{
     self = [super init];
+    rectMargin = [[FontsAndSpacings getInstance] border]/2;
     [self addPlayerRects];
     return self;
 }
