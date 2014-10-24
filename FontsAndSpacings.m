@@ -15,7 +15,7 @@ const float menuFontScale = 12;
 const float hudFontScale = 30;
 const float scoreOffsetScale = 6;
 const float borderRatio = 6;
-const float playerRectScale = 1.5;
+const float playerRectScale = .75;
 
 NSString * const defaultFont = @"TrajanPro-Regular";
 

@@ -41,7 +41,7 @@ NSArray * allSqIDs;
     _sideMargin = _sqWidth;
     
     _sqHeight = _height / (gridDimens + 3);
-    _verticalMargin = 2* _sqHeight;
+    _verticalMargin = 2 * _sqHeight;
     
     _botCardLoc = ccp(_width/2, _sqHeight * 3 / 4);
     _topCardLoc = ccp(_width/2, _height - _sqHeight * 3 / 4);
