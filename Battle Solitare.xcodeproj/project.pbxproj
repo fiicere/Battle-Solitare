@@ -337,7 +337,7 @@
 		469B54C419F9D0C700C7391A /* GameTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialLayer.m; sourceTree = "<group>"; };
 		469B54C619F9D10E00C7391A /* ScoringTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoringTutorialLayer.h; sourceTree = "<group>"; };
 		469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoringTutorialLayer.m; sourceTree = "<group>"; };
-		469B54C919F9D18500C7391A /* TextWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextWithRects.h; sourceTree = "<group>"; };
+		469B54C919F9D18500C7391A /* TitleWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleWithRects.h; sourceTree = "<group>"; };
 		469B54CA19F9D18500C7391A /* TitleWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleWithRects.m; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -745,7 +745,7 @@
 				460EFFEE19A81B5700400941 /* FlipThroughLayer.m */,
 				469B54C619F9D10E00C7391A /* ScoringTutorialLayer.h */,
 				469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */,
-				469B54C919F9D18500C7391A /* TextWithRects.h */,
+				469B54C919F9D18500C7391A /* TitleWithRects.h */,
 				469B54CA19F9D18500C7391A /* TitleWithRects.m */,
 				460EFFF019AD903000400941 /* TutorialLayer.h */,
 				460EFFF119AD903000400941 /* TutorialLayer.m */,

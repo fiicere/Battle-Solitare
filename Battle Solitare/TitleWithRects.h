@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "BackgroundWithRects.h"
 
-@interface TextWithRects : BackgroundWithRects {
+@interface TitleWithRects : BackgroundWithRects {
     
 }
 
