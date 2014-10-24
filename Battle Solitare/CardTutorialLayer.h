@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "TitleWithRects.h"
+#import "TextWithRects.h"
 
-@interface CardTutorialLayer :  TitleWithRects{
+@interface CardTutorialLayer :  TextWithRects{
     
 }
 
