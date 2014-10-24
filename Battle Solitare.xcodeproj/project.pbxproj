@@ -87,6 +87,12 @@
 		466004F318F5CF20008553AC /* black felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 466004F218F5CF20008553AC /* black felt.png */; };
 		466004F718FF1F57008553AC /* TrajanPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */; };
 		46950C3318B6831600D66AD9 /* Ace of Diamonds Temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */; };
+		469B54BD19F8C27200C7391A /* back icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 469B54BB19F8C27200C7391A /* back icon.png */; };
+		469B54BE19F8C27200C7391A /* next icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 469B54BC19F8C27200C7391A /* next icon.png */; };
+		469B54C119F9CF7500C7391A /* CardTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C019F9CF7500C7391A /* CardTutorialLayer.m */; };
+		469B54C519F9D0C700C7391A /* GameTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C419F9D0C700C7391A /* GameTutorialLayer.m */; };
+		469B54C819F9D10E00C7391A /* ScoringTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */; };
+		469B54CB19F9D18500C7391A /* TitleWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54CA19F9D18500C7391A /* TitleWithRects.m */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
 		46B87003169260DF00B1CACB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87002169260DF00B1CACB /* OpenAL.framework */; };
@@ -323,6 +329,16 @@
 		466004F518FF19E7008553AC /* TrajanPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Regular.ttf"; sourceTree = "<group>"; };
 		466004F618FF19F2008553AC /* Alexis 3D.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alexis 3D.ttf"; sourceTree = "<group>"; };
 		46950C3218B6831600D66AD9 /* Ace of Diamonds Temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ace of Diamonds Temp.png"; path = "Resources/Ace of Diamonds Temp.png"; sourceTree = "<group>"; };
+		469B54BB19F8C27200C7391A /* back icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back icon.png"; sourceTree = "<group>"; };
+		469B54BC19F8C27200C7391A /* next icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next icon.png"; sourceTree = "<group>"; };
+		469B54BF19F9CF7500C7391A /* CardTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTutorialLayer.h; sourceTree = "<group>"; };
+		469B54C019F9CF7500C7391A /* CardTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTutorialLayer.m; sourceTree = "<group>"; };
+		469B54C319F9D0C700C7391A /* GameTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTutorialLayer.h; sourceTree = "<group>"; };
+		469B54C419F9D0C700C7391A /* GameTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTutorialLayer.m; sourceTree = "<group>"; };
+		469B54C619F9D10E00C7391A /* ScoringTutorialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoringTutorialLayer.h; sourceTree = "<group>"; };
+		469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoringTutorialLayer.m; sourceTree = "<group>"; };
+		469B54C919F9D18500C7391A /* TitleWithRects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleWithRects.h; sourceTree = "<group>"; };
+		469B54CA19F9D18500C7391A /* TitleWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleWithRects.m; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		46B87000169260DF00B1CACB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -718,6 +734,25 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		469B54C219F9D04F00C7391A /* Tutorial Layers */ = {
+			isa = PBXGroup;
+			children = (
+				469B54BF19F9CF7500C7391A /* CardTutorialLayer.h */,
+				469B54C019F9CF7500C7391A /* CardTutorialLayer.m */,
+				469B54C319F9D0C700C7391A /* GameTutorialLayer.h */,
+				469B54C419F9D0C700C7391A /* GameTutorialLayer.m */,
+				460EFFED19A81B5700400941 /* FlipThroughLayer.h */,
+				460EFFEE19A81B5700400941 /* FlipThroughLayer.m */,
+				469B54C619F9D10E00C7391A /* ScoringTutorialLayer.h */,
+				469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */,
+				469B54C919F9D18500C7391A /* TitleWithRects.h */,
+				469B54CA19F9D18500C7391A /* TitleWithRects.m */,
+				460EFFF019AD903000400941 /* TutorialLayer.h */,
+				460EFFF119AD903000400941 /* TutorialLayer.m */,
+			);
+			name = "Tutorial Layers";
+			sourceTree = "<group>";
+		};
 		46B86FF2169260DF00B1CACB = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +838,8 @@
 				466004F218F5CF20008553AC /* black felt.png */,
 				466004E618F5C4D9008553AC /* green felt.png */,
 				466004E718F5C4D9008553AC /* white felt.png */,
+				469B54BB19F8C27200C7391A /* back icon.png */,
+				469B54BC19F8C27200C7391A /* next icon.png */,
 				46B87014169260DF00B1CACB /* Default.png */,
 				46B87016169260DF00B1CACB /* Default@2x.png */,
 				46B87018169260DF00B1CACB /* Default-568h@2x.png */,
@@ -1201,10 +1238,7 @@
 				46412A12191418CE00E1902B /* PauseLayer.m */,
 				46412A17191AF83B00E1902B /* ScoreLayer.h */,
 				46412A18191AF83B00E1902B /* ScoreLayer.m */,
-				460EFFED19A81B5700400941 /* FlipThroughLayer.h */,
-				460EFFEE19A81B5700400941 /* FlipThroughLayer.m */,
-				460EFFF019AD903000400941 /* TutorialLayer.h */,
-				460EFFF119AD903000400941 /* TutorialLayer.m */,
+				469B54C219F9D04F00C7391A /* Tutorial Layers */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1295,6 +1329,7 @@
 				462343CE18C52904009B9CD5 /* w5d.tif in Resources */,
 				462343BE18C52904009B9CD5 /* b1d.tif in Resources */,
 				46B87019169260DF00B1CACB /* Default-568h@2x.png in Resources */,
+				469B54BE19F8C27200C7391A /* next icon.png in Resources */,
 				462343BA18C52904009B9CD5 /* b5d.tif in Resources */,
 				462343B718C52904009B9CD5 /* b4h.tif in Resources */,
 				4623444718D2688E009B9CD5 /* r5.png in Resources */,
@@ -1321,6 +1356,7 @@
 				462343AE18C52904009B9CD5 /* b2d.tif in Resources */,
 				462343B318C52904009B9CD5 /* b3h.tif in Resources */,
 				462343B218C52904009B9CD5 /* b3d.tif in Resources */,
+				469B54BD19F8C27200C7391A /* back icon.png in Resources */,
 				465169A818F47DE100D6DF30 /* wild card.png in Resources */,
 				462343CC18C52904009B9CD5 /* w4s.tif in Resources */,
 				462343C418C52904009B9CD5 /* w2s.tif in Resources */,
@@ -1366,6 +1402,7 @@
 				46B87062169260DF00B1CACB /* CCClippingNode.m in Sources */,
 				460EFFF219AD903000400941 /* TutorialLayer.m in Sources */,
 				46B87066169260DF00B1CACB /* CCConfiguration.m in Sources */,
+				469B54CB19F9D18500C7391A /* TitleWithRects.m in Sources */,
 				46B87069169260DF00B1CACB /* ccDeprecated.m in Sources */,
 				46B8706C169260DF00B1CACB /* CCDirector.m in Sources */,
 				46B8706F169260DF00B1CACB /* CCDrawingPrimitives.m in Sources */,
@@ -1419,6 +1456,7 @@
 				46B870F8169260E000B1CACB /* CCTMXObjectGroup.m in Sources */,
 				46B870FB169260E000B1CACB /* CCTMXTiledMap.m in Sources */,
 				46B870FE169260E100B1CACB /* CCTMXXMLParser.m in Sources */,
+				469B54C819F9D10E00C7391A /* ScoringTutorialLayer.m in Sources */,
 				46B87101169260E100B1CACB /* CCTransition.m in Sources */,
 				46412A13191418CE00E1902B /* PauseLayer.m in Sources */,
 				46B87104169260E100B1CACB /* CCTransitionPageTurn.m in Sources */,
@@ -1454,8 +1492,10 @@
 				46B8715E169260E100B1CACB /* CDOpenALSupport.m in Sources */,
 				46B87161169260E100B1CACB /* CDXMacOSXSupport.m in Sources */,
 				46B87164169260E100B1CACB /* CDXPropertyModifierAction.m in Sources */,
+				469B54C519F9D0C700C7391A /* GameTutorialLayer.m in Sources */,
 				46B87167169260E100B1CACB /* CocosDenshion.m in Sources */,
 				46B8716B169260E100B1CACB /* SimpleAudioEngine.m in Sources */,
+				469B54C119F9CF7500C7391A /* CardTutorialLayer.m in Sources */,
 				4623445918DA18FE009B9CD5 /* ScoreScreen.m in Sources */,
 				46B87181169260E100B1CACB /* aabb.c in Sources */,
 				46E2817B198EDE32003911B3 /* SqID.m in Sources */,

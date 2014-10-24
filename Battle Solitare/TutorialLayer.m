@@ -7,8 +7,11 @@
 //
 
 #import "TutorialLayer.h"
-#import "BackgroundLayer.h"
-#import "BackgroundWithRects.h"
+#import "GameTutorialLayer.h"
+#import "ScoringTutorialLayer.h"
+#import "CardTutorialLayer.h"
+#import "FontsAndSpacings.h"
+#import "ImprovedSprite.h"
 #import "Grid.h"
 #import "MenuScene.h"
 
@@ -25,15 +28,16 @@ BackgroundWithRects * scoreLayer;
     self = [super init];
     
     [self setupLayers];
+    [self addMenuControlButtons];
     currentPage = 1;
     
     return self;
 }
 
 -(void)setupLayers{
-    cardLayer = [[BackgroundLayer alloc] init];
-    gameLayer = [[BackgroundWithRects alloc] init];
-    scoreLayer = [[BackgroundWithRects alloc] init];
+    cardLayer = [[CardTutorialLayer alloc] init];
+    gameLayer = [[GameTutorialLayer alloc] init];
+    scoreLayer = [[ScoringTutorialLayer alloc] init];
     
     [self addChild:cardLayer];
     [self addChild:gameLayer];
@@ -61,5 +65,36 @@ BackgroundWithRects * scoreLayer;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MenuScene scene]]];
     }
 }
+
+-(void)addMenuControlButtons{
+    CGFloat buttonSize = [[FontsAndSpacings getInstance] border];
+    
+    for(int i=0; i<numPages; i++){
+        ImprovedSprite * leftSprite = [[ImprovedSprite alloc] initWithFile:@"next icon.png"];
+        ImprovedSprite * rightSprite = [[ImprovedSprite alloc] initWithFile:@"next icon.png"];
+        
+        if(i==0){leftSprite = [[ImprovedSprite alloc] initWithFile:@"back icon.png"];}
+        if(i== numPages-1){rightSprite = [[ImprovedSprite alloc] initWithFile:@"back icon.png"];}
+        
+        [leftSprite changeOpacity:150];
+        [rightSprite changeOpacity:150];
+        
+        
+        [leftSprite scaleToX:buttonSize Y:buttonSize];
+        [rightSprite scaleToX:buttonSize Y:buttonSize];
+        
+        leftSprite.position = ccp([[Grid getInstance] width] * i + buttonSize/2,
+                                   [[Grid getInstance] height]/2);
+        rightSprite.position = ccp([[Grid getInstance] width] * (i+1) - buttonSize/2,
+                                   [[Grid getInstance] height]/2);
+        
+        leftSprite.rotation = 180;
+        
+        [self addChild:leftSprite];
+        [self addChild:rightSprite];
+    }
+}
+
+
 
 @end
