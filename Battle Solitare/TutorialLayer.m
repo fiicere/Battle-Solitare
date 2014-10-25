@@ -15,12 +15,13 @@
 #import "Grid.h"
 #import "MenuScene.h"
 
-const int numPages = 3;
+const int numPages = 4;
 int currentPage;
 
-BackgroundLayer * cardLayer;
-BackgroundWithRects * gameLayer;
-BackgroundWithRects * scoreLayer;
+CardTutorialLayer * cardLayer;
+GameTutorialLayer * gameLayer;
+ScoringTutorialLayer * scoreLayer;
+CardTutorialLayer * hintsLayer;
 
 @implementation TutorialLayer
 
@@ -38,14 +39,18 @@ BackgroundWithRects * scoreLayer;
     cardLayer = [[CardTutorialLayer alloc] init];
     gameLayer = [[GameTutorialLayer alloc] init];
     scoreLayer = [[ScoringTutorialLayer alloc] init];
+    hintsLayer = [[CardTutorialLayer alloc] init];
     
     [self addChild:cardLayer];
     [self addChild:gameLayer];
     [self addChild:scoreLayer];
+    [self addChild:hintsLayer];
     
     cardLayer.position = ccp(0,0);
     gameLayer.position = ccp([[Grid getInstance] width],0);
     scoreLayer.position = ccp([[Grid getInstance] width]*2,0);
+    hintsLayer.position = ccp([[Grid getInstance] width]*3,0);
+    
 }
 
 -(void)shiftLayerRight{

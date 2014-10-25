@@ -22,7 +22,6 @@ CGFloat currentHeight;
     self = [super init];
     title = layerTitle;
     [self makeTitle];
-    [self addDebugText];
     return self;
 }
 
@@ -36,17 +35,6 @@ CGFloat currentHeight;
     titleLabel.position = ccp([[Grid getInstance] width]/2, [[Grid getInstance] topCardLoc].y);
     
     [self addChild:titleLabel];
-}
-
--(void)makeCenteredText:(NSString*) text{
-//    CCLabelTTF *textlabel = [CCLabelTTF labelWithString:title
-//                                              fontName:[[FontsAndSpacings getInstance] font]
-//                                              fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
-//    textlabel.color = ccWHITE;
-//    textlabel.position = ccp([[Grid getInstance]width]/2, 100);
-//    
-//    [self addChild:textlabel];
-    
 }
 
 -(void) addDebugText{

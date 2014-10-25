@@ -78,6 +78,15 @@ const CGFloat numOffset = 0.3;
     return self;
 }
 
+-(id)initBlockCard{
+    self = [super initWithFile:@"block card 3.png"];
+    [self scaleCard];
+    _suit = @"wild";
+    _value = 1;
+    _backgroundColor = @"none";
+    return self;
+}
+
 -(void) addSuit{
 
     NSString * file;
@@ -164,7 +173,10 @@ const CGFloat numOffset = 0.3;
 -(bool) matchesBackgroundColor:(NSString *)color{
     if([self.backgroundColor isEqualToString:color]){return true;}
     if([self.backgroundColor isEqualToString:@"wild"]) {return true;}
+    if([self.backgroundColor isEqualToString:@"none"]) {return false;}
     if([color isEqualToString:@"wild"]) {return true;}
+    if([color isEqualToString:@"none"]) {return false;}
+
     return false;
 }
 

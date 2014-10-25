@@ -81,7 +81,7 @@ NSMutableArray* placedTiles;
 }
 
 -(Tile *)newCenterTile{
-    Tile * t = [[Tile alloc] initWildCard];
+    Tile * t = [[Tile alloc] initBlockCard];
     t.position = ccp(([Grid getInstance].width / 2), [Grid getInstance].height/2);
     t.sqID = [[Grid getInstance] getSquareID:t.position];
     t.sqID.occupied = true;

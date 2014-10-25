@@ -16,7 +16,8 @@ NSMutableArray* whiteCards;
 
 static Deck * instance;
 
-const int numWilds = 8;
+const int numWilds = 4;
+const int numBlock = 4;
 
 NSArray * allSuits;
 NSArray * allColors;
@@ -53,6 +54,9 @@ NSArray * allColors;
     for (int i=0; i< numWilds; i++){
         Tile * t = [[Tile alloc] initWildCard];
         [cardsInDeck addObject:t];
+    }
+    for(int i=0; i<numBlock; i++){
+        [cardsInDeck addObject:[[Tile alloc] initBlockCard]];
     }
     for(NSString * suit in allSuits){
         for(NSString * color in allColors){

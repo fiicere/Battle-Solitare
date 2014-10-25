@@ -24,6 +24,7 @@
 
 -(id) initWithSuit:(NSString *)suit Value:(int)val Color:(NSString *)col;
 -(id) initWildCard;
+-(id) initBlockCard;
 
 -(BOOL) matches:(Tile*)t;
 -(bool) matchesBackgroundColor:(NSString *)color;

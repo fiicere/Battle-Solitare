@@ -94,6 +94,8 @@
 		469B54C819F9D10E00C7391A /* ScoringTutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54C719F9D10E00C7391A /* ScoringTutorialLayer.m */; };
 		469B54CB19F9D18500C7391A /* TextWithRects.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54CA19F9D18500C7391A /* TextWithRects.m */; };
 		469B54CE19FA269300C7391A /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B54CD19FA269300C7391A /* TextBox.m */; };
+		469B54D119FB2D3900C7391A /* block card 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 469B54CF19FB2D3800C7391A /* block card 2.png */; };
+		469B54D219FB2D3900C7391A /* block card 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 469B54D019FB2D3800C7391A /* block card 3.png */; };
 		46B86FFF169260DF00B1CACB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B86FFE169260DF00B1CACB /* QuartzCore.framework */; };
 		46B87001169260DF00B1CACB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87000169260DF00B1CACB /* OpenGLES.framework */; };
 		46B87003169260DF00B1CACB /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B87002169260DF00B1CACB /* OpenAL.framework */; };
@@ -342,6 +344,8 @@
 		469B54CA19F9D18500C7391A /* TextWithRects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextWithRects.m; sourceTree = "<group>"; };
 		469B54CC19FA269300C7391A /* TextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBox.h; sourceTree = "<group>"; };
 		469B54CD19FA269300C7391A /* TextBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBox.m; sourceTree = "<group>"; };
+		469B54CF19FB2D3800C7391A /* block card 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block card 2.png"; sourceTree = "<group>"; };
+		469B54D019FB2D3800C7391A /* block card 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block card 3.png"; sourceTree = "<group>"; };
 		46B86FFB169260DF00B1CACB /* Battle Solitare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Solitare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B86FFE169260DF00B1CACB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		46B87000169260DF00B1CACB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -845,6 +849,8 @@
 				466004E718F5C4D9008553AC /* white felt.png */,
 				469B54BB19F8C27200C7391A /* back icon.png */,
 				469B54BC19F8C27200C7391A /* next icon.png */,
+				469B54CF19FB2D3800C7391A /* block card 2.png */,
+				469B54D019FB2D3800C7391A /* block card 3.png */,
 				46B87014169260DF00B1CACB /* Default.png */,
 				46B87016169260DF00B1CACB /* Default@2x.png */,
 				46B87018169260DF00B1CACB /* Default-568h@2x.png */,
@@ -1364,12 +1370,14 @@
 				469B54BD19F8C27200C7391A /* back icon.png in Resources */,
 				465169A818F47DE100D6DF30 /* wild card.png in Resources */,
 				462343CC18C52904009B9CD5 /* w4s.tif in Resources */,
+				469B54D219FB2D3900C7391A /* block card 3.png in Resources */,
 				462343C418C52904009B9CD5 /* w2s.tif in Resources */,
 				4623445018D79380009B9CD5 /* diamonds.png in Resources */,
 				4623443B18D2688E009B9CD5 /* b2.png in Resources */,
 				462343C718C52904009B9CD5 /* w3h.tif in Resources */,
 				4623443C18D2688E009B9CD5 /* b3.png in Resources */,
 				462343B918C52904009B9CD5 /* b5c.tif in Resources */,
+				469B54D119FB2D3900C7391A /* block card 2.png in Resources */,
 				46B8702A169260DF00B1CACB /* iTunesArtwork in Resources */,
 				466004F318F5CF20008553AC /* black felt.png in Resources */,
 				46B87183169260E100B1CACB /* ChangeLog in Resources */,
