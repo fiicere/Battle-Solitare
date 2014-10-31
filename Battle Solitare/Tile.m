@@ -11,11 +11,13 @@
 #import "Grid.h"
 #import "ImprovedChild.h"
 #import "ImprovedSprite.h"
+#import "FontsAndSpacings.h"
 
 const CGFloat cardMargin = 5;
 const CGFloat suitSize = 0.45;
 const CGFloat numSize = 0.2;
 const CGFloat numOffset = 0.3;
+const CGFloat textMargin = 20;
 
 @implementation Tile
 
@@ -178,6 +180,18 @@ const CGFloat numOffset = 0.3;
     if([color isEqualToString:@"none"]) {return false;}
 
     return false;
+}
+
+-(void)captionCard:(NSString*)text{
+    CCLabelTTF *label = [CCLabelTTF labelWithString:text
+                                           fontName:[[FontsAndSpacings getInstance] font]
+                                           fontSize:[[FontsAndSpacings getInstance] hudFontSize]];
+    
+    label.horizontalAlignment = NSTextAlignmentCenter;
+    label.scaleX = 1/self.scaleX;
+    label.scaleY = 1/self.scaleY;
+    label.position = ccp([[Grid getInstance]sqWidth]/2/self.scaleX, -textMargin/self.scaleY);
+    [self addChild:label];
 }
 
 ///////////////////////////DEBUG//////////////////////////////////

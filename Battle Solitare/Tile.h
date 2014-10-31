@@ -29,5 +29,7 @@
 -(BOOL) matches:(Tile*)t;
 -(bool) matchesBackgroundColor:(NSString *)color;
 
+-(void)captionCard:(NSString*)text;
+
 -(void) printCard;
 @end

@@ -13,8 +13,8 @@
 
 @implementation FlipThroughLayer
 
-const float snapBackAcc = 0.8;
-const float snapBackRate = 5;
+const float snapBackAcc = .9;
+const float snapBackRate = 10;
 
 UITouch * myTouch;
 CGPoint startingTouchPoint;

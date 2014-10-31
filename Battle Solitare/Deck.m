@@ -16,8 +16,8 @@ NSMutableArray* whiteCards;
 
 static Deck * instance;
 
-const int numWilds = 4;
-const int numBlock = 4;
+const int numWilds = 5;
+const int numBlock = 3;
 
 NSArray * allSuits;
 NSArray * allColors;

@@ -7,9 +7,12 @@
 //
 
 #import "TutorialLayer.h"
+
 #import "GameTutorialLayer.h"
 #import "ScoringTutorialLayer.h"
 #import "CardTutorialLayer.h"
+#import "HintsTutorialLayer.h"
+
 #import "FontsAndSpacings.h"
 #import "ImprovedSprite.h"
 #import "Grid.h"
@@ -21,7 +24,7 @@ int currentPage;
 CardTutorialLayer * cardLayer;
 GameTutorialLayer * gameLayer;
 ScoringTutorialLayer * scoreLayer;
-CardTutorialLayer * hintsLayer;
+HintsTutorialLayer * hintsLayer;
 
 @implementation TutorialLayer
 
@@ -39,7 +42,7 @@ CardTutorialLayer * hintsLayer;
     cardLayer = [[CardTutorialLayer alloc] init];
     gameLayer = [[GameTutorialLayer alloc] init];
     scoreLayer = [[ScoringTutorialLayer alloc] init];
-    hintsLayer = [[CardTutorialLayer alloc] init];
+    hintsLayer = [[HintsTutorialLayer alloc] init];
     
     [self addChild:cardLayer];
     [self addChild:gameLayer];
