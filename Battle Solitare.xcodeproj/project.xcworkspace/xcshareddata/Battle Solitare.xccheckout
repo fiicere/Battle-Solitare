@@ -10,31 +10,31 @@
 	<string>Battle Solitare</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1DBE2197-F57A-4649-8FF1-03516E360BB2</key>
+		<key>B086454250B27F9E86A0511AAD7B479BFB57EC09</key>
 		<string>https://github.com/fiicere/Battle-Solitare.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Battle Solitare.xcodeproj/project.xcworkspace</string>
+	<string>Battle Solitare.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1DBE2197-F57A-4649-8FF1-03516E360BB2</key>
+		<key>B086454250B27F9E86A0511AAD7B479BFB57EC09</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/fiicere/Battle-Solitare.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1DBE2197-F57A-4649-8FF1-03516E360BB2</string>
+	<string>B086454250B27F9E86A0511AAD7B479BFB57EC09</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1DBE2197-F57A-4649-8FF1-03516E360BB2</string>
+			<string>B086454250B27F9E86A0511AAD7B479BFB57EC09</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Battle Solitare</string>
+			<string>Battle%20Solitare</string>
 		</dict>
 	</array>
 </dict>
